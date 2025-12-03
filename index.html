@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Nova Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Nova
+  * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Shomme</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Ana Sayfa</a></li>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
+          <li><a href="hakkimizda.html#misyon">Misyon & Vizyon</a></li>
+          
+          <li class="dropdown"><a href="#"><span>Ürünlerimiz</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="urun-detay.html">Akıllı Kilitler</a></li>
+              <li><a href="urun-detay.html">Güvenlik Kameraları</a></li>
+              <li><a href="urun-detay.html">Akıllı Termostat</a></li>
+              <li><a href="urunler.html">Tüm Ürünler</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Birimlerimiz</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="birimler.html">Teknik Servis</a></li>
+              <li><a href="birimler.html">Ar-Ge Ekibi</a></li>
+              <li><a href="birimler.html">Müşteri Hizmetleri</a></li>
+            </ul>
+          </li>
+
+          <li><a href="duyurular.html">Duyurular</a></li>
+          <li><a href="istatistikler.html">İstatistikler</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+   <section id="ana slider" class="hero section p-0 m-0 border-0" style="background-color: #000; min-height: 100vh;">
+    
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <div class="carousel-inner">
+        
+        <div class="carousel-item active" style="min-height: 100vh;">
+          <div class="w-100 bg-secondary" style="height: 100vh; position: absolute; z-index: -1;">
+             <img src="assets/img/hero-bg.jpg" class="d-block w-100 h-100" style="object-fit: cover; opacity: 0.6;" alt="Resim Yok">
+          </div>
+          
+          <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100" style="top: 0; bottom: 0;">
+            <h2 class="display-3 fw-bold text-white mb-4">Eviniz Artık Daha Akıllı</h2>
+            <p class="lead text-white mb-4">Tek dokunuşla tüm kontrol sizde.</p>
+            <a href="urun-detay.html" class="btn btn-primary btn-lg rounded-pill px-5">Keşfet</a>
+          </div>
+        </div>
+
+        <div class="carousel-item" style="min-height: 100vh;">
+          <div class="w-100 bg-dark" style="height: 100vh; position: absolute; z-index: -1;">
+             <img src="assets/img/blog/blog-1.jpg" class="d-block w-100 h-100" style="object-fit: cover; opacity: 0.6;" alt="Resim Yok">
+          </div>
+          
+          <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100" style="top: 0; bottom: 0;">
+            <h2 class="display-3 fw-bold text-white mb-4">7/24 Güvenlik</h2>
+            <p class="lead text-white mb-4">Gözünüz arkada kalmasın.</p>
+            <a href="urun-detay.html" class="btn btn-success btn-lg rounded-pill px-5">İncele</a>
+          </div>
+        </div>
+
+        <div class="carousel-item" style="min-height: 100vh;">
+          <div class="w-100 bg-primary" style="height: 100vh; position: absolute; z-index: -1;">
+             <img src="assets/img/blog/blog-2.jpg" class="d-block w-100 h-100" style="object-fit: cover; opacity: 0.6;" alt="Resim Yok">
+          </div>
+          
+          <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100" style="top: 0; bottom: 0;">
+            <h2 class="display-3 fw-bold text-white mb-4">Enerji Tasarrufu</h2>
+            <p class="lead text-white mb-4">Faturalarınızı düşürün.</p>
+            <a href="urun-detay.html" class="btn btn-warning btn-lg rounded-pill px-5">Detaylar</a>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us section">
+
+      <div class="container">
+
+        <div class="row g-0">
+
+          <div class="col-xl-5 img-bg" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/why-us-bg.jpg" alt="">
+          </div>
+
+          <div class="col-xl-7 slides position-relative" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "centeredSlides": true,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Let's grow your business together</h3>
+                    <h4 class="mb-3">Optio reiciendis accusantium iusto architecto at quia minima maiores quidem, dolorum.</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsam perferendis asperiores explicabo vel tempore velit totam, natus nesciunt accusantium dicta quod quibusdam ipsum maiores nobis non, eum. Ullam reiciendis dignissimos laborum aut, magni voluptatem velit doloribus quas sapiente optio.</p>
+                  </div>
+                </div><!-- End slide item -->
+
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Unde perspiciatis ut repellat dolorem</h3>
+                    <h4 class="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos aliquam quis.</h4>
+                    <p>Dolorem quia fuga consectetur voluptatem. Earum consequatur nulla maxime necessitatibus cum accusamus. Voluptatem dolorem ut numquam dolorum delectus autem veritatis facilis. Et ea ut repellat ea. Facere est dolores fugiat dolor.</p>
+                  </div>
+                </div><!-- End slide item -->
+
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Aliquid non alias minus</h3>
+                    <h4 class="mb-3">Necessitatibus voluptatibus explicabo dolores a vitae voluptatum.</h4>
+                    <p>Neque voluptates aut. Soluta aut perspiciatis porro deserunt. Voluptate ut itaque velit. Aut consectetur voluptatem aspernatur sequi sit laborum. Voluptas enim dolorum fugiat aut.</p>
+                  </div>
+                </div><!-- End slide item -->
+
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Necessitatibus suscipit non voluptatem quibusdam</h3>
+                    <h4 class="mb-3">Tempora quos est ut quia adipisci ut voluptas. Deleniti laborum soluta nihil est. Eum similique neque autem ut.</h4>
+                    <p>Ut rerum et autem vel. Et rerum molestiae aut sit vel incidunt sit at voluptatem. Saepe dolorem et sed voluptate impedit. Ad et qui sint at qui animi animi rerum.</p>
+                  </div>
+                </div><!-- End slide item -->
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+  <section id="services" class="services section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Akıllı Çözümlerimiz</h2>
+        <p>Evinizin konforunu, güvenliğini ve verimliliğini artıran modern teknolojilerle tanışın.</p>
+      </div><div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="bi bi-lightbulb" style="color: #f5cf13;"></i></div>
+            <div>
+              <h4 class="title">Akıllı Aydınlatma</h4>
+              <p class="description">Evinizin ışıklarını sesinizle veya telefonunuzla kontrol edin. Ortama uygun modlar yaratın.</p>
+              <a href="urun-detay.html" class="readmore stretched-link"><span>İncele</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="bi bi-shield-check" style="color: #15a04a;"></i></div>
+            <div>
+              <h4 class="title">Güvenlik Sistemleri</h4>
+              <p class="description">Gelişmiş sensörler ve kameralar ile eviniz 7/24 güvende. Anlık bildirimlerle her şeyden haberdar olun.</p>
+              <a href="urun-detay.html" class="readmore stretched-link"><span>İncele</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon flex-shrink-0"><i class="bi bi-thermometer-half" style="color: #d90769;"></i></div>
+            <div>
+              <h4 class="title">Akıllı İklimlendirme</h4>
+              <p class="description">Eve gelmeden sıcaklığı ayarlayın. Akıllı termostat sayesinde enerji tasarrufu sağlayın.</p>
+              <a href="urun-detay.html" class="readmore stretched-link"><span>İncele</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon flex-shrink-0"><i class="bi bi-door-open" style="color: #15bfbc;"></i></div>
+            <div>
+              <h4 class="title">Akıllı Kilitler</h4>
+              <p class="description">Anahtar kaybetme derdine son. Parmak izi, şifre veya mobil uygulama ile kapınızı yönetin.</p>
+              <a href="urun-detay.html" class="readmore stretched-link"><span>İncele</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon flex-shrink-0"><i class="bi bi-lightning-charge" style="color: #f57813;"></i></div>
+            <div>
+              <h4 class="title">Enerji Yönetimi</h4>
+              <p class="description">Elektrik tüketiminizi anlık izleyin. Gereksiz çalışan cihazları uzaktan kapatın.</p>
+              <a href="urun-detay.html" class="readmore stretched-link"><span>İncele</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
+            <div class="icon flex-shrink-0"><i class="bi bi-phone" style="color: #1335f5;"></i></div>
+            <div>
+              <h4 class="title">Mobil Entegrasyon</h4>
+              <p class="description">Tüm akıllı ev cihazlarınızı tek bir uygulama üzerinden, dünyanın her yerinden yönetin.</p>
+              <a href="urun-detay.html" class="readmore stretched-link"><span>İncele</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div></div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section dark-background">
+
+      <img src="assets/img/cta-bg.jpg" alt="">
+
+      <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-10">
+            <div class="text-center">
+              <h3>Call To Action</h3>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <a class="cta-btn" href="#">Call To Action</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Call To Action Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="mb-0">Powerful Features for</h3>
+            <h3>Your Business</h3>
+
+            <div class="row gy-4">
+
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="bi bi-eye" style="color: #ff8b2c;"></i>
+                  <span>Easy Cart Features</span>
+                </div>
+              </div><!-- End Icon List Item-->
+
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="bi bi-infinity" style="color: #5578ff;"></i>
+                  <span>Sit amet consectetur adipisicing</span>
+                </div>
+              </div><!-- End Icon List Item-->
+
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="bi bi-mortarboard" style="color: #e80368;"></i>
+                  <span>Ipsum Rerum Explicabo</span>
+                </div>
+              </div><!-- End Icon List Item-->
+
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="bi bi-star" style="color: #ffa76e;"></i>
+                  <span>Easy Cart Features</span>
+                </div>
+              </div><!-- End Icon List Item-->
+
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
+                  <span>Easy Cart Features</span>
+                </div>
+              </div><!-- End Icon List Item-->
+
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="bi bi-camera-video" style="color: #4233ff;"></i>
+                  <span>Sit amet consectetur adipisicing</span>
+                </div>
+              </div><!-- End Icon List Item-->
+
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="bi bi-brightness-high" style="color: #29cc61;"></i>
+                  <span>Ipsum Rerum Explicabo</span>
+                </div>
+              </div><!-- End Icon List Item-->
+
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="bi bi-activity" style="color: #ff5828;"></i>
+                  <span>Easy Cart Features</span>
+                </div>
+              </div><!-- End Icon List Item-->
+            </div>
+          </div>
+          <div class="col-lg-5 position-relative" data-aos="zoom-out" data-aos-delay="200">
+            <div class="phone-wrap">
+              <img src="assets/img/iphone.png" alt="Image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="details">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <h4>Labore Sdio Lidui<br>Bonde Naruto</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam nostrum molestias doloremque quae delectus odit minima corrupti blanditiis quo animi!</p>
+              <a href="#about" class="btn-get-started">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Recent Posts Section -->
+    <section id="recent-posts" class="recent-posts section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+  <h2>Duyurular ve Kampanyalar</h2>
+  <p>Şirketimizden en güncel haberler ve fırsatlar.</p>
+</div>
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="post-box">
+              <div class="post-img"><img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">1 Haziran 2025</span>
+                <span class="post-author"> / Hüsamettin Vaye</span>
+              </div>
+              <h3 class="post-title">Yaz Kampanyası Başladı!</h3>
+<p>Tüm akıllı kilit sistemlerinde %20 indirim fırsatını kaçırmayın...</p>
+<a href="#" class="readmore stretched-link" data-bs-toggle="modal" data-bs-target="#duyuruModal1">
+    <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
+</a> 
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="post-box">
+              <div class="post-img"><img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">10 Temmuz 2025</span>
+                <span class="post-author"> </span>
+              </div>
+              <h3 class="post-title">Shomme Mobil Uygulaması Güncellendi (v2.0)</h3>
+              <p>Yeni arayüz ile evinizi yönetmek artık çok daha kolay. Sesli komut özelliği eklendi...</p>
+              <a href="#" class="readmore stretched-link" data-bs-toggle="modal" data-bs-target="#duyuruModal2">
+                <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="post-box">
+              <div class="post-img"><img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">5 Eylül 2025</span>
+                <span class="post-author"></span>
+              </div>
+              <h3 class="post-title">Yeni Akıllı Robot Süpürge Stoklarda!</h3>
+              <p>Yapay zeka destekli haritalama ve paspas özelliği ile temizlik derdine son verin...</p>
+              <a href="#" class="readmore stretched-link" data-bs-toggle="modal" data-bs-target="#duyuruModal3">
+                <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="post-box">
+              <div class="post-img"><img src="assets/img/blog/blog-4.jpg" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">20 Ağustos 2025</span>
+                <span class="post-author"></span>
+              </div>
+              <h3 class="post-title">Yılın En İyi Akıllı Ev Sistemleri Ödülü</h3>
+              <p>Teknoloji Fuarı'nda "En Yenilikçi Güvenlik Çözümü" ödülüne layık görüldük...</p>
+              <a href="#" class="readmore stretched-link" data-bs-toggle="modal" data-bs-target="#duyuruModal4">
+                <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Recent Posts Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span class="sitename">Nova</span>
+            </a>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <div class="social-links d-flex mt-4">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Hızlı Menü</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Servislerimiz</h4>
+            <ul>
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">Product Management</a></li>
+              <li><a href="#">Marketing</a></li>
+              <li><a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>İletişim</h4>
+            <p>Kabaoğlu Mahalesi</p>
+            <p>Umuttepe,Kocaeli</p>
+            <p>Türkiye</p>
+            <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Nova</strong> <span>© Copyright Shomme.. Tüm Hakları Saklıdır.</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <div class="modal fade" id="duyuruModal1" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title">Yaz Kampanyası Detayları</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+
+      <div class="modal-body">
+        <img src="assets/img/blog/blog-1.jpg" class="img-fluid mb-3 rounded" alt="Kampanya">
+        
+        <h4>Büyük İndirim Fırsatı!</h4>
+        <p>Tüm akıllı ev sistemlerinde %20 indirim başladı. Kampanya kodunuz: <strong>SMART2025</strong></p>
+        <p>Bu kampanya sadece web sitemize özeldir. Detaylı şartnameyi aşağıdaki dosyadan indirebilirsiniz.</p>
+        
+        <hr>
+        <div class="d-flex gap-2">
+            <button class="btn btn-danger btn-sm"><i class="bi bi-file-pdf"></i> Şartname (PDF)</button>
+            <button class="btn btn-primary btn-sm"><i class="bi bi-file-word"></i> Başvuru Formu (Word)</button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="duyuruModal2" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mobil Uygulama v2.0 Yayında!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+        <img src="assets/img/blog/blog-2.jpg" class="img-fluid mb-3 rounded" alt="App">
+        <p>Kullanıcılarımızdan gelen geri bildirimler doğrultusunda mobil uygulamamızı baştan aşağı yeniledik.</p>
+        <ul>
+            <li>Karanlık mod desteği</li>
+            <li>Daha hızlı bağlantı hızı</li>
+            <li>Widget desteği</li>
+        </ul>
+        <p>Aşağıdaki linkten sürüm notlarını indirebilirsiniz.</p>
+        <hr>
+        <button class="btn btn-primary btn-sm"><i class="bi bi-file-word"></i> Sürüm Notları (Word)</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="duyuruModal3" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Yeni Robot Süpürge Tanıtımı</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+        <img src="assets/img/blog/blog-3.jpg" class="img-fluid mb-3 rounded" alt="Robot">
+        <p>Yeni modelimiz 5000Pa emiş gücü ve 3 saat pil ömrü ile hizmetinizde.</p>
+        <p>Lansmana özel fiyat listesini görüntülemek için tıklayınız.</p>
+        <hr>
+        <button class="btn btn-danger btn-sm"><i class="bi bi-file-pdf"></i> Fiyat Listesi (PDF)</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="duyuruModal4" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Gurur Tablomuz: 2025 Teknoloji Ödülü</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+        <img src="assets/img/blog/blog-4.jpg" class="img-fluid mb-3 rounded" alt="Odul">
+        <p>Siz değerli müşterilerimizin desteğiyle bu yılın "En Güvenilir Akıllı Ev Markası" seçildik.</p>
+        <p>Teşekkür mektubumuzu okumak için aşağıya tıklayınız.</p>
+        <hr>
+        <button class="btn btn-primary btn-sm"><i class="bi bi-file-text"></i> Basın Bülteni (Word)</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
