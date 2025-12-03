@@ -44,35 +44,40 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Nova</h1>
+        <h1 class="sitename">Shomme</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home<br></a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="index.html">Ana Sayfa</a></li>
+
+          <li class="dropdown"><a href="hakkimizda.html"><span>Kurumsal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              <li><a href="hakkimizda.html">Hakkımızda</a></li>
+              <li><a href="hakkimizda.html#misyon">Misyon & Vizyon</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+
+          <li class="dropdown"><a href="#"><span>Ürünlerimiz</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="urun-detay.html">Akıllı Kilitler</a></li>
+              <li><a href="urun-detay.html">Güvenlik Kameraları</a></li>
+              <li><a href="urun-detay.html">Akıllı Termostat</a></li>
+              <li><a href="urunler.html">Tüm Ürünler</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Birimlerimiz</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="birim-teknik.html">Teknik Servis</a></li>
+              <li><a href="birim-arge.html">Ar-Ge Ekibi</a></li>
+              <li><a href="birim-musteri.html">Müşteri Hizmetleri</a></li>
+            </ul>
+          </li>
+
+          <li><a href="duyurular.html">Duyurular</a></li>
+          <li><a href="istatistikler.html">İstatistikler</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -98,66 +103,53 @@
     <!-- Portfolio Details Section -->
     <section id="portfolio-details" class="portfolio-details section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up">
 
         <div class="row gy-4">
 
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper init-swiper">
-
               <script type="application/json" class="swiper-config">
                 {
                   "loop": true,
                   "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
+                  "autoplay": { "delay": 5000 },
                   "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
+                  "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
                 }
               </script>
-
               <div class="swiper-wrapper align-items-center">
-
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/app-1.jpg" alt="">
+                  <img src="https://images.unsplash.com/photo-1558002038-1091a166111c?q=80&w=1200" alt="">
                 </div>
-
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/product-1.jpg" alt="">
+                  <img src="https://images.unsplash.com/photo-1513506003011-3b03c8a3bf95?q=80&w=1200" alt="">
                 </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/branding-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/books-1.jpg" alt="">
-                </div>
-
               </div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
+            <div class="portfolio-info" style="background: #f7f9fc; padding: 30px; box-shadow: 0px 0 30px rgba(0,0,0,0.08);">
+              <h3>SmartLock X500 Bilgileri</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li><strong>Kategori</strong>: Güvenlik Sistemleri</li>
+                <li><strong>Bağlantı</strong>: Wi-Fi & Bluetooth 5.0</li>
+                <li><strong>Garanti</strong>: 2 Yıl SmartNest Garantisi</li>
+                <li><strong>Fiyat</strong>: ₺4.500 <span style="text-decoration: line-through; color: #999;">₺5.200</span></li>
+                <li><a href="#" class="btn btn-primary mt-3" style="width: 100%;">Hemen Sipariş Ver</a></li>
               </ul>
             </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
+            
+            <div class="portfolio-description">
+              <h2>Ürün Açıklaması</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                Evinizin güvenliğini bir üst seviyeye taşıyın. SmartLock X500, metal anahtar devrini kapatıyor. 
+                Parmak izi okuyucusu, şifre paneli ve mobil uygulama entegrasyonu sayesinde kapınızın kontrolü tamamen sizde.
+              </p>
+              <p>
+                Misafirleriniz için geçici şifreler oluşturabilir, eve kimin ne zaman girdiğini log kayıtlarından görebilirsiniz.
               </p>
             </div>
           </div>
@@ -166,7 +158,7 @@
 
       </div>
 
-    </section><!-- /Portfolio Details Section -->
+    </section>
 
   </main>
 
