@@ -1,39 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio - Nova Bootstrap Template</title>
+  <title>Ürünlerimiz - Shomme Akıllı Ev Sistemleri</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Nova
-  * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="portfolio-page">
@@ -42,13 +30,11 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Shomme</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul>
+        <ul class="d-flex align-items-center"> 
           <li><a href="index.html">Ana Sayfa</a></li>
 
           <li class="dropdown"><a href="hakkimizda.html"><span>Kurumsal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -58,14 +44,7 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#"><span>Ürünlerimiz</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="urun-detay.html">Akıllı Kilitler</a></li>
-              <li><a href="urun-detay.html">Güvenlik Kameraları</a></li>
-              <li><a href="urun-detay.html">Akıllı Termostat</a></li>
-              <li><a href="urunler.html">Tüm Ürünler</a></li>
-            </ul>
-          </li>
+          <li><a href="urunler.html">Ürünlerimiz</a></li>
 
           <li class="dropdown"><a href="#"><span>Birimlerimiz</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -75,10 +54,24 @@
             </ul>
           </li>
 
-          <li><a href="duyurular.html">Duyurular</a></li>
           <li><a href="istatistikler.html">İstatistikler</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
-        </ul>
+
+          <li class="ms-4" id="user-login-container">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="d-flex align-items-center" title="Giriş Yap">
+              <i class="bi bi-person-circle" style="font-size: 1.4rem;"></i>
+            </a>
+          </li>
+
+          <li class="ms-2 position-relative">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal" class="d-flex align-items-center" title="Sepetim">
+              <i class="bi bi-cart3" style="font-size: 1.4rem;"></i>
+              <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">
+                0
+              </span>
+            </a>
+          </li>
+          </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
@@ -87,118 +80,299 @@
 
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/portfolio-page-title-bg.jpg);">
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/blog-page-title-bg.jpg);">
       <div class="container">
-        <h1>Portfolio</h1>
+        <h1>Ürünlerimiz</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Portfolio</li>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li class="current">Ürünler</li>
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
-
-    <!-- Portfolio Section -->
+    </div>
     <section id="portfolio" class="portfolio section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Ürünlerimiz</h2>
-        <p>Evinize değer katan son teknoloji çözümlerimizi inceleyin.</p>
-      </div>
-
       <div class="container">
-
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">Tümü</li>
+            <li data-filter=".filter-aydinlatma">Aydınlatma</li>
             <li data-filter=".filter-guvenlik">Güvenlik</li>
-            <li data-filter=".filter-enerji">Enerji & Isı</li>
-            <li data-filter=".filter-konfor">Konfor & Aydınlatma</li>
+            <li data-filter=".filter-iklim">İklimlendirme</li>
+            <li data-filter=".filter-kilit">Kilit Sistemleri</li>
+            <li data-filter=".filter-enerji">Enerji Yönetimi</li>
           </ul>
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-guvenlik">
-              <img src="https://images.unsplash.com/photo-1558002038-1091a166111c?q=80&w=800&auto=format&fit=crop" class="img-fluid" alt="">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-aydinlatma">
+              <img src="https://images.unsplash.com/photo-1644360266788-572e62457a5f?q=80&w=800&fit=crop" class="img-fluid" alt="" style="height: 300px; width: 100%; object-fit: cover;">
               <div class="portfolio-info">
-                <h4>SmartLock X500</h4>
-                <p>Parmak izi okuyuculu kapı kilidi</p>
-                <a href="assets/img/portfolio/app-1.jpg" title="SmartLock X500" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="urun-detay.html" title="Detaylar" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-enerji">
-              <img src="https://images.unsplash.com/photo-1563461660947-507ef49e9c47?q=80&w=800&auto=format&fit=crop" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>EcoThermo T1</h4>
-                <p>Akıllı termostat ve ısı sensörü</p>
-                <a href="assets/img/portfolio/product-1.jpg" title="EcoThermo T1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="urun-detay.html" title="Detaylar" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h4>RenkAmpul RGB Pro</h4>
+                <p>16 milyon renk seçeneği</p>
+                <a href="https://images.unsplash.com/photo-1644360266788-572e62457a5f?q=80&w=1200" title="RenkAmpul RGB Pro" data-gallery="portfolio-gallery-aydinlatma" class="glightbox preview-link" data-type="image"><i class="bi bi-zoom-in"></i></a>
+                <a href="#" title="Ürün Detayları" class="details-link" data-bs-toggle="modal" data-bs-target="#modalUrun1"><i class="bi bi-card-text"></i></a>
               </div>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-guvenlik">
-              <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?q=80&w=800&auto=format&fit=crop" class="img-fluid" alt="">
+              <img src="https://plus.unsplash.com/premium_photo-1729580056441-6ab34fe19d3d?q=80&w=800&fit=crop" class="img-fluid" alt="" style="height: 300px; width: 100%; object-fit: cover;">
               <div class="portfolio-info">
-                <h4>HawkEye 360</h4>
-                <p>360 derece gece görüşlü kamera</p>
-                <a href="assets/img/portfolio/branding-1.jpg" title="HawkEye 360" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="urun-detay.html" title="Detaylar" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h4>HawkEye 360 Kamera</h4>
+                <p>Gece görüşlü güvenlik kamerası</p>
+                <a href="https://plus.unsplash.com/premium_photo-1729580056441-6ab34fe19d3d?q=80&w=1200" title="HawkEye 360 Kamera" data-gallery="portfolio-gallery-guvenlik" class="glightbox preview-link" data-type="image"><i class="bi bi-zoom-in"></i></a>
+                <a href="#" title="Ürün Detayları" class="details-link" data-bs-toggle="modal" data-bs-target="#modalUrun2"><i class="bi bi-card-text"></i></a>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-konfor">
-              <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=800&auto=format&fit=crop" class="img-fluid" alt="">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-iklim">
+              <img src="https://images.unsplash.com/photo-1645360954716-a0b7a8d45535?q=80&w=800&fit=crop" class="img-fluid" alt="" style="height: 300px; width: 100%; object-fit: cover;">
               <div class="portfolio-info">
-                <h4>ColorBulb RGB</h4>
-                <p>16 milyon renkli akıllı ampul</p>
-                <a href="assets/img/portfolio/books-1.jpg" title="ColorBulb RGB" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="urun-detay.html" title="Detaylar" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h4>EcoTermo T1</h4>
+                <p>Öğrenebilen akıllı termostat</p>
+                <a href="https://images.unsplash.com/photo-1645360954716-a0b7a8d45535?q=80&w=1200" title="EcoTermo T1" data-gallery="portfolio-gallery-iklim" class="glightbox preview-link" data-type="image"><i class="bi bi-zoom-in"></i></a>
+                <a href="#" title="Ürün Detayları" class="details-link" data-bs-toggle="modal" data-bs-target="#modalUrun3"><i class="bi bi-card-text"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-kilit">
+              <img src="https://plus.unsplash.com/premium_photo-1729500764765-7795c760f73a?q=80&w=800&fit=crop" class="img-fluid" alt="" style="height: 300px; width: 100%; object-fit: cover;">
+              <div class="portfolio-info">
+                <h4>Shomme Kilit X500</h4>
+                <p>Parmak izi ve şifreli giriş</p>
+                <a href="https://plus.unsplash.com/premium_photo-1729500764765-7795c760f73a?q=80&w=1200" title="Shomme Kilit X500" data-gallery="portfolio-gallery-kilit" class="glightbox preview-link" data-type="image"><i class="bi bi-zoom-in"></i></a>
+                <a href="#" title="Ürün Detayları" class="details-link" data-bs-toggle="modal" data-bs-target="#modalUrun4"><i class="bi bi-card-text"></i></a>
               </div>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-enerji">
-              <img src="https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?q=80&w=800&auto=format&fit=crop" class="img-fluid" alt="">
+              <img src="https://plus.unsplash.com/premium_photo-1729491126310-5686343f468c?q=80&w=800&fit=crop" class="img-fluid" alt="" style="height: 300px; width: 100%; object-fit: cover;">
               <div class="portfolio-info">
-                <h4>SmartPlug Pro</h4>
-                <p>Uzaktan kontrollü akıllı priz</p>
-                <a href="assets/img/portfolio/app-2.jpg" title="SmartPlug Pro" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="urun-detay.html" title="Detaylar" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h4>Akıllı Priz Plus</h4>
+                <p>Enerji ölçerli priz</p>
+                <a href="https://plus.unsplash.com/premium_photo-1729491126310-5686343f468c?q=80&w=1200" title="Akıllı Priz Plus" data-gallery="portfolio-gallery-enerji" class="glightbox preview-link" data-type="image"><i class="bi bi-zoom-in"></i></a>
+                <a href="#" title="Ürün Detayları" class="details-link" data-bs-toggle="modal" data-bs-target="#modalUrun5"><i class="bi bi-card-text"></i></a>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-konfor">
-              <img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6d54?q=80&w=800&auto=format&fit=crop" class="img-fluid" alt="">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-guvenlik filter-enerji">
+              <img src="https://plus.unsplash.com/premium_photo-1728776080545-0f160cfd35c9?q=80&w=800&fit=crop" class="img-fluid" alt="" style="height: 300px; width: 100%; object-fit: cover;">
               <div class="portfolio-info">
-                <h4>CleanBot V2</h4>
-                <p>Lidar sensörlü robot süpürge</p>
-                <a href="assets/img/portfolio/product-2.jpg" title="CleanBot V2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="urun-detay.html" title="Detaylar" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h4>Shomme Hub V2</h4>
+                <p>Ana kontrol merkezi</p>
+                <a href="https://plus.unsplash.com/premium_photo-1728776080545-0f160cfd35c9?q=80&w=1200" title="Shomme Hub V2" data-gallery="portfolio-gallery-diger" class="glightbox preview-link" data-type="image"><i class="bi bi-zoom-in"></i></a>
+                <a href="#" title="Ürün Detayları" class="details-link" data-bs-toggle="modal" data-bs-target="#modalUrun6"><i class="bi bi-card-text"></i></a>
               </div>
             </div>
 
-          </div></div>
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-guvenlik">
+              <img src="https://images.unsplash.com/photo-1665655034446-1536f6de3fe6?q=80&w=800&fit=crop" class="img-fluid" alt="" style="height: 300px; width: 100%; object-fit: cover;">
+              <div class="portfolio-info">
+                <h4>SafeAir Gaz Sensörü</h4>
+                <p>Gaz ve duman algılama</p>
+                <a href="https://images.unsplash.com/photo-1665655034446-1536f6de3fe6?q=80&w=1200" title="SafeAir Gaz Sensörü" data-gallery="portfolio-gallery-guvenlik" class="glightbox preview-link" data-type="image"><i class="bi bi-zoom-in"></i></a>
+                <a href="#" title="Ürün Detayları" class="details-link" data-bs-toggle="modal" data-bs-target="#modalUrun7"><i class="bi bi-card-text"></i></a>
+              </div>
+            </div>
 
+          </div>
+        </div>
       </div>
-
     </section>
-
   </main>
 
-  <footer id="footer" class="footer light-background">
+  <div class="modal fade" id="modalUrun1" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body pb-5">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1644360266788-572e62457a5f?q=80&w=800&fit=crop" class="img-fluid rounded shadow" alt="">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+              <h3 class="fw-bold">RenkAmpul RGB Pro</h3>
+              <p class="text-muted">Akıllı Aydınlatma</p>
+              <h4 class="text-primary mb-3">₺450.00</h4>
+              <p>Wi-Fi özellikli, 16 milyon renk seçeneğine sahip akıllı ampul. Mobil uygulama veya sesli komutlarla (Google Assistant, Alexa) kontrol edilebilir. Parti modu ve uyku modu mevcuttur.</p>
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="modal fade" id="modalUrun2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body pb-5">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <img src="https://plus.unsplash.com/premium_photo-1729580056441-6ab34fe19d3d?q=80&w=800&fit=crop" class="img-fluid rounded shadow" alt="">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+              <h3 class="fw-bold">HawkEye 360 Kamera</h3>
+              <p class="text-muted">Güvenlik Sistemleri</p>
+              <h4 class="text-primary mb-3">₺1,850.00</h4>
+              <p>1080p HD görüntü kalitesi, 360 derece dönebilen başlık ve kızılötesi gece görüşü. Hareket algıladığında telefonunuza anlık bildirim gönderir. Bulut kayıt özelliği mevcuttur.</p>
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalUrun3" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body pb-5">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1645360954716-a0b7a8d45535?q=80&w=800&fit=crop" class="img-fluid rounded shadow" alt="">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+              <h3 class="fw-bold">EcoTermo T1</h3>
+              <p class="text-muted">İklimlendirme</p>
+              <h4 class="text-primary mb-3">₺2,200.00</h4>
+              <p>Evinizin sıcaklığını alışkanlıklarınıza göre öğrenen yapay zeka destekli termostat. Konum servisi ile siz eve yaklaşırken evi ısıtır, evden çıkınca tasarruf moduna geçer.</p>
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalUrun4" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body pb-5">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <img src="https://plus.unsplash.com/premium_photo-1729500764765-7795c760f73a?q=80&w=800&fit=crop" class="img-fluid rounded shadow" alt="">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+              <h3 class="fw-bold">Shomme Kilit X500</h3>
+              <p class="text-muted">Kilit Sistemleri</p>
+              <h4 class="text-primary mb-3">₺4,500.00</h4>
+              <p>Çelik gövdeli akıllı kapı kilidi. Parmak izi, şifre, kart veya mobil uygulama ile açılabilir. Misafirleriniz için tek kullanımlık şifreler oluşturabilirsiniz.</p>
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalUrun5" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body pb-5">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <img src="https://plus.unsplash.com/premium_photo-1729491126310-5686343f468c?q=80&w=800&fit=crop" class="img-fluid rounded shadow" alt="">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+              <h3 class="fw-bold">Akıllı Priz Plus</h3>
+              <p class="text-muted">Enerji Yönetimi</p>
+              <h4 class="text-primary mb-3">₺350.00</h4>
+              <p>Üzerine takılan cihazın elektrik tüketimini anlık olarak ölçer ve raporlar. Uzaktan açma/kapama özelliği ile ütüyü fişte unutma derdine son.</p>
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalUrun6" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body pb-5">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <img src="https://plus.unsplash.com/premium_photo-1728776080545-0f160cfd35c9?q=80&w=800&fit=crop" class="img-fluid rounded shadow" alt="">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+              <h3 class="fw-bold">Shomme Hub V2</h3>
+              <p class="text-muted">Kontrol Merkezi</p>
+              <h4 class="text-primary mb-3">₺1,500.00</h4>
+              <p>Evinizdeki tüm akıllı cihazların beyni. Zigbee, Wi-Fi ve Bluetooth protokollerini destekler. İnternet kesilse bile yerel ağ üzerinden otomasyonları çalıştırır.</p>
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalUrun7" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body pb-5">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1665655034446-1536f6de3fe6?q=80&w=800&fit=crop" class="img-fluid rounded shadow" alt="">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+              <h3 class="fw-bold">SafeAir Gaz Sensörü</h3>
+              <p class="text-muted">Güvenlik</p>
+              <h4 class="text-primary mb-3">₺900.00</h4>
+              <p>Doğalgaz kaçağı ve dumanı anında tespit eder. Yüksek sesli alarm çalar ve telefonunuza acil durum bildirimi gönderir. Vana kapatma sistemiyle entegre edilebilir.</p>
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer" class="footer light-background">
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">Nova</span>
+              <span class="sitename">Shomme</span>
             </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <p>Evinizin konforunu ve güvenliğini artıran akıllı çözümler.</p>
             <div class="social-links d-flex mt-4">
               <a href=""><i class="bi bi-twitter-x"></i></a>
               <a href=""><i class="bi bi-facebook"></i></a>
@@ -208,34 +382,32 @@
           </div>
 
           <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Hızlı Erişim</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="hakkimizda.html">Hakkımızda</a></li>
+              <li><a href="urunler.html">Ürünlerimiz</a></li>
+              <li><a href="iletisim.html">İletişim</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Hizmetlerimiz</h4>
             <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
+              <li><a href="#">Akıllı Güvenlik</a></li>
+              <li><a href="#">Enerji Yönetimi</a></li>
+              <li><a href="#">Aydınlatma</a></li>
+              <li><a href="#">Teknik Destek</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-            <h4>Contact Us</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p>United States</p>
-            <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <h4>İletişim</h4>
+            <p>Umuttepe Yerleşkesi</p>
+            <p>Teknoloji Fakültesi</p>
+            <p>Kocaeli, Türkiye</p>
+            <p class="mt-4"><strong>Telefon:</strong> <span>+90 262 123 45 67</span></p>
+            <p><strong>Email:</strong> <span>info@shomme.com.tr</span></p>
           </div>
 
         </div>
@@ -243,25 +415,18 @@
     </div>
 
     <div class="container copyright text-center">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Nova</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Shomme</strong> <span>Tüm Hakları Saklıdır</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
 
   </footer>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -270,9 +435,201 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    // --- KULLANICI GİRİŞ YAPINCA ARAYÜZÜ DEĞİŞTİRME ---
+    function userLoggedInState(userName) {
+      console.log("Giriş Başarılı, ikon değiştiriliyor..."); // Hata ayıklama için
+
+      // 1. Modalı kapat
+      var modalEl = document.getElementById('loginModal');
+      var modal = bootstrap.Modal.getInstance(modalEl);
+      if (modal) { modal.hide(); }
+
+      // 2. Header'daki İkonu Bul
+      var container = document.getElementById('user-login-container');
+      
+      if (container) {
+        // HTML'i Dropdown Menü ile Değiştir
+        // style="color: #198754 !important;" ekledik ki kesin yeşil olsun
+        container.innerHTML = `
+          <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-check-fill" style="font-size: 1.4rem; color: #198754 !important;"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
+              <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
+              <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Bilgilerim</a></li>
+              <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Siparişlerim</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="location.reload();"><i class="bi bi-box-arrow-right"></i> Çıkış Yap</a></li>
+            </ul>
+          </div>
+        `;
+      } else {
+        alert("Hata: 'user-login-container' ID'li element bulunamadı! HTML'i kontrol et.");
+      }
+    }
+
+    // --- GİRİŞ YAP BUTONU ---
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); 
+      var uName = document.getElementById('username').value;
+      var pass = document.getElementById('password').value;
+
+      if (uName === 'admin' && pass === '1234') {
+        alert('Admin Paneline Gidiliyor...');
+        window.location.href = 'admin/index.html'; 
+      } else {
+        userLoggedInState(uName);
+      }
+    });
+
+    // --- KAYIT OL BUTONU ---
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Kayıt olmuş gibi davranıp giriş yaptıralım
+      userLoggedInState("Yeni Üye");
+    });
+
+    // --- SEPET SİSTEMİ (Mevcut kodun aynısı) ---
+    var addToCartBtns = document.querySelectorAll('.btn-primary');
+    var cartCount = 0;
+    var cartBadge = document.getElementById('cart-count');
+    var cartItemsArea = document.getElementById('cart-items');
+    var emptyCartMsg = document.getElementById('empty-cart-msg');
+    var cartList = document.getElementById('cart-list');
+    var cartTotal = document.getElementById('cart-total');
+    var currentTotal = 0;
+
+    addToCartBtns.forEach(function(btn) {
+      if(btn.innerHTML.includes('Sepete Ekle')) {
+        btn.addEventListener('click', function() {
+          cartCount++;
+          cartBadge.innerText = cartCount;
+          cartBadge.style.display = 'block'; 
+
+          var originalText = btn.innerHTML;
+          btn.innerHTML = '<i class="bi bi-check-circle"></i> Eklendi';
+          btn.classList.remove('btn-primary');
+          btn.classList.add('btn-success');
+          
+          setTimeout(function() {
+            btn.innerHTML = originalText;
+            btn.classList.add('btn-primary');
+            btn.classList.remove('btn-success');
+          }, 2000);
+
+          if(emptyCartMsg) emptyCartMsg.style.display = 'none';
+          if(cartItemsArea) cartItemsArea.style.display = 'block';
+          
+          var li = document.createElement('li');
+          li.className = 'list-group-item d-flex justify-content-between align-items-center';
+          li.innerHTML = 'Ürün <span class="badge bg-primary rounded-pill">1</span>';
+          if(cartList) cartList.appendChild(li);
+
+          currentTotal += 500;
+          if(cartTotal) cartTotal.innerText = '₺' + currentTotal + '.00';
+        });
+      }
+    });
+  </script>
+
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Hesap İşlemleri</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          
+          <ul class="nav nav-tabs nav-fill mb-4" id="authTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-pane" type="button" role="tab">Giriş Yap</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link fw-bold" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-pane" type="button" role="tab">Kayıt Ol</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="authTabContent">
+            
+            <div class="tab-pane fade show active" id="login-pane" role="tabpanel">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="username" class="form-label">Kullanıcı Adı</label>
+                  <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Şifre</label>
+                  <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                </div>
+                <div class="text-center mt-3">
+                  <a href="#" class="text-decoration-none small text-muted">Şifremi Unuttum?</a>
+                </div>
+              </form>
+            </div>
+
+            <div class="tab-pane fade" id="register-pane" role="tabpanel">
+              <form id="registerForm">
+                <div class="mb-3">
+                  <label class="form-label">Ad Soyad</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">E-posta Adresi</label>
+                  <input type="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Şifre Belirle</label>
+                  <input type="password" class="form-control" required>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-success">Kayıt Ol</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cartModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-cart-check"></i> Alışveriş Sepetim</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          <div id="empty-cart-msg" class="text-center py-4">
+            <i class="bi bi-cart-x display-4 text-muted"></i>
+            <p class="mt-3">Sepetinizde henüz ürün yok.</p>
+            <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Alışverişe Başla</button>
+          </div>
+          
+          <div id="cart-items" style="display: none;">
+            <ul class="list-group mb-3" id="cart-list">
+               </ul>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+               <strong>Toplam Tutar:</strong>
+               <span id="cart-total" class="h5 text-primary mb-0">₺0.00</span>
+            </div>
+            <div class="d-grid">
+               <button class="btn btn-success">Ödemeye Geç</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
