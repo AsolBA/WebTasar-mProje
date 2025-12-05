@@ -1,39 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Blog - Nova Bootstrap Template</title>
+  <title>Tüm Duyurular - Shomme</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Nova
-  * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="blog-page">
@@ -42,13 +30,11 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Shomme</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul>
+        <ul class="d-flex align-items-center">
           <li><a href="index.html">Ana Sayfa</a></li>
 
           <li class="dropdown"><a href="hakkimizda.html"><span>Kurumsal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -68,9 +54,22 @@
             </ul>
           </li>
 
-          
           <li><a href="istatistikler.html">İstatistikler</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
+
+          <li class="ms-4" id="user-login-li">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="d-flex align-items-center" title="Giriş Yap">
+              <i class="bi bi-person-circle" style="font-size: 1.4rem;"></i>
+            </a>
+          </li>
+
+          <li class="ms-3 position-relative">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal" class="d-flex align-items-center" title="Sepetim" onclick="updateCartUI()">
+              <i class="bi bi-cart3" style="font-size: 1.4rem;"></i>
+              <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
+            </a>
+          </li>
+
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -80,329 +79,36 @@
 
   <main class="main">
 
-    <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/blog-page-title-bg.jpg);">
       <div class="container">
-        <h1>Blog</h1>
+        <h1>Duyurular ve Haberler</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Blog</li>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li class="current">Duyurular</li>
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
-
-    <div class="container">
-      <div class="row">
-
-        <div class="col-lg-8">
-
-          <!-- Blog Posts Section -->
-          <section id="blog-posts" class="blog-posts section">
-
-            <div class="container">
-              <div class="row gy-4">
-
-                <div class="col-lg-6">
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <p class="post-category">Politics</p>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
-                    </h2>
-
-                    <div class="d-flex align-items-center">
-                      <img src="assets/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                      <div class="post-meta">
-                        <p class="post-author">Maria Doe</p>
-                        <p class="post-date">
-                          <time datetime="2022-01-01">Jan 1, 2022</time>
-                        </p>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-6">
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <p class="post-category">Sports</p>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-                    </h2>
-
-                    <div class="d-flex align-items-center">
-                      <img src="assets/img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                      <div class="post-meta">
-                        <p class="post-author">Allisa Mayer</p>
-                        <p class="post-date">
-                          <time datetime="2022-01-01">Jun 5, 2022</time>
-                        </p>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-6">
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <p class="post-category">Entertainment</p>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                    </h2>
-
-                    <div class="d-flex align-items-center">
-                      <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                      <div class="post-meta">
-                        <p class="post-author">Mark Dower</p>
-                        <p class="post-date">
-                          <time datetime="2022-01-01">Jun 22, 2022</time>
-                        </p>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-6">
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-4.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <p class="post-category">Sports</p>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Non rem rerum nam cum quo minus olor distincti</a>
-                    </h2>
-
-                    <div class="d-flex align-items-center">
-                      <img src="assets/img/blog/blog-author-4.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                      <div class="post-meta">
-                        <p class="post-author">Lisa Neymar</p>
-                        <p class="post-date">
-                          <time datetime="2022-01-01">Jun 30, 2022</time>
-                        </p>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-6">
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-5.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <p class="post-category">Politics</p>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Accusamus quaerat aliquam qui debitis facilis consequatur</a>
-                    </h2>
-
-                    <div class="d-flex align-items-center">
-                      <img src="assets/img/blog/blog-author-5.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                      <div class="post-meta">
-                        <p class="post-author">Denis Peterson</p>
-                        <p class="post-date">
-                          <time datetime="2022-01-01">Jan 30, 2022</time>
-                        </p>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-                <div class="col-lg-6">
-                  <article>
-
-                    <div class="post-img">
-                      <img src="assets/img/blog/blog-6.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <p class="post-category">Entertainment</p>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Distinctio provident quibusdam numquam aperiam aut</a>
-                    </h2>
-
-                    <div class="d-flex align-items-center">
-                      <img src="assets/img/blog/blog-author-6.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                      <div class="post-meta">
-                        <p class="post-author">Mika Lendon</p>
-                        <p class="post-date">
-                          <time datetime="2022-01-01">Feb 14, 2022</time>
-                        </p>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-              </div>
-            </div>
-
-          </section><!-- /Blog Posts Section -->
-
-          <!-- Blog Pagination Section -->
-          <section id="blog-pagination" class="blog-pagination section">
-
-            <div class="container">
-              <div class="d-flex justify-content-center">
-                <ul>
-                  <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#" class="active">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li>...</li>
-                  <li><a href="#">10</a></li>
-                  <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
-                </ul>
-              </div>
-            </div>
-
-          </section><!-- /Blog Pagination Section -->
-
-        </div>
-
-        <div class="col-lg-4 sidebar">
-
-          <div class="widgets-container">
-
-            <!-- Search Widget -->
-            <div class="search-widget widget-item">
-
-              <h3 class="widget-title">Search</h3>
-              <form action="">
-                <input type="text">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-              </form>
-
-            </div><!--/Search Widget -->
-
-            <!-- Categories Widget -->
-            <div class="categories-widget widget-item">
-
-              <h3 class="widget-title">Categories</h3>
-              <ul class="mt-3">
-                <li><a href="#">General <span>(25)</span></a></li>
-                <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                <li><a href="#">Travel <span>(5)</span></a></li>
-                <li><a href="#">Design <span>(22)</span></a></li>
-                <li><a href="#">Creative <span>(8)</span></a></li>
-                <li><a href="#">Educaion <span>(14)</span></a></li>
-              </ul>
-
-            </div><!--/Categories Widget -->
-
-            <!-- Recent Posts Widget -->
-            <div class="recent-posts-widget widget-item">
-
-              <h3 class="widget-title">Recent Posts</h3>
-
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-1.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Nihil blanditiis at in nihil autem</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-2.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Quidem autem et impedit</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-3.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-4.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Laborum corporis quo dara net para</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="assets/img/blog/blog-recent-5.jpg" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-            </div><!--/Recent Posts Widget -->
-
-            <!-- Tags Widget -->
-            <div class="tags-widget widget-item">
-
-              <h3 class="widget-title">Tags</h3>
-              <ul>
-                <li><a href="#">App</a></li>
-                <li><a href="#">IT</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Mac</a></li>
-                <li><a href="#">Design</a></li>
-                <li><a href="#">Office</a></li>
-                <li><a href="#">Creative</a></li>
-                <li><a href="#">Studio</a></li>
-                <li><a href="#">Smart</a></li>
-                <li><a href="#">Tips</a></li>
-                <li><a href="#">Marketing</a></li>
-              </ul>
-
-            </div><!--/Tags Widget -->
-
-          </div>
-
-        </div>
+    </div>
+
+    <section id="blog-posts" class="blog-posts section">
+      <div class="container">
+        
+        <div class="row gy-4" id="all-announcements-container">
+           </div>
 
       </div>
-    </div>
+    </section>
 
   </main>
 
   <footer id="footer" class="footer light-background">
-
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-about">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">Nova</span>
-            </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <a href="index.html" class="logo d-flex align-items-center"><span class="sitename">Shomme</span></a>
+            <p>2020 yılından beri akıllı ev teknolojileri, güvenlik sistemleri ve enerji yönetimi alanında yerli ve yenilikçi çözümler sunuyoruz.</p>
             <div class="social-links d-flex mt-4">
               <a href=""><i class="bi bi-twitter-x"></i></a>
               <a href=""><i class="bi bi-facebook"></i></a>
@@ -410,62 +116,82 @@
               <a href=""><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
-
           <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Hızlı Erişim</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="hakkimizda.html">Hakkımızda</a></li>
+              <li><a href="urunler.html">Ürünlerimiz</a></li>
+              <li><a href="iletisim.html">İletişim</a></li>
             </ul>
           </div>
-
           <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Hizmetlerimiz</h4>
             <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
+              <li><a href="#">Akıllı Güvenlik</a></li>
+              <li><a href="#">Enerji Yönetimi</a></li>
+              <li><a href="#">Aydınlatma</a></li>
+              <li><a href="#">Teknik Destek</a></li>
             </ul>
           </div>
-
           <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-            <h4>Contact Us</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p>United States</p>
-            <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <h4>İletişim</h4>
+            <p>Umuttepe Yerleşkesi</p><p>Teknoloji Fakültesi</p><p>Kocaeli, Türkiye</p>
+            <p class="mt-4"><strong>Telefon:</strong> <span>+90 262 123 45 67</span></p>
+            <p><strong>Email:</strong> <span>info@shomme.com.tr</span></p>
           </div>
-
         </div>
       </div>
     </div>
-
     <div class="container copyright text-center">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Nova</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      <p>© <span>Telif Hakkı</span> <strong class="px-1 sitename">Shomme</strong> <span>Tüm Hakları Saklıdır</span></p>
+      <div class="credits">Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a></div>
     </div>
-
   </footer>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+  <div class="modal fade" id="dynamicAnnouncementModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="modalAnnTitle">Duyuru Başlığı</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+
+        <div class="modal-body pt-3">
+          <img id="modalAnnImg" src="" class="img-fluid w-100 rounded mb-4" style="max-height: 400px; object-fit: cover;" alt="Duyuru">
+          
+          <div class="px-2">
+            <div class="d-flex align-items-center text-muted small mb-3">
+                <i class="bi bi-calendar me-2"></i> <span id="modalAnnDate">Tarih</span>
+                <span class="mx-2">|</span>
+                <i class="bi bi-person me-2"></i> <span id="modalAnnAuthor">Yazar</span>
+            </div>
+            
+            <p id="modalAnnText" style="font-size: 1.1rem; line-height: 1.6;">İçerik buraya gelecek...</p>
+            
+            <hr class="my-4">
+            
+            <div id="modalFileArea">
+                </div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="loginModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Hesap İşlemleri</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><ul class="nav nav-tabs nav-fill mb-4" id="authTab" role="tablist"><li class="nav-item"><button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-pane" type="button">Giriş Yap</button></li><li class="nav-item"><button class="nav-link fw-bold" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-pane" type="button">Kayıt Ol</button></li></ul><div class="tab-content"><div class="tab-pane fade show active" id="login-pane" role="tabpanel"><form id="loginForm"><div class="mb-3"><label class="form-label">Kullanıcı Adı</label><input type="text" class="form-control" id="username" required></div><div class="mb-3"><label class="form-label">Şifre</label><input type="password" class="form-control" id="password" required></div><div class="d-grid"><button type="submit" class="btn btn-primary">Giriş Yap</button></div></form></div><div class="tab-pane fade" id="register-pane" role="tabpanel"><form id="registerForm"><div class="mb-3"><label class="form-label">Ad Soyad</label><input type="text" class="form-control" required></div><div class="mb-3"><label class="form-label">E-posta</label><input type="email" class="form-control" required></div><div class="mb-3"><label class="form-label">Şifre Belirle</label><input type="password" class="form-control" required></div><div class="d-grid"><button type="submit" class="btn btn-success">Kayıt Ol</button></div></form></div></div></div></div></div></div>
+  
+  <div class="modal fade" id="cartModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"><div class="modal-content"><div class="modal-header bg-light"><h5 class="modal-title fw-bold"><i class="bi bi-cart3"></i> Sepetim</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div id="empty-cart-msg" class="text-center py-5"><i class="bi bi-basket2 display-1 text-muted" style="opacity: 0.5;"></i><p class="mt-3 text-muted fs-5">Sepetiniz şu an boş.</p><button class="btn btn-primary btn-sm mt-2" data-bs-dismiss="modal">Alışverişe Dön</button></div><div id="cart-content" style="display: none;"><ul class="list-group list-group-flush mb-3" id="cart-list"></ul></div></div><div class="modal-footer justify-content-between bg-light" id="cart-footer" style="display: none;"><div><span class="text-muted small">Toplam Tutar:</span><br><span id="cart-total" class="h4 fw-bold text-primary">₺0.00</span></div><button class="btn btn-success px-4">Ödemeyi Tamamla <i class="bi bi-arrow-right"></i></button></div></div></div></div>
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -474,9 +200,236 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
+  <script>
+    // 1. GLOBAL
+    let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
 
+    // 2. DOM LOADED
+    document.addEventListener("DOMContentLoaded", function() {
+      // Login Check
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+        updateUIForLoggedInUser(localStorage.getItem('userName'));
+      }
+      
+      // Cart Check
+      updateCartUI();
+
+      // DUYURULARI ÇEK VE LİSTELE
+      loadAllAnnouncementsPage();
+    });
+
+    // 3. DUYURU SİSTEMİ (TÜM LİSTE + MODAL AÇMA)
+    function loadAllAnnouncementsPage() {
+        const container = document.getElementById('all-announcements-container');
+        if (!container) return; // Bu sayfada değilsek çalışma
+
+        // Varsayılan veriler yoksa oluştur (Boş kalmasın)
+        let posts = JSON.parse(localStorage.getItem('shommeAnnouncements'));
+        if (!posts || posts.length === 0) {
+             const defaultAnnouncements = [
+                { id: 1, title: "Yaz Kampanyası Başladı!", date: "15 Kasım 2025", author: "Satış", img: "assets/img/blog/blog-1.jpg", text: "Tüm akıllı kilitlerde %20 indirim...", fileType: 'pdf' },
+                { id: 2, title: "Shomme App v2.0 Yayında", date: "10 Ekim 2025", author: "Teknik", img: "assets/img/blog/blog-2.jpg", text: "Yeni arayüz ve özellikler...", fileType: 'word' },
+                { id: 3, title: "Yeni Robot Süpürge", date: "5 Eylül 2025", author: "Pazarlama", img: "assets/img/blog/blog-3.jpg", text: "Yapay zeka destekli temizlik...", fileType: 'image' },
+                { id: 4, title: "Yılın En İyi Markası", date: "20 Ağustos 2025", author: "Yönetim", img: "assets/img/blog/blog-4.jpg", text: "Teknoloji ödülünü kazandık...", fileType: 'pdf' },
+                { id: 5, title: "Kışa Hazırlık İndirimleri", date: "1 Kasım 2025", author: "Satış", img: "https://images.unsplash.com/photo-1516937941348-c09645f3a26d?q=80&w=600&auto=format&fit=crop", text: "Termostatlarda büyük fırsat...", fileType: 'image' },
+                { id: 6, title: "%98 Müşteri Memnuniyeti", date: "15 Aralık 2025", author: "Müşteri Hizm.", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600", text: "Anket sonuçlarımız açıklandı...", fileType: 'word' }
+            ];
+            localStorage.setItem('shommeAnnouncements', JSON.stringify(defaultAnnouncements));
+            posts = defaultAnnouncements;
+        }
+
+        // Listeyi Ters Çevir ve Bas
+        let html = '';
+        posts.slice().reverse().forEach(post => {
+            html += `
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <article class="post-box h-100" style="border: 1px solid #eee; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
+                  <div class="post-img" style="height: 250px; overflow: hidden;">
+                      <img src="${post.img}" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
+                  </div>
+                  <div class="p-4 d-flex flex-column flex-grow-1">
+                      <div class="meta text-muted small mb-2">
+                        <span class="post-date"><i class="bi bi-calendar"></i> ${post.date}</span>
+                        <span class="post-author ms-2"><i class="bi bi-person"></i> ${post.author}</span>
+                      </div>
+                      <h3 class="post-title fw-bold">${post.title}</h3>
+                      <p class="mb-4">${post.text.substring(0, 100)}...</p>
+                      
+                      <button class="btn btn-link fw-bold text-primary p-0 mt-auto text-start text-decoration-none" onclick="openAnnouncementModal(${post.id})">
+                          Detayları Gör <i class="bi bi-arrow-right"></i>
+                      </button>
+                  </div>
+                </article>
+            </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
+    // YENİ FONKSİYON: Modalı Aç ve İçini Doldur
+    function openAnnouncementModal(id) {
+        // 1. Duyuruyu Bul
+        let posts = JSON.parse(localStorage.getItem('shommeAnnouncements')) || [];
+        // ID sayı mı string mi emin olmak için == kullanıyoruz
+        let post = posts.find(p => p.id == id);
+        
+        if (!post) {
+            console.error("Duyuru bulunamadı ID:", id);
+            return;
+        }
+
+        // 2. İçeriği Doldur
+        document.getElementById('modalAnnTitle').innerText = post.title;
+        document.getElementById('modalAnnImg').src = post.img;
+        document.getElementById('modalAnnDate').innerText = post.date;
+        document.getElementById('modalAnnAuthor').innerText = post.author;
+        document.getElementById('modalAnnText').innerText = post.text;
+
+        // 3. Dosya Tipine Göre Buton Ayarla (Hocanın İsteri)
+        const fileArea = document.getElementById('modalFileArea');
+        let fileBtn = '';
+
+        // Eğer fileType yoksa (eski veri) varsayılan 'image' al
+        let type = post.fileType || 'image';
+
+        if (type === 'pdf') {
+            fileBtn = `<button class="btn btn-danger"><i class="bi bi-file-pdf"></i> İlgili Belgeyi İndir (PDF)</button>`;
+        } else if (type === 'word') {
+            fileBtn = `<button class="btn btn-primary"><i class="bi bi-file-word"></i> İlgili Belgeyi İndir (Word)</button>`;
+        } else {
+            fileBtn = `<button class="btn btn-secondary" disabled><i class="bi bi-image"></i> Sadece Görsel İçerik</button>`;
+        }
+        fileArea.innerHTML = fileBtn;
+
+        // 4. Modalı Göster
+        var myModal = new bootstrap.Modal(document.getElementById('dynamicAnnouncementModal'));
+        myModal.show();
+    }
+
+    // 4. UI FUNCTIONS (Login & Sepet)
+    function updateUIForLoggedInUser(userName) {
+      var container = document.getElementById('user-login-li');
+      if (container) {
+        container.innerHTML = `
+          <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-check-fill" style="font-size: 1.4rem; color: #198754 !important;"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
+              <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
+              <li><a class="dropdown-item" href="#">Siparişlerim</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()">Çıkış Yap</a></li>
+            </ul>
+          </div>`;
+      }
+    }
+
+    function loginUser(userName) {
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('userName', userName);
+      var modalEl = document.getElementById('loginModal');
+      if(modalEl) { var modal = bootstrap.Modal.getInstance(modalEl); if(modal) modal.hide(); }
+      updateUIForLoggedInUser(userName);
+    }
+
+    function logoutUser() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userName');
+      window.location.reload();
+    }
+
+    // 5. CART FUNCTIONS
+    function updateCartUI() {
+      const badge = document.getElementById('cart-count');
+      const cartList = document.getElementById('cart-list');
+      const emptyMsg = document.getElementById('empty-cart-msg');
+      const cartContent = document.getElementById('cart-content');
+      const cartFooter = document.getElementById('cart-footer');
+      const totalEl = document.getElementById('cart-total');
+
+      if (!badge) return;
+
+      let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      badge.innerText = totalCount;
+      badge.style.display = totalCount > 0 ? 'block' : 'none';
+
+      if (!cartList || !emptyMsg || !cartContent || !totalEl) return;
+
+      if (cart.length === 0) {
+        emptyMsg.style.display = 'block';
+        cartContent.style.display = 'none';
+        if(cartFooter) cartFooter.style.display = 'none';
+      } else {
+        emptyMsg.style.display = 'none';
+        cartContent.style.display = 'block';
+        if(cartFooter) cartFooter.style.display = 'flex';
+      }
+
+      let html = '';
+      let totalPrice = 0;
+      cart.forEach(item => {
+        let itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+        html += `
+          <li class="list-group-item d-flex align-items-center py-3">
+            <img src="${item.image}" class="rounded" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
+            <div class="flex-grow-1">
+              <h6 class="mb-0 fw-bold" style="font-size: 0.9rem;">${item.name}</h6>
+              <small class="text-muted">Birim: ₺${item.price}</small>
+            </div>
+            <div class="d-flex align-items-center bg-light rounded p-1">
+              <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'minus')"><i class="bi bi-dash"></i></button>
+              <span class="mx-1 fw-bold small">${item.quantity}</span>
+              <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'plus')"><i class="bi bi-plus"></i></button>
+            </div>
+            <div class="ms-3 fw-bold text-primary small">₺${itemTotal.toLocaleString('tr-TR')}</div>
+          </li>`;
+      });
+      cartList.innerHTML = html;
+      totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
+    }
+
+    function changeQty(id, action) {
+      let item = cart.find(item => item.id == id);
+      if (!item) return;
+      if (action === 'plus') item.quantity++;
+      else if (action === 'minus') {
+        item.quantity--;
+        if (item.quantity <= 0) cart = cart.filter(p => p.id != id);
+      }
+      saveCart();
+      updateCartUI();
+    }
+
+    function saveCart() { localStorage.setItem('shommeCart', JSON.stringify(cart)); }
+
+    // 6. FORM LISTENERS
+    var loginForm = document.getElementById('loginForm');
+    if(loginForm){
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        var uName = document.getElementById('username').value;
+        var pass = document.getElementById('password').value;
+        if (uName === 'admin' && pass === '1234') {
+          alert('Admin Paneline Gidiliyor...');
+          window.location.href = 'admin/index.html'; 
+        } else {
+          loginUser(uName);
+        }
+      });
+    }
+
+    var regForm = document.getElementById('registerForm');
+    if(regForm){
+      regForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        loginUser("Yeni Üye");
+      });
+    }
+  </script>
+
+</body>
 </html>

@@ -13,7 +13,7 @@
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -64,7 +64,7 @@
           </li>
 
           <li class="ms-3 position-relative">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal" class="d-flex align-items-center" title="Sepetim">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal" class="d-flex align-items-center" title="Sepetim" onclick="updateCartUI()">
               <i class="bi bi-cart3" style="font-size: 1.4rem;"></i>
               <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
             </a>
@@ -353,20 +353,25 @@
     <section id="recent-posts" class="recent-posts section">
 
       <div class="container section-title" data-aos="fade-up">
-        <h2>Duyurular ve Kampanyalar</h2>
-        <p>Shomme dünyasından en güncel haberler, fırsatlar ve teknolojik gelişmeler.</p>
+        <div class="d-flex justify-content-between align-items-end">
+            <div>
+                <h2>Duyurular ve Kampanyalar</h2>
+                <p class="mb-0">Shomme dünyasından en güncel haberler ve fırsatlar.</p>
+            </div>
+            <a href="duyurular.html" class="btn btn-outline-primary rounded-pill px-4">
+                Tüm Duyurular <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="swiper init-swiper">
+        <div class="swiper init-swiper" id="announcement-swiper">
           <script type="application/json" class="swiper-config">
             {
               "loop": true,
               "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
+              "autoplay": { "delay": 5000 },
               "slidesPerView": "auto",
               "pagination": {
                 "el": ".swiper-pagination",
@@ -374,88 +379,22 @@
                 "clickable": true
               },
               "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 30
-                }
+                "320": { "slidesPerView": 1, "spaceBetween": 40 },
+                "1200": { "slidesPerView": 3, "spaceBetween": 30 }
               }
             }
           </script>
 
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="post-box">
-                <div class="post-img"><img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt=""></div>
-                <div class="meta">
-                  <span class="post-date">15 Kasım 2025</span>
-                  <span class="post-author"> / Satış Ekibi</span>
-                </div>
-                <h3 class="post-title">Yaz Kampanyası Başladı!</h3>
-                <p>Tüm akıllı kilit ve güvenlik setlerinde %20'ye varan indirim fırsatını kaçırmayın...</p>
-                <a href="#" class="readmore stretched-link" data-bs-toggle="modal" data-bs-target="#duyuruModal1">
-                  <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="post-box">
-                <div class="post-img"><img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt=""></div>
-                <div class="meta">
-                  <span class="post-date">10 Ekim 2025</span>
-                  <span class="post-author"> / Yazılım Ekibi</span>
-                </div>
-                <h3 class="post-title">Shomme App v2.0 Yayında</h3>
-                <p>Yepyeni arayüz, karanlık mod desteği ve daha hızlı bağlantı ile güncellendi...</p>
-                <a href="#" class="readmore stretched-link" data-bs-toggle="modal" data-bs-target="#duyuruModal2">
-                  <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="post-box">
-                <div class="post-img"><img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt=""></div>
-                <div class="meta">
-                  <span class="post-date">5 Eylül 2025</span>
-                  <span class="post-author"> / Ürün Yönetimi</span>
-                </div>
-                <h3 class="post-title">Yeni Robot Süpürge Stoklarda!</h3>
-                <p>Yapay zeka destekli haritalama ve paspas özelliği ile temizlik derdine son verin...</p>
-                <a href="#" class="readmore stretched-link" data-bs-toggle="modal" data-bs-target="#duyuruModal3">
-                  <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="post-box">
-                <div class="post-img"><img src="assets/img/blog/blog-4.jpg" class="img-fluid" alt=""></div>
-                <div class="meta">
-                  <span class="post-date">20 Ağustos 2025</span>
-                  <span class="post-author"> / Yönetim</span>
-                </div>
-                <h3 class="post-title">Yılın En İyi Akıllı Ev Markası</h3>
-                <p>Teknoloji Fuarı'nda "En Yenilikçi Güvenlik Çözümü" ödülüne layık görüldük...</p>
-                <a href="#" class="readmore stretched-link" data-bs-toggle="modal" data-bs-target="#duyuruModal4">
-                  <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-
-          </div>
+          <div class="swiper-wrapper" id="dynamic-announcements">
+             </div>
 
           <div class="swiper-pagination"></div>
         </div>
 
       </div>
 
-    </section><section id="call-to-action" class="call-to-action section dark-background">
+    </section>
+    <section id="call-to-action" class="call-to-action section dark-background">
       <img src="assets/img/cta-bg.jpg" alt="">
       <div class="container">
         <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
@@ -538,47 +477,29 @@
 
   <div id="preloader"></div>
 
-  <div class="modal fade" id="duyuruModal1" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header"><h5 class="modal-title">Yaz Kampanyası Detayları</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-        <div class="modal-body"><img src="assets/img/blog/blog-1.jpg" class="img-fluid mb-3 rounded"><h4>Büyük İndirim Fırsatı!</h4><p>Tüm akıllı ev sistemlerinde %20 indirim başladı. Kod: <strong>SMART2025</strong></p><hr><button class="btn btn-danger btn-sm"><i class="bi bi-file-pdf"></i> Şartname (PDF)</button></div>
-        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button></div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="duyuruModal2" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Mobil Uygulama v2.0</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Yeni sürüm yayında!</p></div></div></div></div>
-  <div class="modal fade" id="duyuruModal3" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Robot Süpürge</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Stoklarda!</p></div></div></div></div>
-  <div class="modal fade" id="duyuruModal4" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Ödül</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Yılın Markası!</p></div></div></div></div>
-
   <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Hesap İşlemleri</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold">Giriş Yap</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <ul class="nav nav-tabs nav-fill mb-4" id="authTab" role="tablist">
-            <li class="nav-item"><button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-pane" type="button">Giriş Yap</button></li>
-            <li class="nav-item"><button class="nav-link fw-bold" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-pane" type="button">Kayıt Ol</button></li>
-          </ul>
-          <div class="tab-content" id="authTabContent">
-            <div class="tab-pane fade show active" id="login-pane" role="tabpanel">
-              <form id="loginForm">
-                <div class="mb-3"><label class="form-label">Kullanıcı Adı</label><input type="text" class="form-control" id="username" required></div>
-                <div class="mb-3"><label class="form-label">Şifre</label><input type="password" class="form-control" id="password" required></div>
-                <div class="d-grid"><button type="submit" class="btn btn-primary">Giriş Yap</button></div>
-              </form>
+          <form id="loginForm">
+            <div class="mb-3">
+              <label class="form-label">Kullanıcı Adı</label>
+              <input type="text" class="form-control" id="username" placeholder="Örn: admin" required>
             </div>
-            <div class="tab-pane fade" id="register-pane" role="tabpanel">
-              <form id="registerForm">
-                <div class="mb-3"><label class="form-label">Ad Soyad</label><input type="text" class="form-control" required></div>
-                <div class="mb-3"><label class="form-label">E-posta</label><input type="email" class="form-control" required></div>
-                <div class="mb-3"><label class="form-label">Şifre Belirle</label><input type="password" class="form-control" required></div>
-                <div class="d-grid"><button type="submit" class="btn btn-success">Kayıt Ol</button></div>
-              </form>
+            <div class="mb-3">
+              <label class="form-label">Şifre</label>
+              <input type="password" class="form-control" id="password" placeholder="Örn: 1234" required>
             </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Giriş Yap</button>
+            </div>
+          </form>
+          <div class="text-center mt-3">
+            <small class="text-muted">Hesabın yok mu? <a href="#">Kayıt Ol</a></small>
           </div>
         </div>
       </div>
@@ -588,14 +509,33 @@
   <div class="modal fade" id="cartModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header"><h5 class="modal-title"><i class="bi bi-cart-check"></i> Sepetim</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Sepetim</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
         <div class="modal-body">
-          <div id="empty-cart-msg" class="text-center py-4"><i class="bi bi-cart-x display-4 text-muted"></i><p class="mt-3">Sepet boş.</p></div>
-          <div id="cart-items" style="display: none;">
-            <ul class="list-group mb-3" id="cart-list"></ul>
-            <div class="d-flex justify-content-between align-items-center mb-3"><strong>Toplam:</strong><span id="cart-total" class="h5 text-primary mb-0">₺0.00</span></div>
-            <div class="d-grid"><button class="btn btn-success">Ödemeye Geç</button></div>
+          
+          <div id="empty-cart-msg" class="text-center py-4">
+            <i class="bi bi-cart-x text-muted" style="font-size: 3rem;"></i>
+            <p class="mt-3 text-muted">Sepetinizde henüz ürün yok.</p>
+            <button class="btn btn-outline-primary btn-sm mt-2" data-bs-dismiss="modal">Alışverişe Başla</button>
           </div>
+
+          <div id="cart-content" style="display: none;">
+            <ul class="list-group list-group-flush" id="cart-list">
+              </ul>
+          </div>
+
+        </div>
+        
+        <div class="modal-footer justify-content-between" id="cart-footer" style="display: none;">
+          <div>
+            <span class="text-muted small">Toplam Tutar:</span>
+            <h4 class="mb-0 fw-bold text-primary" id="cart-total">₺0,00</h4>
+          </div>
+          <button class="btn btn-success">
+            Siparişi Onayla <i class="bi bi-arrow-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -612,89 +552,31 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // =========================================================
-    // 1. GLOBAL AYARLAR
-    // =========================================================
+    // ==========================================
+    // 1. GLOBAL DEĞİŞKEN (SEPET)
+    // ==========================================
     let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
 
-    // =========================================================
-    // 2. SAYFA YÜKLENDİĞİNDE ÇALIŞACAKLAR
-    // =========================================================
+    // ==========================================
+    // 2. SAYFA YÜKLENDİĞİNDE
+    // ==========================================
     document.addEventListener("DOMContentLoaded", function() {
-      
-      // Kullanıcı Giriş Kontrolü
+      // Login Kontrolü
       if (localStorage.getItem('isLoggedIn') === 'true') {
         updateUIForLoggedInUser(localStorage.getItem('userName'));
       }
 
-      // ==========================================
-      // SLIDER'I ZORLA BAŞLAT (Otomatik Dönmesi İçin)
-      // ==========================================
-      const heroCarousel = document.querySelector('#heroCarousel');
-      if (heroCarousel) {
-        const carouselInstance = new bootstrap.Carousel(heroCarousel, {
-          interval: 4000, // 4 Saniyede bir değişsin
-          ride: 'carousel',
-          pause: false // Mouse üzerine gelince durmasın (İstersen 'hover' yap)
-        });
-        carouselInstance.cycle(); // DÖNMEYE BAŞLA KOMUTU
-      }
+      // Sepet Kontrolü
+      updateCartUI();
 
-      // Sepet Kontrolü (Gecikmeli çalıştır ki HTML tam yüklensin)
-      setTimeout(updateCartUI, 100);
-
-      // "Sepete Ekle" Butonlarını Dinle
-      const buttons = document.querySelectorAll('.add-to-cart-btn');
-      if (buttons) {
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = this.getAttribute('data-id');
-                const name = this.getAttribute('data-name');
-                const price = this.getAttribute('data-price');
-                const image = this.getAttribute('data-image');
-                
-                // Görsel Efekt
-                let originalText = this.innerHTML;
-                this.innerHTML = '<i class="bi bi-check-circle"></i> Eklendi';
-                this.classList.remove('btn-primary');
-                this.classList.add('btn-success');
-                setTimeout(() => {
-                  this.innerHTML = originalText;
-                  this.classList.add('btn-primary');
-                  this.classList.remove('btn-success');
-                }, 1000);
-
-                addToCart(id, name, price, image);
-            });
-        });
-      }
+      // Duyuruları Yükle
+      loadDynamicAnnouncements();
     });
 
-    // =========================================================
-    // 3. SEPET FONKSİYONLARI (Toleranslı Mod)
-    // =========================================================
-
-    function addToCart(id, name, price, image) {
-      // ÖNEMLİ: == kullanarak hem "1" hem 1'i aynı kabul ediyoruz
-      let existingItem = cart.find(item => item.id == id);
-
-      if (existingItem) {
-        existingItem.quantity++;
-      } else {
-        cart.push({ 
-          id: id, 
-          name: name, 
-          price: parseFloat(price), 
-          image: image, 
-          quantity: 1 
-        });
-      }
-      saveCart();
-      updateCartUI();
-    }
-
+    // ==========================================
+    // 3. SEPET FONKSİYONLARI (DÜZELTİLMİŞ)
+    // ==========================================
     function changeQty(id, action) {
-      // ÖNEMLİ: == kullanıldı
       let item = cart.find(item => item.id == id);
       if (!item) return;
 
@@ -703,7 +585,7 @@
       } else if (action === 'minus') {
         item.quantity--;
         if (item.quantity <= 0) {
-          cart = cart.filter(p => p.id != id); // 0 olursa sil
+          cart = cart.filter(p => p.id != id);
         }
       }
       saveCart();
@@ -717,30 +599,30 @@
     function updateCartUI() {
       const cartList = document.getElementById('cart-list');
       const emptyMsg = document.getElementById('empty-cart-msg');
-      const cartItemsArea = document.getElementById('cart-items');
+      const cartContent = document.getElementById('cart-content');
+      const cartFooter = document.getElementById('cart-footer');
       const badge = document.getElementById('cart-count');
       const totalEl = document.getElementById('cart-total');
 
       if (!badge) return;
 
-      // Badge Güncelle
       let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
       badge.innerText = totalCount;
       badge.style.display = totalCount > 0 ? 'block' : 'none';
 
-      if (!cartList || !emptyMsg || !cartItemsArea || !totalEl) return;
+      if (!cartList || !emptyMsg || !cartContent || !totalEl) return;
 
-      // Boş/Dolu Kontrolü
       if (cart.length === 0) {
         emptyMsg.style.display = 'block';
-        cartItemsArea.style.display = 'none';
+        cartContent.style.display = 'none';
+        if(cartFooter) cartFooter.style.display = 'none';
         return;
       } else {
         emptyMsg.style.display = 'none';
-        cartItemsArea.style.display = 'block';
+        cartContent.style.display = 'block';
+        if(cartFooter) cartFooter.style.display = 'flex';
       }
 
-      // Listeyi Oluştur
       let html = '';
       let totalPrice = 0;
 
@@ -748,7 +630,6 @@
         let itemTotal = item.price * item.quantity;
         totalPrice += itemTotal;
 
-        // changeQty fonksiyonuna ID'yi tırnak içinde gönderiyoruz ('${item.id}')
         html += `
           <li class="list-group-item d-flex align-items-center py-3">
             <img src="${item.image}" class="rounded" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
@@ -770,17 +651,10 @@
       totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
     }
 
-    // =========================================================
+    // ==========================================
     // 4. LOGIN / KAYIT FONKSİYONLARI
-    // =========================================================
-    
+    // ==========================================
     function updateUIForLoggedInUser(userName) {
-      var modalEl = document.getElementById('loginModal');
-      if(modalEl) {
-        var modal = bootstrap.Modal.getInstance(modalEl);
-        if(modal) modal.hide();
-      }
-
       var container = document.getElementById('user-login-li');
       if (container) {
         container.innerHTML = `
@@ -791,18 +665,21 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
               <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
               <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Siparişlerim</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-geo-alt"></i> Adreslerim</a></li>
+              <li><a class="dropdown-item" href="#"><i class="bi bi-geo-alt"></i> Adres Bilgilerim</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Çıkış Yap</a></li>
             </ul>
-          </div>
-        `;
+          </div>`;
       }
     }
 
     function loginUser(userName) {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('userName', userName);
+      
+      var modalEl = document.getElementById('loginModal');
+      if(modalEl) { var modal = bootstrap.Modal.getInstance(modalEl); if(modal) modal.hide(); }
+      
       updateUIForLoggedInUser(userName);
     }
 
@@ -812,7 +689,6 @@
       window.location.reload();
     }
 
-    // Formlar
     var loginForm = document.getElementById('loginForm');
     if(loginForm){
       loginForm.addEventListener('submit', function(e) {
@@ -828,12 +704,60 @@
       });
     }
 
-    var regForm = document.getElementById('registerForm');
-    if(regForm){
-      regForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        loginUser("Yeni Üye");
-      });
+    // ==========================================
+    // 5. DİNAMİK DUYURU SİSTEMİ
+    // ==========================================
+    function loadDynamicAnnouncements() {
+        
+        // A. TEMİZLİK: Eski verilerde sorunlu link varsa hafızayı sil
+        const currentData = localStorage.getItem('shommeAnnouncements');
+        if (currentData && !currentData.includes("photo-1516937941348")) { 
+             localStorage.removeItem('shommeAnnouncements');
+        }
+
+        // B. Varsayılan Duyurular
+        const defaultAnnouncements = [
+            { id: 1, title: "Yaz Kampanyası Başladı!", date: "15 Kasım 2025", author: "Satış", img: "assets/img/blog/blog-1.jpg", text: "Tüm akıllı kilitlerde %20 indirim..." },
+            { id: 2, title: "Shomme App v2.0 Yayında", date: "10 Ekim 2025", author: "Teknik", img: "assets/img/blog/blog-2.jpg", text: "Yeni arayüz ve özellikler..." },
+            { id: 3, title: "Yeni Robot Süpürge", date: "5 Eylül 2025", author: "Pazarlama", img: "assets/img/blog/blog-3.jpg", text: "Yapay zeka destekli temizlik..." },
+            { id: 4, title: "Yılın En İyi Markası", date: "20 Ağustos 2025", author: "Yönetim", img: "assets/img/blog/blog-4.jpg", text: "Teknoloji ödülünü kazandık..." },
+            { id: 5, title: "Kışa Hazırlık İndirimleri", date: "1 Kasım 2025", author: "Satış", img: "https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?q=80&w=1234&auto=format&fit=crop", text: "Termostatlarda büyük fırsat..." },
+            { id: 6, title: "%98 Müşteri Memnuniyeti", date: "15 Aralık 2025", author: "Müşteri Hizm.", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600", text: "Anket sonuçlarımız açıklandı..." }
+        ];
+
+        // C. Hafızayı Kontrol Et ve Doldur
+        let posts = JSON.parse(localStorage.getItem('shommeAnnouncements'));
+        if (!posts || posts.length === 0) {
+            localStorage.setItem('shommeAnnouncements', JSON.stringify(defaultAnnouncements));
+            posts = defaultAnnouncements;
+        }
+
+        // D. Slider'a Bas (En yeni 4 tane)
+        let latestPosts = posts.slice().reverse().slice(0, 4);
+        const wrapper = document.getElementById('dynamic-announcements');
+        
+        if (wrapper) {
+            let html = '';
+            latestPosts.forEach(post => {
+                html += `
+                <div class="swiper-slide">
+                  <div class="post-box">
+                    <div class="post-img"><img src="${post.img}" class="img-fluid" alt="" style="height: 250px; width: 100%; object-fit: cover;"></div>
+                    <div class="meta">
+                      <span class="post-date">${post.date}</span>
+                      <span class="post-author"> / ${post.author}</span>
+                    </div>
+                    <h3 class="post-title">${post.title}</h3>
+                    <p>${post.text.substring(0, 60)}...</p>
+                    <a href="duyurular.html" class="readmore stretched-link">
+                      <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+                `;
+            });
+            wrapper.innerHTML = html;
+        }
     }
   </script>
 
