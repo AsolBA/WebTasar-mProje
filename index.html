@@ -22,6 +22,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <link href="assets/css/main.css" rel="stylesheet">
+  
 </head>
 
 <body class="index-page">
@@ -34,7 +35,7 @@
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul class="d-flex align-items-center">
+        <ul >
           <li><a href="index.html" class="active">Ana Sayfa</a></li>
 
           <li class="dropdown"><a href="hakkimizda.html"><span>Kurumsal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -54,7 +55,7 @@
             </ul>
           </li>
 
-         <li><a href="istatistikler.html">İstatistikler</a></li>
+          
           <li><a href="iletisim.html">İletişim</a></li>
 
           <li class="ms-4" id="user-login-li">
@@ -499,7 +500,36 @@
             </div>
           </form>
           <div class="text-center mt-3">
-            <small class="text-muted">Hesabın yok mu? <a href="#">Kayıt Ol</a></small>
+            <small class="text-muted">Hesabın yok mu? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Kayıt Ol</a></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold">Aramıza Katıl</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="mb-3">
+              <label class="form-label">Kullanıcı Adı Belirle</label>
+              <input type="text" class="form-control" id="regUsername" placeholder="Örn: ahmet123" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Şifre Belirle</label>
+              <input type="password" class="form-control" id="regPassword" placeholder="En az 4 karakter" required minlength="4">
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success">Kayıt Ol</button>
+            </div>
+          </form>
+          <div class="text-center mt-3">
+            <small class="text-muted">Zaten hesabın var mı? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Giriş Yap</a></small>
           </div>
         </div>
       </div>
@@ -510,32 +540,74 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-bold">Sepetim</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title fw-bold"><i class="bi bi-cart-check"></i> Alışveriş Sepetim</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
         </div>
         <div class="modal-body">
-          
           <div id="empty-cart-msg" class="text-center py-4">
-            <i class="bi bi-cart-x text-muted" style="font-size: 3rem;"></i>
-            <p class="mt-3 text-muted">Sepetinizde henüz ürün yok.</p>
-            <button class="btn btn-outline-primary btn-sm mt-2" data-bs-dismiss="modal">Alışverişe Başla</button>
+            <i class="bi bi-cart-x display-4 text-muted"></i>
+            <p class="mt-3">Sepetinizde henüz ürün yok.</p>
+            <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Alışverişe Başla</button>
           </div>
-
-          <div id="cart-content" style="display: none;">
-            <ul class="list-group list-group-flush" id="cart-list">
-              </ul>
+          
+          <div id="cart-items" style="display: none;">
+            <ul class="list-group mb-3" id="cart-list">
+               </ul>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+               <strong>Toplam Tutar:</strong>
+               <span id="cart-total" class="h5 text-primary mb-0">₺0.00</span>
+            </div>
+            <div class="d-grid">
+               <button class="btn btn-success">Ödemeye Geç</button>
+            </div>
           </div>
-
         </div>
-        
-        <div class="modal-footer justify-content-between" id="cart-footer" style="display: none;">
-          <div>
-            <span class="text-muted small">Toplam Tutar:</span>
-            <h4 class="mb-0 fw-bold text-primary" id="cart-total">₺0,00</h4>
-          </div>
-          <button class="btn btn-success">
-            Siparişi Onayla <i class="bi bi-arrow-right"></i>
-          </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="profileModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold"><i class="bi bi-person-vcard"></i> Kullanıcı Bilgilerim</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="saveProfile(event)">
+            <div class="row mb-3">
+              <div class="col-6">
+                <label class="form-label small text-muted">İsim</label>
+                <input type="text" class="form-control" id="profName" placeholder="Adınız">
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-muted">Soyisim</label>
+                <input type="text" class="form-control" id="profSurname" placeholder="Soyadınız">
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label small text-muted">Telefon Numarası</label>
+              <input type="tel" class="form-control" id="profPhone" placeholder="05XX XXX XX XX">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-muted">T.C. Kimlik No</label>
+              <input type="text" class="form-control" id="profTC" placeholder="11 Haneli TCKN" maxlength="11">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-muted">Açık Adres</label>
+              <textarea class="form-control" id="profAddress" rows="3" placeholder="Mahalle, Cadde, No..."></textarea>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Bilgileri Güncelle</button>
+            </div>
+            <div id="profSuccessMsg" class="alert alert-success mt-2 p-2 text-center small" style="display:none;">
+              <i class="bi bi-check-circle-fill"></i> Bilgileriniz başarıyla kaydedildi!
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -551,217 +623,222 @@
 
   <script src="assets/js/main.js"></script>
 
- <script>
-    // ==========================================
-    // 1. GLOBAL DEĞİŞKEN (SEPET)
-    // ==========================================
+  <script>
+    // 1. GLOBAL DEĞİŞKEN
     let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
 
-    // ==========================================
     // 2. SAYFA YÜKLENDİĞİNDE
-    // ==========================================
     document.addEventListener("DOMContentLoaded", function() {
-      // A. Login Kontrolü
-      if (localStorage.getItem('isLoggedIn') === 'true') {
-        updateUIForLoggedInUser(localStorage.getItem('userName'));
-      }
+        // A. Login Kontrolü
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            updateUIForLoggedInUser(localStorage.getItem('userName'));
+        }
+        
+        // B. Sepet Kontrolü
+        updateCartUI();
 
-      // B. Sepet Kontrolü
-      updateCartUI();
+        // C. Duyuruları Yükle (Index'e Özel)
+        loadDynamicAnnouncements();
 
-      // C. Duyuruları Yükle
-      loadDynamicAnnouncements();
-
-      // D. SLIDER'I ZORLA BAŞLAT (EKLENEN KISIM BURASI)
-      // Tarayıcı bazen otomatik başlatmayı kaçırır, bu kod onu tekmeler.
-      var heroCarouselElement = document.querySelector('#heroCarousel');
-      if (heroCarouselElement) {
-          // Bootstrap motorunu manuel tetikliyoruz
-          var heroCarousel = new bootstrap.Carousel(heroCarouselElement, {
-            interval: 4000, // 4 Saniyede bir dönsün
-            wrap: true,     // Sona gelince başa dönsün
-            pause: false  // Mouse üstüne gelince dursun
-          });
-          heroCarousel.cycle(); // "DÖNMEYE BAŞLA" emri
-          console.log("Hero Slider Başlatıldı ✅");
-      }
+        // D. Slider'ı Zorla Başlat (Index'e Özel)
+        var heroCarouselElement = document.querySelector('#heroCarousel');
+        if (heroCarouselElement) {
+            var heroCarousel = new bootstrap.Carousel(heroCarouselElement, {
+                interval: 4000,
+                wrap: true,
+                pause: false
+            });
+            heroCarousel.cycle();
+        }
     });
 
-    // ==========================================
-    // 3. SEPET FONKSİYONLARI
-    // ==========================================
-    function changeQty(id, action) {
-      let item = cart.find(item => item.id == id);
-      if (!item) return;
+    // 3. PROFİL İŞLEMLERİ
+    function openProfileModal() {
+        var currentUser = localStorage.getItem('userName');
+        if(!currentUser) return;
+        var userProfile = JSON.parse(localStorage.getItem('profile_' + currentUser)) || {};
+        
+        document.getElementById('profName').value = userProfile.name || "";
+        document.getElementById('profSurname').value = userProfile.surname || "";
+        document.getElementById('profPhone').value = userProfile.phone || "";
+        document.getElementById('profTC').value = userProfile.tc || "";
+        document.getElementById('profAddress').value = userProfile.address || "";
+        
+        document.getElementById('profSuccessMsg').style.display = 'none';
+        var myModal = new bootstrap.Modal(document.getElementById('profileModal'));
+        myModal.show();
+    }
 
-      if (action === 'plus') {
-        item.quantity++;
-      } else if (action === 'minus') {
-        item.quantity--;
-        if (item.quantity <= 0) {
-          cart = cart.filter(p => p.id != id);
+    function saveProfile(event) {
+        event.preventDefault();
+        var currentUser = localStorage.getItem('userName');
+        var profileData = {
+            name: document.getElementById('profName').value,
+            surname: document.getElementById('profSurname').value,
+            phone: document.getElementById('profPhone').value,
+            tc: document.getElementById('profTC').value,
+            address: document.getElementById('profAddress').value
+        };
+        localStorage.setItem('profile_' + currentUser, JSON.stringify(profileData));
+        var msg = document.getElementById('profSuccessMsg');
+        msg.style.display = 'block';
+        setTimeout(() => {
+            var modalEl = document.getElementById('profileModal');
+            var modal = bootstrap.Modal.getInstance(modalEl);
+            modal.hide();
+        }, 1500);
+    }
+
+    // 4. LOGIN & REGISTER
+    function updateUIForLoggedInUser(userName) {
+        var container = document.getElementById('user-login-li');
+        if (container) {
+            container.innerHTML = `
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-check-fill" style="font-size: 1.4rem; color: #198754 !important;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
+            <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Siparişlerim</a></li>
+            <li><a class="dropdown-item" href="#" onclick="openProfileModal()"><i class="bi bi-person-vcard"></i> Kullanıcı Bilgilerim</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Çıkış Yap</a></li>
+          </ul>
+        </div>
+      `;
         }
-      }
-      saveCart();
-      updateCartUI();
     }
 
-    function saveCart() {
-      localStorage.setItem('shommeCart', JSON.stringify(cart));
+    function loginSuccess(userName) {
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userName', userName);
+        document.querySelectorAll('.modal').forEach(modalEl => {
+            var modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) modalInstance.hide();
+        });
+        updateUIForLoggedInUser(userName);
     }
 
+    function logoutUser() {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userName');
+        window.location.reload();
+    }
+
+    var registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var regUser = document.getElementById('regUsername').value.trim();
+            var regPass = document.getElementById('regPassword').value.trim();
+            var users = JSON.parse(localStorage.getItem('shommeUsers')) || [];
+            if (users.some(u => u.username === regUser)) {
+                alert("Bu kullanıcı adı zaten alınmış!");
+                return;
+            }
+            users.push({ username: regUser, password: regPass });
+            localStorage.setItem('shommeUsers', JSON.stringify(users));
+            loginSuccess(regUser);
+        });
+    }
+
+    var loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var uName = document.getElementById('username').value.trim();
+            var pass = document.getElementById('password').value.trim();
+            if (uName === 'admin' && pass === '1234') {
+                window.location.href = 'admin/index.html';
+                return;
+            }
+            var users = JSON.parse(localStorage.getItem('shommeUsers')) || [];
+            if (users.find(u => u.username === uName && u.password === pass)) {
+                loginSuccess(uName);
+            } else {
+                alert("Hatalı kullanıcı adı veya şifre!");
+            }
+        });
+    }
+
+    // 5. SEPET FONKSİYONLARI
+    function addToCart(id, name, price, image) {
+        let existingItem = cart.find(item => item.id == id);
+        if (existingItem) existingItem.quantity++;
+        else cart.push({ id: id, name: name, price: parseFloat(price), image: image, quantity: 1 });
+        saveCart();
+        updateCartUI();
+    }
+    function changeQty(id, action) {
+        let item = cart.find(item => item.id == id);
+        if (!item) return;
+        if (action === 'plus') item.quantity++;
+        else if (action === 'minus') {
+            item.quantity--;
+            if (item.quantity <= 0) cart = cart.filter(p => p.id != id);
+        }
+        saveCart();
+        updateCartUI();
+    }
+    function saveCart() { localStorage.setItem('shommeCart', JSON.stringify(cart)); }
     function updateCartUI() {
-      const cartList = document.getElementById('cart-list');
-      const emptyMsg = document.getElementById('empty-cart-msg');
-      const cartContent = document.getElementById('cart-content');
-      const cartFooter = document.getElementById('cart-footer');
-      const badge = document.getElementById('cart-count');
-      const totalEl = document.getElementById('cart-total');
-
-      if (!badge) return;
-
-      let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-      badge.innerText = totalCount;
-      badge.style.display = totalCount > 0 ? 'block' : 'none';
-
-      if (!cartList || !emptyMsg || !cartContent || !totalEl) return;
-
-      if (cart.length === 0) {
-        emptyMsg.style.display = 'block';
-        cartContent.style.display = 'none';
-        if(cartFooter) cartFooter.style.display = 'none';
-        return;
-      } else {
-        emptyMsg.style.display = 'none';
-        cartContent.style.display = 'block';
-        if(cartFooter) cartFooter.style.display = 'flex';
-      }
-
-      let html = '';
-      let totalPrice = 0;
-
-      cart.forEach(item => {
-        let itemTotal = item.price * item.quantity;
-        totalPrice += itemTotal;
-
-        html += `
-          <li class="list-group-item d-flex align-items-center py-3">
+        const cartList = document.getElementById('cart-list');
+        const emptyMsg = document.getElementById('empty-cart-msg');
+        const cartItemsArea = document.getElementById('cart-items');
+        const badge = document.getElementById('cart-count');
+        const totalEl = document.getElementById('cart-total');
+        if (!badge) return;
+        let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        badge.innerText = totalCount;
+        badge.style.display = totalCount > 0 ? 'block' : 'none';
+        if (!cartList || !emptyMsg || !totalEl) return;
+        if (cart.length === 0) {
+            emptyMsg.style.display = 'block';
+            if(cartItemsArea) cartItemsArea.style.display = 'none';
+        } else {
+            emptyMsg.style.display = 'none';
+            if(cartItemsArea) cartItemsArea.style.display = 'block';
+        }
+        let html = '';
+        let totalPrice = 0;
+        cart.forEach(item => {
+            let itemTotal = item.price * item.quantity;
+            totalPrice += itemTotal;
+            html += `<li class="list-group-item d-flex align-items-center py-3">
             <img src="${item.image}" class="rounded" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
-            <div class="flex-grow-1">
-              <h6 class="mb-0 fw-bold" style="font-size: 0.9rem;">${item.name}</h6>
-              <small class="text-muted">Birim: ₺${item.price}</small>
-            </div>
+            <div class="flex-grow-1"><h6 class="mb-0 fw-bold" style="font-size: 0.9rem;">${item.name}</h6><small class="text-muted">Birim: ₺${item.price}</small></div>
             <div class="d-flex align-items-center bg-light rounded p-1">
               <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'minus')"><i class="bi bi-dash"></i></button>
               <span class="mx-1 fw-bold small">${item.quantity}</span>
               <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'plus')"><i class="bi bi-plus"></i></button>
-            </div>
-            <div class="ms-3 fw-bold text-primary small">₺${itemTotal.toLocaleString('tr-TR')}</div>
-          </li>
-        `;
-      });
-
-      cartList.innerHTML = html;
-      totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
+            </div><div class="ms-3 fw-bold text-primary small">₺${itemTotal.toLocaleString('tr-TR')}</div></li>`;
+        });
+        cartList.innerHTML = html;
+        totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
     }
 
-    // ==========================================
-    // 4. LOGIN / KAYIT FONKSİYONLARI
-    // ==========================================
-    function updateUIForLoggedInUser(userName) {
-      var container = document.getElementById('user-login-li');
-      if (container) {
-        container.innerHTML = `
-          <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-check-fill" style="font-size: 1.4rem; color: #198754 !important;"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
-              <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Siparişlerim</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-geo-alt"></i> Adres Bilgilerim</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Çıkış Yap</a></li>
-            </ul>
-          </div>`;
-      }
-    }
-
-    function loginUser(userName) {
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('userName', userName);
-      
-      var modalEl = document.getElementById('loginModal');
-      if(modalEl) { var modal = bootstrap.Modal.getInstance(modalEl); if(modal) modal.hide(); }
-      
-      updateUIForLoggedInUser(userName);
-    }
-
-    function logoutUser() {
-      localStorage.removeItem('isLoggedIn');
-      localStorage.removeItem('userName');
-      window.location.reload();
-    }
-
-    var loginForm = document.getElementById('loginForm');
-    if(loginForm){
-      loginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); 
-        var uName = document.getElementById('username').value;
-        var pass = document.getElementById('password').value;
-        if (uName === 'admin' && pass === '1234') {
-          alert('Admin Paneline Gidiliyor...');
-          window.location.href = 'admin/index.html'; 
-        } else {
-          loginUser(uName);
-        }
-      });
-    }
-
-    // ==========================================
-    // 5. DİNAMİK DUYURU SİSTEMİ (GÜVENLİ & BİRLEŞTİRİCİ)
-    // ==========================================
+    // 6. DİNAMİK DUYURULAR (Index'e Özel)
     function loadDynamicAnnouncements() {
-        
-        // A. Varsayılan (Sabit) Duyurular
         const defaultAnnouncements = [
             { id: 1, title: "Yaz Kampanyası Başladı!", date: "15 Kasım 2025", author: "Satış", img: "assets/img/blog/blog-1.jpg", text: "Tüm akıllı kilitlerde %20 indirim..." },
             { id: 2, title: "Shomme App v2.0 Yayında", date: "10 Ekim 2025", author: "Teknik", img: "assets/img/blog/blog-2.jpg", text: "Yeni arayüz ve özellikler..." },
             { id: 3, title: "Yeni Robot Süpürge", date: "5 Eylül 2025", author: "Pazarlama", img: "assets/img/blog/blog-3.jpg", text: "Yapay zeka destekli temizlik..." },
-            { id: 4, title: "Yılın En İyi Markası", date: "20 Ağustos 2025", author: "Yönetim", img: "assets/img/blog/blog-4.jpg", text: "Teknoloji ödülünü kazandık..." },
-            { id: 5, title: "Kışa Hazırlık İndirimleri", date: "1 Kasım 2025", author: "Satış", img: "assets/img/blog/kis.jpg", text: "Termostatlarda büyük fırsat..." },
-            { id: 6, title: "%98 Müşteri Memnuniyeti", date: "15 Aralık 2025", author: "Müşteri Hizm.", img: "assets/img/blog/blog-6.jpg", text: "Anket sonuçlarımız açıklandı..." }
+            { id: 4, title: "Yılın En İyi Markası", date: "20 Ağustos 2025", author: "Yönetim", img: "assets/img/blog/blog-4.jpg", text: "Teknoloji ödülünü kazandık..." }
         ];
-
-        // B. Admin Panelinden Gelenleri Çek
         let adminPosts = [];
         try {
             const localData = JSON.parse(localStorage.getItem('shommeAnnouncements'));
-            if (Array.isArray(localData)) {
-                // Sadece ID'si 100'den büyük olanları (Admin eklemesi) alalım
-                adminPosts = localData.filter(p => p.id > 100);
-            }
-        } catch (e) {
-            console.log("Veri okuma hatası, varsayılanlar yükleniyor.");
-        }
-
-        // C. Hepsini Hafızada Birleştir
+            if (Array.isArray(localData)) adminPosts = localData.filter(p => p.id > 100);
+        } catch (e) {}
         let allPosts = [...defaultAnnouncements, ...adminPosts];
-
-        // D. Sıralama Yap
         allPosts.sort((a, b) => b.id - a.id);
-
-        // E. Sadece En Yeni 4 Tanesini Al
         let latestPosts = allPosts.slice(0, 4);
-
-        // F. Slider'a Bas
         const wrapper = document.getElementById('dynamic-announcements');
-        
         if (wrapper) {
             let html = '';
             latestPosts.forEach(post => {
                 let imgSource = post.img ? post.img : 'assets/img/blog/blog-1.jpg';
-
                 html += `
                 <div class="swiper-slide">
                   <div class="post-box" style="height: 100%; min-height: 400px; display: flex; flex-direction: column;">
@@ -778,13 +855,12 @@
                       <span>Detayları Gör</span><i class="bi bi-arrow-right ms-1"></i>
                     </a>
                   </div>
-                </div>
-                `;
+                </div>`;
             });
             wrapper.innerHTML = html;
         }
     }
-</script>
+  </script>
 
 </body>
 </html>

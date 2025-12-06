@@ -4,36 +4,24 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Team - Nova Bootstrap Template</title>
+  <title>Müşteri Hizmetleri - Shomme</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Nova
-  * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="team-page">
@@ -46,7 +34,7 @@
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul class="d-flex align-items-center"> 
+        <ul> 
           <li><a href="index.html">Ana Sayfa</a></li>
 
           <li class="dropdown"><a href="hakkimizda.html"><span>Kurumsal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -65,7 +53,6 @@
               <li><a href="birim-musteri.html">Müşteri Hizmetleri</a></li>
             </ul>
           </li>
-
           
           <li><a href="iletisim.html">İletişim</a></li>
 
@@ -76,14 +63,12 @@
           </li>
 
           <li class="ms-2 position-relative">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal" class="d-flex align-items-center" title="Sepetim">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal" class="d-flex align-items-center" title="Sepetim" onclick="updateCartUI()">
               <i class="bi bi-cart3" style="font-size: 1.4rem;"></i>
-              <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">
-                0
-              </span>
+              <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
             </a>
           </li>
-          </ul>
+        </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
@@ -92,21 +77,17 @@
 
   <main class="main">
 
-    <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/team-page-title-bg.jpg);">
       <div class="container">
-        <h1>Team</h1>
+        <h1>Birimlerimiz</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Team</li>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li class="current">Müşteri Hizmetleri</li>
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
+    </div><section id="team" class="team section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Müşteri Hizmetleri</h2>
         <p>Sorularınız ve talepleriniz için bir telefon uzağınızdayız.</p>
@@ -120,7 +101,7 @@
                 <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=600&auto=format&fit=crop" class="img-fluid" alt="" style="height: 400px; width: 100%; object-fit: cover;">
               </div>
               <div class="member-info">
-                <h4>Elif Yılmaz</h4>
+                <h4>Elif Aslan</h4>
                 <span>Müşteri İlişkileri Yöneticisi</span>
               </div>
             </div>
@@ -132,7 +113,7 @@
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" class="img-fluid" alt="" style="height: 400px; width: 100%; object-fit: cover;">
               </div>
               <div class="member-info">
-                <h4>Seda Nur</h4>
+                <h4>Nur Yeşil</h4>
                 <span>Destek Uzmanı</span>
               </div>
             </div>
@@ -144,7 +125,7 @@
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" class="img-fluid" alt="" style="height: 400px; width: 100%; object-fit: cover;">
               </div>
               <div class="member-info">
-                <h4>Oğuzhan Koç</h4>
+                <h4>Batu Khan</h4>
                 <span>Call Center Sorumlusu</span>
               </div>
             </div>
@@ -218,296 +199,62 @@
 
   </footer>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-<script>
-    // =========================================================
-    // 1. GLOBAL AYARLAR
-    // =========================================================
-    let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
-
-    // =========================================================
-    // 2. SAYFA YÜKLENDİĞİNDE ÇALIŞACAKLAR
-    // =========================================================
-    document.addEventListener("DOMContentLoaded", function() {
-      
-      // Kullanıcı Giriş Kontrolü
-      if (localStorage.getItem('isLoggedIn') === 'true') {
-        updateUIForLoggedInUser(localStorage.getItem('userName'));
-      }
-
-      // Sepet Kontrolü (Gecikmeli çalıştır ki HTML tam yüklensin)
-      setTimeout(updateCartUI, 100);
-
-      // "Sepete Ekle" Butonlarını Dinle
-      const buttons = document.querySelectorAll('.add-to-cart-btn');
-      if (buttons) {
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = this.getAttribute('data-id');
-                const name = this.getAttribute('data-name');
-                const price = this.getAttribute('data-price');
-                const image = this.getAttribute('data-image');
-                
-                // Görsel Efekt
-                let originalText = this.innerHTML;
-                this.innerHTML = '<i class="bi bi-check-circle"></i> Eklendi';
-                this.classList.remove('btn-primary');
-                this.classList.add('btn-success');
-                setTimeout(() => {
-                  this.innerHTML = originalText;
-                  this.classList.add('btn-primary');
-                  this.classList.remove('btn-success');
-                }, 1000);
-
-                addToCart(id, name, price, image);
-            });
-        });
-      }
-    });
-
-    // =========================================================
-    // 3. SEPET FONKSİYONLARI (Toleranslı Mod)
-    // =========================================================
-
-    function addToCart(id, name, price, image) {
-      // ÖNEMLİ: == kullanarak hem "1" hem 1'i aynı kabul ediyoruz
-      let existingItem = cart.find(item => item.id == id);
-
-      if (existingItem) {
-        existingItem.quantity++;
-      } else {
-        cart.push({ 
-          id: id, 
-          name: name, 
-          price: parseFloat(price), 
-          image: image, 
-          quantity: 1 
-        });
-      }
-      saveCart();
-      updateCartUI();
-    }
-
-    function changeQty(id, action) {
-      // ÖNEMLİ: == kullanıldı
-      let item = cart.find(item => item.id == id);
-      if (!item) return;
-
-      if (action === 'plus') {
-        item.quantity++;
-      } else if (action === 'minus') {
-        item.quantity--;
-        if (item.quantity <= 0) {
-          cart = cart.filter(p => p.id != id); // 0 olursa sil
-        }
-      }
-      saveCart();
-      updateCartUI();
-    }
-
-    function saveCart() {
-      localStorage.setItem('shommeCart', JSON.stringify(cart));
-    }
-
-    function updateCartUI() {
-      const cartList = document.getElementById('cart-list');
-      const emptyMsg = document.getElementById('empty-cart-msg');
-      const cartItemsArea = document.getElementById('cart-items');
-      const badge = document.getElementById('cart-count');
-      const totalEl = document.getElementById('cart-total');
-
-      if (!badge) return;
-
-      // Badge Güncelle
-      let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-      badge.innerText = totalCount;
-      badge.style.display = totalCount > 0 ? 'block' : 'none';
-
-      if (!cartList || !emptyMsg || !cartItemsArea || !totalEl) return;
-
-      // Boş/Dolu Kontrolü
-      if (cart.length === 0) {
-        emptyMsg.style.display = 'block';
-        cartItemsArea.style.display = 'none';
-        return;
-      } else {
-        emptyMsg.style.display = 'none';
-        cartItemsArea.style.display = 'block';
-      }
-
-      // Listeyi Oluştur
-      let html = '';
-      let totalPrice = 0;
-
-      cart.forEach(item => {
-        let itemTotal = item.price * item.quantity;
-        totalPrice += itemTotal;
-
-        // changeQty fonksiyonuna ID'yi tırnak içinde gönderiyoruz ('${item.id}')
-        html += `
-          <li class="list-group-item d-flex align-items-center py-3">
-            <img src="${item.image}" class="rounded" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
-            <div class="flex-grow-1">
-              <h6 class="mb-0 fw-bold" style="font-size: 0.9rem;">${item.name}</h6>
-              <small class="text-muted">Birim: ₺${item.price}</small>
-            </div>
-            <div class="d-flex align-items-center bg-light rounded p-1">
-              <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'minus')"><i class="bi bi-dash"></i></button>
-              <span class="mx-1 fw-bold small">${item.quantity}</span>
-              <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'plus')"><i class="bi bi-plus"></i></button>
-            </div>
-            <div class="ms-3 fw-bold text-primary small">₺${itemTotal.toLocaleString('tr-TR')}</div>
-          </li>
-        `;
-      });
-
-      cartList.innerHTML = html;
-      totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
-    }
-
-    // =========================================================
-    // 4. LOGIN / KAYIT FONKSİYONLARI
-    // =========================================================
-    
-    function updateUIForLoggedInUser(userName) {
-      var modalEl = document.getElementById('loginModal');
-      if(modalEl) {
-        var modal = bootstrap.Modal.getInstance(modalEl);
-        if(modal) modal.hide();
-      }
-
-      var container = document.getElementById('user-login-li');
-      if (container) {
-        container.innerHTML = `
-          <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-check-fill" style="font-size: 1.4rem; color: #198754 !important;"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
-              <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Siparişlerim</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-geo-alt"></i> Adreslerim</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Çıkış Yap</a></li>
-            </ul>
-          </div>
-        `;
-      }
-    }
-
-    function loginUser(userName) {
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('userName', userName);
-      updateUIForLoggedInUser(userName);
-    }
-
-    function logoutUser() {
-      localStorage.removeItem('isLoggedIn');
-      localStorage.removeItem('userName');
-      window.location.reload();
-    }
-
-    // Formlar
-    var loginForm = document.getElementById('loginForm');
-    if(loginForm){
-      loginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); 
-        var uName = document.getElementById('username').value;
-        var pass = document.getElementById('password').value;
-        if (uName === 'admin' && pass === '1234') {
-          alert('Admin Paneline Gidiliyor...');
-          window.location.href = 'admin/index.html'; 
-        } else {
-          loginUser(uName);
-        }
-      });
-    }
-
-    var regForm = document.getElementById('registerForm');
-    if(regForm){
-      regForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        loginUser("Yeni Üye");
-      });
-    }
-  </script>
 
   <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Hesap İşlemleri</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold">Giriş Yap</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          
-          <ul class="nav nav-tabs nav-fill mb-4" id="authTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-pane" type="button" role="tab">Giriş Yap</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link fw-bold" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-pane" type="button" role="tab">Kayıt Ol</button>
-            </li>
-          </ul>
-
-          <div class="tab-content" id="authTabContent">
-            
-            <div class="tab-pane fade show active" id="login-pane" role="tabpanel">
-              <form id="loginForm">
-                <div class="mb-3">
-                  <label for="username" class="form-label">Kullanıcı Adı</label>
-                  <input type="text" class="form-control" id="username" required>
-                </div>
-                <div class="mb-3">
-                  <label for="password" class="form-label">Şifre</label>
-                  <input type="password" class="form-control" id="password" required>
-                </div>
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-primary">Giriş Yap</button>
-                </div>
-                <div class="text-center mt-3">
-                  <a href="#" class="text-decoration-none small text-muted">Şifremi Unuttum?</a>
-                </div>
-              </form>
+          <form id="loginForm">
+            <div class="mb-3">
+              <label class="form-label">Kullanıcı Adı</label>
+              <input type="text" class="form-control" id="username" placeholder="Örn: admin" required>
             </div>
-
-           <div class="tab-pane fade" id="register-pane" role="tabpanel">
-              <form id="registerForm">
-                <div class="mb-3">
-                  <label class="form-label">Ad Soyad</label>
-                  <input type="text" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">E-posta Adresi</label>
-                  <input type="email" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Şifre Belirle</label>
-                  <input type="password" class="form-control" required>
-                </div>
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-success">Kayıt Ol</button>
-                </div>
-              </form>
+            <div class="mb-3">
+              <label class="form-label">Şifre</label>
+              <input type="password" class="form-control" id="password" placeholder="Örn: 1234" required>
             </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Giriş Yap</button>
+            </div>
+          </form>
+          <div class="text-center mt-3">
+            <small class="text-muted">Hesabın yok mu? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Kayıt Ol</a></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold">Aramıza Katıl</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="mb-3">
+              <label class="form-label">Kullanıcı Adı Belirle</label>
+              <input type="text" class="form-control" id="regUsername" placeholder="Örn: ahmet123" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Şifre Belirle</label>
+              <input type="password" class="form-control" id="regPassword" placeholder="En az 4 karakter" required minlength="4">
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success">Kayıt Ol</button>
+            </div>
+          </form>
+          <div class="text-center mt-3">
+            <small class="text-muted">Zaten hesabın var mı? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Giriş Yap</a></small>
           </div>
         </div>
       </div>
@@ -518,7 +265,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-cart-check"></i> Alışveriş Sepetim</h5>
+          <h5 class="modal-title fw-bold"><i class="bi bi-cart-check"></i> Alışveriş Sepetim</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
         </div>
         <div class="modal-body">
@@ -544,6 +291,243 @@
     </div>
   </div>
 
-</body>
+  <div class="modal fade" id="profileModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold"><i class="bi bi-person-vcard"></i> Kullanıcı Bilgilerim</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="saveProfile(event)">
+            <div class="row mb-3">
+              <div class="col-6">
+                <label class="form-label small text-muted">İsim</label>
+                <input type="text" class="form-control" id="profName" placeholder="Adınız">
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-muted">Soyisim</label>
+                <input type="text" class="form-control" id="profSurname" placeholder="Soyadınız">
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label small text-muted">Telefon Numarası</label>
+              <input type="tel" class="form-control" id="profPhone" placeholder="05XX XXX XX XX">
+            </div>
 
+            <div class="mb-3">
+              <label class="form-label small text-muted">T.C. Kimlik No</label>
+              <input type="text" class="form-control" id="profTC" placeholder="11 Haneli TCKN" maxlength="11">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-muted">Açık Adres</label>
+              <textarea class="form-control" id="profAddress" rows="3" placeholder="Mahalle, Cadde, No..."></textarea>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Bilgileri Güncelle</button>
+            </div>
+            <div id="profSuccessMsg" class="alert alert-success mt-2 p-2 text-center small" style="display:none;">
+              <i class="bi bi-check-circle-fill"></i> Bilgileriniz başarıyla kaydedildi!
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // 1. GLOBAL DEĞİŞKENLER
+    let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
+
+    // 2. SAYFA YÜKLENDİĞİNDE
+    document.addEventListener("DOMContentLoaded", function() {
+        // A. Login Kontrolü
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            updateUIForLoggedInUser(localStorage.getItem('userName'));
+        }
+        // B. Sepet Kontrolü
+        updateCartUI();
+    });
+
+    // 3. PROFİL İŞLEMLERİ
+    function openProfileModal() {
+        var currentUser = localStorage.getItem('userName');
+        if(!currentUser) return;
+        var userProfile = JSON.parse(localStorage.getItem('profile_' + currentUser)) || {};
+        
+        document.getElementById('profName').value = userProfile.name || "";
+        document.getElementById('profSurname').value = userProfile.surname || "";
+        document.getElementById('profPhone').value = userProfile.phone || "";
+        document.getElementById('profTC').value = userProfile.tc || "";
+        document.getElementById('profAddress').value = userProfile.address || "";
+        
+        document.getElementById('profSuccessMsg').style.display = 'none';
+        var myModal = new bootstrap.Modal(document.getElementById('profileModal'));
+        myModal.show();
+    }
+
+    function saveProfile(event) {
+        event.preventDefault();
+        var currentUser = localStorage.getItem('userName');
+        var profileData = {
+            name: document.getElementById('profName').value,
+            surname: document.getElementById('profSurname').value,
+            phone: document.getElementById('profPhone').value,
+            tc: document.getElementById('profTC').value,
+            address: document.getElementById('profAddress').value
+        };
+        localStorage.setItem('profile_' + currentUser, JSON.stringify(profileData));
+        var msg = document.getElementById('profSuccessMsg');
+        msg.style.display = 'block';
+        setTimeout(() => {
+            var modalEl = document.getElementById('profileModal');
+            var modal = bootstrap.Modal.getInstance(modalEl);
+            modal.hide();
+        }, 1500);
+    }
+
+    // 4. LOGIN & REGISTER
+    function updateUIForLoggedInUser(userName) {
+        var container = document.getElementById('user-login-li');
+        if (container) {
+            container.innerHTML = `
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-check-fill" style="font-size: 1.4rem; color: #198754 !important;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
+            <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Siparişlerim</a></li>
+            <li><a class="dropdown-item" href="#" onclick="openProfileModal()"><i class="bi bi-person-vcard"></i> Kullanıcı Bilgilerim</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Çıkış Yap</a></li>
+          </ul>
+        </div>
+      `;
+        }
+    }
+
+    function loginSuccess(userName) {
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userName', userName);
+        document.querySelectorAll('.modal').forEach(modalEl => {
+            var modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) modalInstance.hide();
+        });
+        updateUIForLoggedInUser(userName);
+    }
+
+    function logoutUser() {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userName');
+        window.location.reload();
+    }
+
+    var registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var regUser = document.getElementById('regUsername').value.trim();
+            var regPass = document.getElementById('regPassword').value.trim();
+            var users = JSON.parse(localStorage.getItem('shommeUsers')) || [];
+            if (users.some(u => u.username === regUser)) {
+                alert("Bu kullanıcı adı zaten alınmış!");
+                return;
+            }
+            users.push({ username: regUser, password: regPass });
+            localStorage.setItem('shommeUsers', JSON.stringify(users));
+            loginSuccess(regUser);
+        });
+    }
+
+    var loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var uName = document.getElementById('username').value.trim();
+            var pass = document.getElementById('password').value.trim();
+            if (uName === 'admin' && pass === '1234') {
+                window.location.href = 'admin/index.html';
+                return;
+            }
+            var users = JSON.parse(localStorage.getItem('shommeUsers')) || [];
+            if (users.find(u => u.username === uName && u.password === pass)) {
+                loginSuccess(uName);
+            } else {
+                alert("Hatalı kullanıcı adı veya şifre!");
+            }
+        });
+    }
+
+    // 5. SEPET FONKSİYONLARI
+    function addToCart(id, name, price, image) {
+        let existingItem = cart.find(item => item.id == id);
+        if (existingItem) existingItem.quantity++;
+        else cart.push({ id: id, name: name, price: parseFloat(price), image: image, quantity: 1 });
+        saveCart();
+        updateCartUI();
+    }
+    function changeQty(id, action) {
+        let item = cart.find(item => item.id == id);
+        if (!item) return;
+        if (action === 'plus') item.quantity++;
+        else if (action === 'minus') {
+            item.quantity--;
+            if (item.quantity <= 0) cart = cart.filter(p => p.id != id);
+        }
+        saveCart();
+        updateCartUI();
+    }
+    function saveCart() { localStorage.setItem('shommeCart', JSON.stringify(cart)); }
+    function updateCartUI() {
+        const cartList = document.getElementById('cart-list');
+        const emptyMsg = document.getElementById('empty-cart-msg');
+        const cartItemsArea = document.getElementById('cart-items');
+        const badge = document.getElementById('cart-count');
+        const totalEl = document.getElementById('cart-total');
+        if (!badge) return;
+        let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        badge.innerText = totalCount;
+        badge.style.display = totalCount > 0 ? 'block' : 'none';
+        if (!cartList || !emptyMsg || !totalEl) return;
+        if (cart.length === 0) {
+            emptyMsg.style.display = 'block';
+            if(cartItemsArea) cartItemsArea.style.display = 'none';
+        } else {
+            emptyMsg.style.display = 'none';
+            if(cartItemsArea) cartItemsArea.style.display = 'block';
+        }
+        let html = '';
+        let totalPrice = 0;
+        cart.forEach(item => {
+            let itemTotal = item.price * item.quantity;
+            totalPrice += itemTotal;
+            html += `<li class="list-group-item d-flex align-items-center py-3">
+            <img src="${item.image}" class="rounded" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
+            <div class="flex-grow-1"><h6 class="mb-0 fw-bold" style="font-size: 0.9rem;">${item.name}</h6><small class="text-muted">Birim: ₺${item.price}</small></div>
+            <div class="d-flex align-items-center bg-light rounded p-1">
+              <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'minus')"><i class="bi bi-dash"></i></button>
+              <span class="mx-1 fw-bold small">${item.quantity}</span>
+              <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'plus')"><i class="bi bi-plus"></i></button>
+            </div><div class="ms-3 fw-bold text-primary small">₺${itemTotal.toLocaleString('tr-TR')}</div></li>`;
+        });
+        cartList.innerHTML = html;
+        totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
+    }
+  </script>
+
+</body>
 </html>
