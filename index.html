@@ -54,7 +54,7 @@
             </ul>
           </li>
 
-          <li><a href="istatistikler.html">İstatistikler</a></li>
+         <li><a href="istatistikler.html">İstatistikler</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
 
           <li class="ms-4" id="user-login-li">
@@ -551,7 +551,7 @@
 
   <script src="assets/js/main.js"></script>
 
-  <script>
+ <script>
     // ==========================================
     // 1. GLOBAL DEĞİŞKEN (SEPET)
     // ==========================================
@@ -561,20 +561,34 @@
     // 2. SAYFA YÜKLENDİĞİNDE
     // ==========================================
     document.addEventListener("DOMContentLoaded", function() {
-      // Login Kontrolü
+      // A. Login Kontrolü
       if (localStorage.getItem('isLoggedIn') === 'true') {
         updateUIForLoggedInUser(localStorage.getItem('userName'));
       }
 
-      // Sepet Kontrolü
+      // B. Sepet Kontrolü
       updateCartUI();
 
-      // Duyuruları Yükle
+      // C. Duyuruları Yükle
       loadDynamicAnnouncements();
+
+      // D. SLIDER'I ZORLA BAŞLAT (EKLENEN KISIM BURASI)
+      // Tarayıcı bazen otomatik başlatmayı kaçırır, bu kod onu tekmeler.
+      var heroCarouselElement = document.querySelector('#heroCarousel');
+      if (heroCarouselElement) {
+          // Bootstrap motorunu manuel tetikliyoruz
+          var heroCarousel = new bootstrap.Carousel(heroCarouselElement, {
+            interval: 4000, // 4 Saniyede bir dönsün
+            wrap: true,     // Sona gelince başa dönsün
+            pause: false  // Mouse üstüne gelince dursun
+          });
+          heroCarousel.cycle(); // "DÖNMEYE BAŞLA" emri
+          console.log("Hero Slider Başlatıldı ✅");
+      }
     });
 
     // ==========================================
-    // 3. SEPET FONKSİYONLARI (DÜZELTİLMİŞ)
+    // 3. SEPET FONKSİYONLARI
     // ==========================================
     function changeQty(id, action) {
       let item = cart.find(item => item.id == id);
@@ -705,52 +719,63 @@
     }
 
     // ==========================================
-    // 5. DİNAMİK DUYURU SİSTEMİ
+    // 5. DİNAMİK DUYURU SİSTEMİ (GÜVENLİ & BİRLEŞTİRİCİ)
     // ==========================================
     function loadDynamicAnnouncements() {
         
-        // A. TEMİZLİK: Eski verilerde sorunlu link varsa hafızayı sil
-        const currentData = localStorage.getItem('shommeAnnouncements');
-        if (currentData && !currentData.includes("photo-1516937941348")) { 
-             localStorage.removeItem('shommeAnnouncements');
-        }
-
-        // B. Varsayılan Duyurular
+        // A. Varsayılan (Sabit) Duyurular
         const defaultAnnouncements = [
             { id: 1, title: "Yaz Kampanyası Başladı!", date: "15 Kasım 2025", author: "Satış", img: "assets/img/blog/blog-1.jpg", text: "Tüm akıllı kilitlerde %20 indirim..." },
             { id: 2, title: "Shomme App v2.0 Yayında", date: "10 Ekim 2025", author: "Teknik", img: "assets/img/blog/blog-2.jpg", text: "Yeni arayüz ve özellikler..." },
             { id: 3, title: "Yeni Robot Süpürge", date: "5 Eylül 2025", author: "Pazarlama", img: "assets/img/blog/blog-3.jpg", text: "Yapay zeka destekli temizlik..." },
             { id: 4, title: "Yılın En İyi Markası", date: "20 Ağustos 2025", author: "Yönetim", img: "assets/img/blog/blog-4.jpg", text: "Teknoloji ödülünü kazandık..." },
-            { id: 5, title: "Kışa Hazırlık İndirimleri", date: "1 Kasım 2025", author: "Satış", img: "https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?q=80&w=1234&auto=format&fit=crop", text: "Termostatlarda büyük fırsat..." },
-            { id: 6, title: "%98 Müşteri Memnuniyeti", date: "15 Aralık 2025", author: "Müşteri Hizm.", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600", text: "Anket sonuçlarımız açıklandı..." }
+            { id: 5, title: "Kışa Hazırlık İndirimleri", date: "1 Kasım 2025", author: "Satış", img: "assets/img/blog/kis.jpg", text: "Termostatlarda büyük fırsat..." },
+            { id: 6, title: "%98 Müşteri Memnuniyeti", date: "15 Aralık 2025", author: "Müşteri Hizm.", img: "assets/img/blog/blog-6.jpg", text: "Anket sonuçlarımız açıklandı..." }
         ];
 
-        // C. Hafızayı Kontrol Et ve Doldur
-        let posts = JSON.parse(localStorage.getItem('shommeAnnouncements'));
-        if (!posts || posts.length === 0) {
-            localStorage.setItem('shommeAnnouncements', JSON.stringify(defaultAnnouncements));
-            posts = defaultAnnouncements;
+        // B. Admin Panelinden Gelenleri Çek
+        let adminPosts = [];
+        try {
+            const localData = JSON.parse(localStorage.getItem('shommeAnnouncements'));
+            if (Array.isArray(localData)) {
+                // Sadece ID'si 100'den büyük olanları (Admin eklemesi) alalım
+                adminPosts = localData.filter(p => p.id > 100);
+            }
+        } catch (e) {
+            console.log("Veri okuma hatası, varsayılanlar yükleniyor.");
         }
 
-        // D. Slider'a Bas (En yeni 4 tane)
-        let latestPosts = posts.slice().reverse().slice(0, 4);
+        // C. Hepsini Hafızada Birleştir
+        let allPosts = [...defaultAnnouncements, ...adminPosts];
+
+        // D. Sıralama Yap
+        allPosts.sort((a, b) => b.id - a.id);
+
+        // E. Sadece En Yeni 4 Tanesini Al
+        let latestPosts = allPosts.slice(0, 4);
+
+        // F. Slider'a Bas
         const wrapper = document.getElementById('dynamic-announcements');
         
         if (wrapper) {
             let html = '';
             latestPosts.forEach(post => {
+                let imgSource = post.img ? post.img : 'assets/img/blog/blog-1.jpg';
+
                 html += `
                 <div class="swiper-slide">
-                  <div class="post-box">
-                    <div class="post-img"><img src="${post.img}" class="img-fluid" alt="" style="height: 250px; width: 100%; object-fit: cover;"></div>
-                    <div class="meta">
-                      <span class="post-date">${post.date}</span>
-                      <span class="post-author"> / ${post.author}</span>
+                  <div class="post-box" style="height: 100%; min-height: 400px; display: flex; flex-direction: column;">
+                    <div class="post-img" style="height: 250px; overflow: hidden;">
+                        <img src="${imgSource}" class="img-fluid w-100 h-100" style="object-fit: cover;" onerror="this.src='https://placehold.co/600x400?text=Resim+Yok'">
                     </div>
-                    <h3 class="post-title">${post.title}</h3>
-                    <p>${post.text.substring(0, 60)}...</p>
-                    <a href="duyurular.html" class="readmore stretched-link">
-                      <span>Detayları Gör</span><i class="bi bi-arrow-right"></i>
+                    <div class="meta text-muted small mt-3">
+                      <span class="post-date"><i class="bi bi-calendar"></i> ${post.date}</span>
+                      <span class="post-author ms-2"><i class="bi bi-person"></i> ${post.author}</span>
+                    </div>
+                    <h3 class="post-title fw-bold mt-2">${post.title}</h3>
+                    <p class="text-muted small flex-grow-1">${post.text.substring(0, 60)}...</p>
+                    <a href="duyurular.html" class="readmore stretched-link text-primary fw-bold mt-auto">
+                      <span>Detayları Gör</span><i class="bi bi-arrow-right ms-1"></i>
                     </a>
                   </div>
                 </div>
@@ -759,7 +784,7 @@
             wrapper.innerHTML = html;
         }
     }
-  </script>
+</script>
 
 </body>
 </html>

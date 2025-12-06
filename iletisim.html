@@ -1,39 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Contact - Nova Bootstrap Template</title>
+  <title>İletişim - Shomme Akıllı Ev Sistemleri</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Nova
-  * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="contact-page">
@@ -66,8 +54,8 @@
             </ul>
           </li>
 
-          <li><a href="istatistikler.html">İstatistikler</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
+          
+          <li><a href="iletisim.html" class="active">İletişim</a></li>
 
           <li class="ms-4" id="user-login-li">
             <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="d-flex align-items-center" title="Giriş Yap">
@@ -92,21 +80,17 @@
 
   <main class="main">
 
-    <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/contact-page-title-bg.jpg);">
       <div class="container">
-        <h1>Contact</h1>
+        <h1>İletişim</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Contact</li>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li class="current">İletişim</li>
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    </div><section id="contact" class="contact section">
 
       <div class="container">
 
@@ -138,7 +122,7 @@
               <i class="bi bi-envelope flex-shrink-0" style="font-size: 32px; color: #1b2f45; margin-right: 20px;"></i>
               <div>
                 <h4 style="color: #000; font-weight: 700; margin-bottom: 5px; opacity: 1;">E-posta:</h4>
-                <p style="color: #333; margin: 0; font-size: 15px; opacity: 1;">info@Shomme.com.tr</p>
+                <p style="color: #333; margin: 0; font-size: 15px; opacity: 1;">info@shomme.com.tr</p>
               </div>
             </div>
 
@@ -155,8 +139,7 @@
           </div>
 
           <div class="col-lg-8">
-            <form onsubmit="event.preventDefault(); document.getElementById('success-msg').style.display='block'; window.scrollTo(0,document.body.scrollHeight);" 
-                  style="padding: 30px; background-color: #f7f9fc; border-radius: 10px; box-shadow: 0px 0px 20px rgba(0,0,0,0.1); position: relative; z-index: 1050;">
+            <form onsubmit="sendMessage(event)" style="padding: 30px; background-color: #f7f9fc; border-radius: 10px; box-shadow: 0px 0px 20px rgba(0,0,0,0.1); position: relative; z-index: 1050;">
               
               <h3 class="mb-4 text-dark">Bize Ulaşın</h3>
 
@@ -195,9 +178,7 @@
 
       </div>
 
-    </section><!-- /Contact Section -->
-
-  </main>
+    </section></main>
 
   <footer id="footer" class="footer light-background">
 
@@ -261,13 +242,10 @@
 
   </footer>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -276,166 +254,103 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
 <script>
-    // =========================================================
-    // 1. GLOBAL AYARLAR
-    // =========================================================
+    // ==========================================
+    // 1. GLOBAL DEĞİŞKENLER
+    // ==========================================
     let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
 
-    // =========================================================
+    // ==========================================
     // 2. SAYFA YÜKLENDİĞİNDE ÇALIŞACAKLAR
-    // =========================================================
+    // ==========================================
     document.addEventListener("DOMContentLoaded", function() {
-      
-      // Kullanıcı Giriş Kontrolü
+      // Login Kontrolü
       if (localStorage.getItem('isLoggedIn') === 'true') {
         updateUIForLoggedInUser(localStorage.getItem('userName'));
       }
-
-      // Sepet Kontrolü (Gecikmeli çalıştır ki HTML tam yüklensin)
-      setTimeout(updateCartUI, 100);
-
-      // "Sepete Ekle" Butonlarını Dinle
-      const buttons = document.querySelectorAll('.add-to-cart-btn');
-      if (buttons) {
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = this.getAttribute('data-id');
-                const name = this.getAttribute('data-name');
-                const price = this.getAttribute('data-price');
-                const image = this.getAttribute('data-image');
-                
-                // Görsel Efekt
-                let originalText = this.innerHTML;
-                this.innerHTML = '<i class="bi bi-check-circle"></i> Eklendi';
-                this.classList.remove('btn-primary');
-                this.classList.add('btn-success');
-                setTimeout(() => {
-                  this.innerHTML = originalText;
-                  this.classList.add('btn-primary');
-                  this.classList.remove('btn-success');
-                }, 1000);
-
-                addToCart(id, name, price, image);
-            });
-        });
-      }
+      
+      // Sepet Kontrolü
+      updateCartUI();
     });
 
-    // =========================================================
-    // 3. SEPET FONKSİYONLARI (Toleranslı Mod)
-    // =========================================================
+    // ==========================================
+    // 3. MESAJ GÖNDERME VE KAYDETME (ADMIN İÇİN)
+    // ==========================================
+    function sendMessage(event) {
+        event.preventDefault(); // Sayfanın yenilenmesini engelle
 
-    function addToCart(id, name, price, image) {
-      // ÖNEMLİ: == kullanarak hem "1" hem 1'i aynı kabul ediyoruz
-      let existingItem = cart.find(item => item.id == id);
+        // Form verilerini al
+        const nameInput = document.querySelector('input[name="name"]');
+        const emailInput = document.querySelector('input[name="email"]');
+        const subjectSelect = document.querySelector('select[name="subject"]');
+        const msgInput = document.querySelector('textarea[name="message"]');
 
-      if (existingItem) {
-        existingItem.quantity++;
-      } else {
-        cart.push({ 
-          id: id, 
-          name: name, 
-          price: parseFloat(price), 
-          image: image, 
-          quantity: 1 
-        });
-      }
-      saveCart();
-      updateCartUI();
-    }
+        // Boş kontrolü (Zaten HTML'de required var ama garanti olsun)
+        if (!nameInput || !emailInput || !subjectSelect || !msgInput) return;
 
-    function changeQty(id, action) {
-      // ÖNEMLİ: == kullanıldı
-      let item = cart.find(item => item.id == id);
-      if (!item) return;
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const subjectVal = subjectSelect.value;
+        const message = msgInput.value;
 
-      if (action === 'plus') {
-        item.quantity++;
-      } else if (action === 'minus') {
-        item.quantity--;
-        if (item.quantity <= 0) {
-          cart = cart.filter(p => p.id != id); // 0 olursa sil
+        // Konu Seçili mi?
+        if(!subjectVal) {
+            alert("Lütfen bir konu seçiniz!");
+            return;
         }
-      }
-      saveCart();
-      updateCartUI();
+
+        // Konu Başlığını Düzelt ve Renk Ata
+        let subjectText = "Genel";
+        let badgeClass = "bg-secondary";
+        
+        if(subjectVal === 'Sikayet') { subjectText = 'Şikayet'; badgeClass = 'bg-danger'; }
+        else if(subjectVal === 'Oneri') { subjectText = 'Öneri'; badgeClass = 'bg-success'; }
+        else if(subjectVal === 'Destek') { subjectText = 'Destek'; badgeClass = 'bg-info text-dark'; }
+        else if(subjectVal === 'Bilgi') { subjectText = 'Bilgi'; badgeClass = 'bg-primary'; }
+
+        // Tarih Oluştur
+        const date = new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', hour: '2-digit', minute:'2-digit' });
+
+        // Yeni Mesaj Objesi
+        const newMessage = {
+            id: Date.now(),
+            name: name,
+            email: email,
+            subject: subjectText,
+            badge: badgeClass,
+            msg: message,
+            date: date
+        };
+
+        // Hafızaya Kaydet (Admin Paneli 'shommeMessages' anahtarına bakıyor)
+        let messages = JSON.parse(localStorage.getItem('shommeMessages')) || [];
+        messages.push(newMessage);
+        localStorage.setItem('shommeMessages', JSON.stringify(messages));
+
+        // Formu Temizle
+        event.target.reset();
+        
+        // Başarı mesajını göster
+        const successDiv = document.getElementById('success-msg');
+        if (successDiv) {
+            successDiv.style.display = 'block';
+            successDiv.scrollIntoView({behavior: "smooth", block: "center"});
+            
+            // 5 saniye sonra mesaj kaybolsun
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 5000);
+        } else {
+            alert("Mesajınız başarıyla iletildi!");
+        }
     }
 
-    function saveCart() {
-      localStorage.setItem('shommeCart', JSON.stringify(cart));
-    }
-
-    function updateCartUI() {
-      const cartList = document.getElementById('cart-list');
-      const emptyMsg = document.getElementById('empty-cart-msg');
-      const cartItemsArea = document.getElementById('cart-items');
-      const badge = document.getElementById('cart-count');
-      const totalEl = document.getElementById('cart-total');
-
-      if (!badge) return;
-
-      // Badge Güncelle
-      let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-      badge.innerText = totalCount;
-      badge.style.display = totalCount > 0 ? 'block' : 'none';
-
-      if (!cartList || !emptyMsg || !cartItemsArea || !totalEl) return;
-
-      // Boş/Dolu Kontrolü
-      if (cart.length === 0) {
-        emptyMsg.style.display = 'block';
-        cartItemsArea.style.display = 'none';
-        return;
-      } else {
-        emptyMsg.style.display = 'none';
-        cartItemsArea.style.display = 'block';
-      }
-
-      // Listeyi Oluştur
-      let html = '';
-      let totalPrice = 0;
-
-      cart.forEach(item => {
-        let itemTotal = item.price * item.quantity;
-        totalPrice += itemTotal;
-
-        // changeQty fonksiyonuna ID'yi tırnak içinde gönderiyoruz ('${item.id}')
-        html += `
-          <li class="list-group-item d-flex align-items-center py-3">
-            <img src="${item.image}" class="rounded" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
-            <div class="flex-grow-1">
-              <h6 class="mb-0 fw-bold" style="font-size: 0.9rem;">${item.name}</h6>
-              <small class="text-muted">Birim: ₺${item.price}</small>
-            </div>
-            <div class="d-flex align-items-center bg-light rounded p-1">
-              <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'minus')"><i class="bi bi-dash"></i></button>
-              <span class="mx-1 fw-bold small">${item.quantity}</span>
-              <button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'plus')"><i class="bi bi-plus"></i></button>
-            </div>
-            <div class="ms-3 fw-bold text-primary small">₺${itemTotal.toLocaleString('tr-TR')}</div>
-          </li>
-        `;
-      });
-
-      cartList.innerHTML = html;
-      totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
-    }
-
-    // =========================================================
-    // 4. LOGIN / KAYIT FONKSİYONLARI
-    // =========================================================
-    
+    // ==========================================
+    // 4. LOGIN FONKSİYONLARI (Standart)
+    // ==========================================
     function updateUIForLoggedInUser(userName) {
-      var modalEl = document.getElementById('loginModal');
-      if(modalEl) {
-        var modal = bootstrap.Modal.getInstance(modalEl);
-        if(modal) modal.hide();
-      }
-
       var container = document.getElementById('user-login-li');
       if (container) {
         container.innerHTML = `
@@ -445,19 +360,19 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
               <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Siparişlerim</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-geo-alt"></i> Adreslerim</a></li>
+              <li><a class="dropdown-item" href="#">Siparişlerim</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Çıkış Yap</a></li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()">Çıkış Yap</a></li>
             </ul>
-          </div>
-        `;
+          </div>`;
       }
     }
 
     function loginUser(userName) {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('userName', userName);
+      var modalEl = document.getElementById('loginModal');
+      if(modalEl) { var modal = bootstrap.Modal.getInstance(modalEl); if(modal) modal.hide(); }
       updateUIForLoggedInUser(userName);
     }
 
@@ -467,7 +382,7 @@
       window.location.reload();
     }
 
-    // Formlar
+    // Form Dinleyicileri
     var loginForm = document.getElementById('loginForm');
     if(loginForm){
       loginForm.addEventListener('submit', function(e) {
@@ -489,6 +404,18 @@
         e.preventDefault();
         loginUser("Yeni Üye");
       });
+    }
+    
+    // ==========================================
+    // 5. SEPET FONKSİYONLARI (Sadece Özet)
+    // ==========================================
+    function updateCartUI() {
+       const badge = document.getElementById('cart-count');
+       if(badge) {
+           let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+           badge.innerText = totalCount;
+           badge.style.display = totalCount > 0 ? 'block' : 'none';
+       }
     }
   </script>
 
@@ -588,5 +515,4 @@
   </div>
 
 </body>
-
 </html>
