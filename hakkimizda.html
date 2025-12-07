@@ -341,11 +341,11 @@
           <form id="loginForm">
             <div class="mb-3">
               <label class="form-label">Kullanıcı Adı</label>
-              <input type="text" class="form-control" id="username" placeholder="Örn: admin" required>
+              <input type="text" class="form-control" id="username" placeholder="" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Şifre</label>
-              <input type="password" class="form-control" id="password" placeholder="Örn: 1234" required>
+              <input type="password" class="form-control" id="password" placeholder="" required>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-primary">Giriş Yap</button>
@@ -476,23 +476,23 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // 1. GLOBAL DEĞİŞKENLER
+    
     let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
 
-    // 2. SAYFA YÜKLENDİĞİNDE
+    
     document.addEventListener("DOMContentLoaded", function() {
-        // A. Login Kontrolü
+        
         if (localStorage.getItem('isLoggedIn') === 'true') {
             updateUIForLoggedInUser(localStorage.getItem('userName'));
         }
-        // B. Sepet Kontrolü
+        
         updateCartUI();
 
-        //C. Chartlar
+       
         initHakkimizdaCharts();
     });
 
-    // 3. PROFİL İŞLEMLERİ
+    
     function openProfileModal() {
         var currentUser = localStorage.getItem('userName');
         if(!currentUser) return;
@@ -529,7 +529,7 @@
         }, 1500);
     }
 
-    // 4. LOGIN & REGISTER
+    
     function updateUIForLoggedInUser(userName) {
         var container = document.getElementById('user-login-li');
         if (container) {
@@ -589,7 +589,7 @@
             e.preventDefault();
             var uName = document.getElementById('username').value.trim();
             var pass = document.getElementById('password').value.trim();
-            if (uName === 'admin' && pass === '1234') {
+            if (uName === 'admin' && pass === 'admin') {
                 window.location.href = 'admin/index.html';
                 return;
             }
@@ -602,7 +602,7 @@
         });
     }
 
-    // 5. SEPET FONKSİYONLARI
+    
     function addToCart(id, name, price, image) {
         let existingItem = cart.find(item => item.id == id);
         if (existingItem) existingItem.quantity++;
@@ -658,9 +658,9 @@
         totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
     }
 
-    // --- GRAFİKLERİ ÇİZME FONKSİYONU ---
+    
     function initHakkimizdaCharts() {
-        // 1. Enerji Grafiği
+        
         const ctxEnergy = document.getElementById('energyChart');
         if (ctxEnergy) {
             new Chart(ctxEnergy.getContext('2d'), {
@@ -680,7 +680,7 @@
             });
         }
 
-        // 2. Memnuniyet Grafiği
+        
         const ctxSat = document.getElementById('satisfactionChart');
         if (ctxSat) {
             new Chart(ctxSat.getContext('2d'), {
@@ -696,7 +696,7 @@
             });
         }
 
-        // 3. Tekrar Alım Grafiği
+        
         const ctxRebuy = document.getElementById('rebuyChart');
         if (ctxRebuy) {
             new Chart(ctxRebuy.getContext('2d'), {
@@ -713,24 +713,24 @@
         }
     }
 
-    // 1. GÜVENLİ ÖDEME KONTROLÜ
+    
     function checkLoginAndCheckout() {
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         
         if (isLoggedIn) {
             window.location.href = 'odeme.html';
         } else {
-            // Sepet modalını kapat
+            
             var cartModalEl = document.getElementById('cartModal');
             var cartModal = bootstrap.Modal.getInstance(cartModalEl);
             if(cartModal) cartModal.hide();
 
-            // Login modalını aç
+            
             var loginModalEl = document.getElementById('loginModal');
             var loginModal = new bootstrap.Modal(loginModalEl);
             loginModal.show();
 
-            // Uyarı mesajı ekle
+            
             var modalBody = loginModalEl.querySelector('.modal-body');
             var oldAlert = document.getElementById('temp-login-warning');
             if(oldAlert) oldAlert.remove();
@@ -749,13 +749,13 @@
         }
     }
 
-    // 2. SİPARİŞLERİMİ LİSTELE
+    
     function openMyOrders() {
         const currentUser = localStorage.getItem('userName');
         const orders = JSON.parse(localStorage.getItem('shommeOrders')) || [];
         const container = document.getElementById('my-orders-list');
 
-        // Sadece bu kullanıcının siparişlerini filtrele
+        
         const myOrders = orders.filter(order => order.username === currentUser).reverse();
 
         if (myOrders.length === 0) {

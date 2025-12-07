@@ -292,6 +292,10 @@
               </div>
               <div class="d-grid gap-2 mt-4">
                 <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="1" data-name="RenkAmpul RGB Pro" data-price="450" data-image="https://images.unsplash.com/photo-1644360266788-572e62457a5f?q=80&w=200&fit=crop"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+                <a href="urun-detay-1.html" class="btn btn-outline-secondary">
+      <i class="bi bi-eye"></i> Detaylı Bilgi Sayfasına Git
+  </a>
+  </div>
               </div>
             </div>
           </div>
@@ -339,6 +343,10 @@
               </div>
               <div class="d-grid gap-2 mt-4">
                 <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="2" data-name="HawkEye 360 Kamera" data-price="1850" data-image="https://plus.unsplash.com/premium_photo-1729580056441-6ab34fe19d3d?q=80&w=200&fit=crop"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+                <a href="urun-detay-2.html" class="btn btn-outline-secondary">
+      <i class="bi bi-eye"></i> Detaylı Bilgi Sayfasına Git
+  </a>
+  </div>
               </div>
             </div>
           </div>
@@ -385,6 +393,11 @@
               </div>
               <div class="d-grid gap-2 mt-4">
                 <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="3" data-name="EcoTermo T1" data-price="2200" data-image="https://images.unsplash.com/photo-1645360954716-a0b7a8d45535?q=80&w=200&fit=crop"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+
+                <a href="urun-detay-3.html" class="btn btn-outline-secondary">
+      <i class="bi bi-eye"></i> Detaylı Bilgi Sayfasına Git
+  </a>
+  </div>
               </div>
             </div>
           </div>
@@ -431,6 +444,10 @@
               </div>
               <div class="d-grid gap-2 mt-4">
                 <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="4" data-name="Shomme Kilit X500" data-price="4500" data-image="https://plus.unsplash.com/premium_photo-1729500764765-7795c760f73a?q=80&w=200&fit=crop"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+                <a href="urun-detay-4.html" class="btn btn-outline-secondary">
+      <i class="bi bi-eye"></i> Detaylı Bilgi Sayfasına Git
+  </a>
+  </div>
               </div>
             </div>
           </div>
@@ -477,6 +494,10 @@
               </div>
               <div class="d-grid gap-2 mt-4">
                 <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="5" data-name="Akıllı Priz Plus" data-price="350" data-image="https://plus.unsplash.com/premium_photo-1729491126310-5686343f468c?q=80&w=200&fit=crop"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+                <a href="urun-detay-5.html" class="btn btn-outline-secondary">
+      <i class="bi bi-eye"></i> Detaylı Bilgi Sayfasına Git
+  </a>
+  </div>
               </div>
             </div>
           </div>
@@ -523,6 +544,10 @@
               </div>
               <div class="d-grid gap-2 mt-4">
                 <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="6" data-name="Shomme Hub V2" data-price="1500" data-image="https://plus.unsplash.com/premium_photo-1728776080545-0f160cfd35c9?q=80&w=200&fit=crop"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+                <a href="urun-detay-6.html" class="btn btn-outline-secondary">
+      <i class="bi bi-eye"></i> Detaylı Bilgi Sayfasına Git
+  </a>
+  </div>
               </div>
             </div>
           </div>
@@ -569,6 +594,10 @@
               </div>
               <div class="d-grid gap-2 mt-4">
                 <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="7" data-name="SafeAir Gaz Sensörü" data-price="900" data-image="https://images.unsplash.com/photo-1665655034446-1536f6de3fe6?q=80&w=200&fit=crop"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+                <a href="urun-detay-7.html" class="btn btn-outline-secondary">
+      <i class="bi bi-eye"></i> Detaylı Bilgi Sayfasına Git
+  </a>
+  </div>
               </div>
             </div>
           </div>
@@ -603,11 +632,11 @@
           <form id="loginForm">
             <div class="mb-3">
               <label class="form-label">Kullanıcı Adı</label>
-              <input type="text" class="form-control" id="username" placeholder="Örn: admin" required>
+              <input type="text" class="form-control" id="username" placeholder="" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Şifre</label>
-              <input type="password" class="form-control" id="password" placeholder="Örn: 1234" required>
+              <input type="password" class="form-control" id="password" placeholder="" required>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-primary">Giriş Yap</button>
@@ -749,23 +778,23 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // 1. GLOBAL DEĞİŞKENLER
+    
     let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
 
-    // 2. SAYFA YÜKLENDİĞİNDE
+    
     document.addEventListener("DOMContentLoaded", function() {
-        // A. Login Kontrolü
+        
         if (localStorage.getItem('isLoggedIn') === 'true') {
             updateUIForLoggedInUser(localStorage.getItem('userName'));
         }
         
-        // B. Sepet Kontrolü
+        
         updateCartUI();
 
-        // C. Dinamik Ürünleri Yükle (Bu sayfaya özel)
+        
         loadDynamicProducts();
 
-        // D. URL'den Gelen Modal İsteği
+        
         const urlParams = new URLSearchParams(window.location.search);
         const modalId = urlParams.get('openModal');
         if (modalId) {
@@ -779,7 +808,7 @@
         }
     });
 
-    // 3. PROFİL İŞLEMLERİ
+    
     function openProfileModal() {
         var currentUser = localStorage.getItem('userName');
         if(!currentUser) return;
@@ -816,7 +845,7 @@
         }, 1500);
     }
 
-    // 4. LOGIN & REGISTER
+    
     function updateUIForLoggedInUser(userName) {
     var container = document.getElementById('user-login-li');
     if (container) {
@@ -878,7 +907,7 @@
             e.preventDefault();
             var uName = document.getElementById('username').value.trim();
             var pass = document.getElementById('password').value.trim();
-            if (uName === 'admin' && pass === '1234') {
+            if (uName === 'admin' && pass === 'admin') {
                 window.location.href = 'admin/index.html';
                 return;
             }
@@ -891,7 +920,7 @@
         });
     }
 
-    // 5. SEPET FONKSİYONLARI
+    
     function addToCart(id, name, price, image) {
         let existingItem = cart.find(item => item.id == id);
         if (existingItem) existingItem.quantity++;
@@ -947,7 +976,7 @@
         totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
     }
 
-    // 6. FİLTRE VE DİNAMİK ÜRÜN YÖNETİMİ (BU SAYFAYA ÖZEL)
+    
     window.addEventListener('load', function() {
         const urlParams = new URLSearchParams(window.location.search);
         const category = urlParams.get('kategori');
@@ -1017,8 +1046,12 @@
                             </div>
                         </div>
                         <div class="d-grid gap-2 mt-4">
-                            <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-image="${p.img}"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
-                        </div>
+    <button class="btn btn-primary btn-lg add-to-cart-btn" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-image="${p.img}"><i class="bi bi-cart-plus"></i> Sepete Ekle</button>
+    
+    <a href="urun-detay-${p.id}.html" class="btn btn-outline-secondary">
+        <i class="bi bi-eye"></i> Detaylı Bilgi Sayfasına Git
+    </a>
+</div>
                         </div>
                     </div>
                     </div>
@@ -1052,34 +1085,34 @@
         });
     }
 
-    // GÜVENLİ ÖDEME KONTROLÜ (GÜNCELLENMİŞ HALİ)
+    
     function checkLoginAndCheckout() {
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         
         if (isLoggedIn) {
-            // Giriş yapmışsa direkt ödeme sayfasına gönder
+            
             window.location.href = 'odeme.html';
         } else {
-            // --- GİRİŞ YAPMAMIŞSA ---
+            
 
-            // 1. Açık olan Sepet modalını kapat
+            
             var cartModalEl = document.getElementById('cartModal');
             var cartModal = bootstrap.Modal.getInstance(cartModalEl);
             if(cartModal) cartModal.hide();
 
-            // 2. Login modalını bul ve aç
+           
             var loginModalEl = document.getElementById('loginModal');
             var loginModal = new bootstrap.Modal(loginModalEl);
             loginModal.show();
 
-            // 3. Login penceresinin içine şık bir uyarı ekle
+            
             var modalBody = loginModalEl.querySelector('.modal-body');
 
-            // Eğer daha önce eklenmiş bir uyarı varsa önce onu temizle (üst üste binmesin)
+            
             var oldAlert = document.getElementById('temp-login-warning');
             if(oldAlert) oldAlert.remove();
 
-            // Yeni uyarı kutusunu oluştur (Bootstrap Alert)
+            
             var alertDiv = document.createElement('div');
             alertDiv.id = 'temp-login-warning';
             alertDiv.className = 'alert alert-warning border-0 d-flex align-items-center shadow-sm mb-4';
@@ -1091,18 +1124,18 @@
                 </div>
             `;
 
-            // Uyarıyı formun en tepesine yerleştir
+            
             modalBody.insertBefore(alertDiv, modalBody.firstChild);
         }
     }
 
-// 2. SİPARİŞLERİMİ LİSTELE
+
 function openMyOrders() {
     const currentUser = localStorage.getItem('userName');
     const orders = JSON.parse(localStorage.getItem('shommeOrders')) || [];
     const container = document.getElementById('my-orders-list');
 
-    // Sadece bu kullanıcının siparişlerini filtrele
+    
     const myOrders = orders.filter(order => order.username === currentUser).reverse();
 
     if (myOrders.length === 0) {
@@ -1115,7 +1148,7 @@ function openMyOrders() {
     } else {
         let html = '<div class="list-group list-group-flush">';
         myOrders.forEach(order => {
-            // Duruma göre renk belirle
+            
             let statusColor = 'bg-secondary';
             if(order.status === 'Hazırlanıyor') statusColor = 'bg-warning text-dark';
             if(order.status === 'Kargoda') statusColor = 'bg-info text-dark';
@@ -1144,24 +1177,24 @@ function openMyOrders() {
     var myModal = new bootstrap.Modal(document.getElementById('ordersModal'));
     myModal.show();
 }
-// 1. GÜVENLİ ÖDEME KONTROLÜ
+
     function checkLoginAndCheckout() {
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         
         if (isLoggedIn) {
             window.location.href = 'odeme.html';
         } else {
-            // Sepet modalını kapat
+            
             var cartModalEl = document.getElementById('cartModal');
             var cartModal = bootstrap.Modal.getInstance(cartModalEl);
             if(cartModal) cartModal.hide();
 
-            // Login modalını aç
+            
             var loginModalEl = document.getElementById('loginModal');
             var loginModal = new bootstrap.Modal(loginModalEl);
             loginModal.show();
 
-            // Uyarı mesajı ekle
+            
             var modalBody = loginModalEl.querySelector('.modal-body');
             var oldAlert = document.getElementById('temp-login-warning');
             if(oldAlert) oldAlert.remove();
@@ -1180,13 +1213,13 @@ function openMyOrders() {
         }
     }
 
-    // 2. SİPARİŞLERİMİ LİSTELE
+    
     function openMyOrders() {
         const currentUser = localStorage.getItem('userName');
         const orders = JSON.parse(localStorage.getItem('shommeOrders')) || [];
         const container = document.getElementById('my-orders-list');
 
-        // Sadece bu kullanıcının siparişlerini filtrele
+        
         const myOrders = orders.filter(order => order.username === currentUser).reverse();
 
         if (myOrders.length === 0) {

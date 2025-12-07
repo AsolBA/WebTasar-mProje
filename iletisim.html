@@ -273,11 +273,11 @@
           <form id="loginForm">
             <div class="mb-3">
               <label class="form-label">Kullanıcı Adı</label>
-              <input type="text" class="form-control" id="username" placeholder="Örn: admin" required>
+              <input type="text" class="form-control" id="username" placeholder="" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Şifre</label>
-              <input type="password" class="form-control" id="password" placeholder="Örn: 1234" required>
+              <input type="password" class="form-control" id="password" placeholder="" required>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-primary">Giriş Yap</button>
@@ -408,10 +408,10 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // 1. GLOBAL DEĞİŞKENLER
+    
     let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
 
-    // 2. SAYFA YÜKLENDİĞİNDE
+    
     document.addEventListener("DOMContentLoaded", function() {
         if (localStorage.getItem('isLoggedIn') === 'true') {
             updateUIForLoggedInUser(localStorage.getItem('userName'));
@@ -419,7 +419,7 @@
         updateCartUI();
     });
 
-    // 3. İLETİŞİM FORMU (ÖNEMLİ KISIM: ADMIN PANELİNE KAYIT)
+    
     function sendMessage(event) {
         event.preventDefault(); 
 
@@ -460,7 +460,7 @@
             date: date
         };
 
-        // Veriyi LocalStorage'a kaydet (Admin paneli buradan okuyacak)
+        
         let messages = JSON.parse(localStorage.getItem('shommeMessages')) || [];
         messages.push(newMessage);
         localStorage.setItem('shommeMessages', JSON.stringify(messages));
@@ -476,7 +476,7 @@
         }
     }
 
-    // 4. PROFİL İŞLEMLERİ
+    
     function openProfileModal() {
         var currentUser = localStorage.getItem('userName');
         if(!currentUser) return;
@@ -513,7 +513,7 @@
         }, 1500);
     }
 
-    // 5. LOGIN & REGISTER
+    
     function updateUIForLoggedInUser(userName) {
         var container = document.getElementById('user-login-li');
         if (container) {
@@ -573,7 +573,7 @@
             e.preventDefault();
             var uName = document.getElementById('username').value.trim();
             var pass = document.getElementById('password').value.trim();
-            if (uName === 'admin' && pass === '1234') {
+            if (uName === 'admin' && pass === 'admin') {
                 window.location.href = 'admin/index.html';
                 return;
             }
@@ -586,7 +586,7 @@
         });
     }
 
-    // 6. SEPET FONKSİYONLARI
+    
     function addToCart(id, name, price, image) {
         let existingItem = cart.find(item => item.id == id);
         if (existingItem) existingItem.quantity++;
@@ -642,24 +642,24 @@
         totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
     }
 
-    // 1. GÜVENLİ ÖDEME KONTROLÜ
+    
     function checkLoginAndCheckout() {
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         
         if (isLoggedIn) {
             window.location.href = 'odeme.html';
         } else {
-            // Sepet modalını kapat
+            
             var cartModalEl = document.getElementById('cartModal');
             var cartModal = bootstrap.Modal.getInstance(cartModalEl);
             if(cartModal) cartModal.hide();
 
-            // Login modalını aç
+            
             var loginModalEl = document.getElementById('loginModal');
             var loginModal = new bootstrap.Modal(loginModalEl);
             loginModal.show();
 
-            // Uyarı mesajı ekle
+            
             var modalBody = loginModalEl.querySelector('.modal-body');
             var oldAlert = document.getElementById('temp-login-warning');
             if(oldAlert) oldAlert.remove();
@@ -678,13 +678,13 @@
         }
     }
 
-    // 2. SİPARİŞLERİMİ LİSTELE
+    
     function openMyOrders() {
         const currentUser = localStorage.getItem('userName');
         const orders = JSON.parse(localStorage.getItem('shommeOrders')) || [];
         const container = document.getElementById('my-orders-list');
 
-        // Sadece bu kullanıcının siparişlerini filtrele
+        
         const myOrders = orders.filter(order => order.username === currentUser).reverse();
 
         if (myOrders.length === 0) {

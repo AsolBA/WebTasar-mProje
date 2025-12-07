@@ -181,11 +181,11 @@
                     <div class="row g-4">
                         <div class="col-sm-6">
                             <label class="form-label">Adınız</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Örn: Ahmet">
+                            <input type="text" class="form-control" id="firstName" placeholder="">
                         </div>
                         <div class="col-sm-6">
                             <label class="form-label">Soyadınız</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Örn: Yılmaz">
+                            <input type="text" class="form-control" id="lastName" placeholder="">
                         </div>
                         <div class="col-12">
                             <label class="form-label">E-posta Adresi</label>
@@ -295,19 +295,19 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   
   <script>
-    // 1. GÜVENLİK VE YÜKLEME KONTROLÜ
+    
     document.addEventListener("DOMContentLoaded", function() {
-        // GİRİŞ KONTROLÜ: Kullanıcı giriş yapmamışsa bu sayfada işi yok!
+        
         if (localStorage.getItem('isLoggedIn') !== 'true') {
             alert("⛔ Sipariş verebilmek için önce giriş yapmalısınız!");
-            window.location.href = 'index.html'; // Ana sayfaya şutla
+            window.location.href = 'index.html'; 
             return;
         }
 
         loadCartSummary();
     });
 
-    // Ödeme yöntemi seçimi
+    
     function selectPayment(method) {
         document.querySelectorAll('.payment-option').forEach(el => el.classList.remove('selected'));
         const selectedEl = document.querySelector(`input[value="${method}"]`).parentElement;
@@ -318,7 +318,7 @@
         hideError();
     }
 
-    // Sepet özeti
+    
     function loadCartSummary() {
         let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
         const list = document.getElementById('checkout-cart-list');
@@ -348,7 +348,7 @@
         totalEl.innerText = '₺' + total.toLocaleString('tr-TR');
     }
 
-    // Hata fonksiyonları
+    
     function showError(msg) {
         const alertBox = document.getElementById('custom-alert-box');
         const alertText = document.getElementById('alert-text');
@@ -361,7 +361,7 @@
     }
     function markInvalid(id) { document.getElementById(id).classList.add('is-invalid'); }
 
-    // DOĞRULAMA VE ÖDEME
+    
     function validateAndPay() {
         hideError(); 
 
@@ -417,12 +417,12 @@
         const postalCode = document.getElementById('postaKodu').value;
         const email = document.getElementById('email').value;
 
-        // ŞU ANKİ KULLANICI ADINI ALIYORUZ
+        
         const currentUsername = localStorage.getItem('userName') || 'misafir';
 
         const newOrder = {
             id: Date.now(),
-            username: currentUsername, // <--- ARTIK SİPARİŞİ KİM VERDİ BİLİYORUZ
+            username: currentUsername, 
             customer: firstName + ' ' + lastName,
             address: `${address} - ${postalCode}`,
             email: email,
@@ -445,7 +445,7 @@
         }, 10);
 
         setTimeout(() => {
-            window.location.href = 'index.html'; // urunler.html de olabilir
+            window.location.href = 'index.html'; 
         }, 2500);
     }
   </script>

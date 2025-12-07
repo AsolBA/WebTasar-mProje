@@ -335,7 +335,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // 1. SAYFA GEÇİŞLERİ
+  
   function showSection(sectionId, element) {
     document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
@@ -347,7 +347,7 @@
     document.getElementById('page-title').innerText = titles[sectionId];
   }
 
-  // 2. DUYURU YÖNETİMİ
+  
   function loadAdminAnnouncements() {
     let posts = JSON.parse(localStorage.getItem('shommeAnnouncements')) || [];
     const tableBody = document.getElementById('announcementListTable');
@@ -355,7 +355,7 @@
 
     let html = '';
     posts.slice().reverse().forEach(post => {
-      // Dosya Tipi Rozeti
+      
       let typeBadge = '<span class="badge bg-secondary">Yok</span>';
       if(post.fileType === 'pdf') typeBadge = '<span class="badge bg-danger">PDF</span>';
       if(post.fileType === 'word') typeBadge = '<span class="badge bg-primary">Word</span>';
@@ -380,21 +380,21 @@
     const title = document.getElementById('annTitle').value;
     const content = document.getElementById('annContent').value;
     
-    // Dosya Inputları
-    const coverInput = document.getElementById('annCoverImage'); // Kapak
-    const attachInput = document.getElementById('annAttachment'); // Ek Dosya
+    
+    const coverInput = document.getElementById('annCoverImage'); 
+    const attachInput = document.getElementById('annAttachment'); 
 
     const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     const today = new Date().toLocaleDateString('tr-TR', dateOptions);
 
-    // İşlem Sırası: Önce Kapak resmini oku, sonra Ek dosyayı kontrol et
+    
     if (coverInput.files && coverInput.files[0]) {
         const reader = new FileReader();
         
         reader.onload = function(e) {
-            const coverBase64 = e.target.result; // Kapak Resmi (Base64)
+            const coverBase64 = e.target.result; 
             
-            // Ek Dosya Tipi Belirleme
+            
             let attachmentType = null;
             if (attachInput.files && attachInput.files[0]) {
                 const fName = attachInput.files[0].name.toLowerCase();
@@ -403,13 +403,13 @@
                 else if (fName.match(/\.(jpg|jpeg|png|gif)$/)) attachmentType = 'image';
             }
 
-            // Kaydet
+            
             savePostToStorage(title, content, today, coverBase64, attachmentType);
         };
         
         reader.readAsDataURL(coverInput.files[0]);
     } else {
-        alert("Lütfen bir kapak görseli seçiniz!");
+         
     }
   }
 
@@ -419,17 +419,16 @@
           title: title,
           text: content,
           date: date,
-          author: "Admin",
-          img: imgUrl,      // Kapak Resmi
-          fileType: fileType // Ek Dosya Tipi (pdf, word, null)
+          author: "Shomme",
+          img: imgUrl,      
+          fileType: fileType 
       };
 
       let posts = JSON.parse(localStorage.getItem('shommeAnnouncements')) || [];
       posts.push(newPost);
       localStorage.setItem('shommeAnnouncements', JSON.stringify(posts));
 
-      alert("✅ Duyuru başarıyla yayınlandı!");
-      // Formu temizle
+      
       document.getElementById('annTitle').value = '';
       document.getElementById('annContent').value = '';
       document.getElementById('annCoverImage').value = '';
@@ -447,7 +446,7 @@
     }
   }
 
-  // 3. MESAJ YÖNETİMİ
+  
   function loadMessages() {
     let messages = JSON.parse(localStorage.getItem('shommeMessages')) || [];
     
@@ -504,7 +503,7 @@
     }
   }
 
-  // SİPARİŞ YÖNETİMİ
+  
   function loadAdminOrders() {
     let orders = JSON.parse(localStorage.getItem('shommeOrders')) || [];
     const tableBody = document.getElementById('orderListTable');
@@ -535,7 +534,7 @@
     let order = orders.find(o => o.id === id);
 
     if (order) {
-        // 1. Modal içindeki basit alanları doldur
+        
         document.getElementById('modalOrderId').innerText = '#' + order.id.toString().slice(-6);
         document.getElementById('modalCustomerName').innerText = order.customer;
         document.getElementById('modalCustomerEmail').innerText = order.email;
@@ -544,7 +543,7 @@
         document.getElementById('modalOrderStatus').innerText = order.status;
         document.getElementById('modalGrandTotal').innerText = '₺' + order.totalPrice.toLocaleString('tr-TR');
 
-        // 2. Ürün listesi tablosunu oluştur
+        
         const tableBody = document.getElementById('modalProductTable');
         let html = '';
         order.items.forEach(item => {
@@ -565,15 +564,15 @@
         });
         tableBody.innerHTML = html;
 
-        // 3. Modalı Aç
+        
         var myModal = new bootstrap.Modal(document.getElementById('orderDetailModal'));
         myModal.show();
     }
   }
 
-  // =================================================
-  // ÜRÜN YÖNETİMİ FONKSİYONLARI
-  // =================================================
+  
+  
+  
 
   function addNewProduct(event) {
     event.preventDefault();
@@ -591,7 +590,7 @@
         const imgBase64 = e.target.result;
         
         const newProduct = {
-          id: Date.now(), // Benzersiz ID
+          id: Date.now(), 
           name: name,
           price: price,
           category: category, 
@@ -604,7 +603,7 @@
         products.push(newProduct);
         localStorage.setItem('shommeProducts', JSON.stringify(products));
 
-        alert("✅ Ürün başarıyla eklendi! Ürünler sayfasını kontrol edin.");
+        
         event.target.reset();
         loadAdminProducts();
       };
@@ -640,11 +639,9 @@
     }
   }
 
-  // ==========================
-  // GRAFİKLERİ ÇİZDİR (CHART.JS) - GÜNCELLENMİŞ HALİ
-  // ==========================
+ 
   function initCharts() {
-    // 1. MEVCUT - Satış Grafiği (Çizgi)
+    
     const ctxSales = document.getElementById('salesChart').getContext('2d');
     new Chart(ctxSales, {
         type: 'line',
@@ -662,7 +659,7 @@
         options: { responsive: true }
     });
 
-    // 2. MEVCUT - Kategori Grafiği (Doughnut)
+    
     const ctxCategory = document.getElementById('categoryChart').getContext('2d');
     new Chart(ctxCategory, {
         type: 'doughnut',
@@ -676,7 +673,7 @@
         options: { responsive: true }
     });
 
-    // 3. YENİ - Ülke Dağılımı (Yatay Bar)
+    
     const ctxCountry = document.getElementById('countryChart').getContext('2d');
     new Chart(ctxCountry, {
         type: 'bar', 
@@ -696,7 +693,7 @@
             }]
         },
         options: {
-            indexAxis: 'y', // Grafiği yatay yapar
+            indexAxis: 'y', 
             responsive: true,
             plugins: {
                 legend: { display: false } 
@@ -704,7 +701,7 @@
         }
     });
 
-    // 4. YENİ - Cihaz Kullanımı (Polar Area)
+    
     const ctxDevice = document.getElementById('deviceChart').getContext('2d');
     new Chart(ctxDevice, {
         type: 'polarArea', 
@@ -734,12 +731,12 @@
     });
   }
 
-  // SAYFA YÜKLENDİĞİNDE ÇALIŞACAKLAR
+  
   document.addEventListener("DOMContentLoaded", function() {
     loadAdminAnnouncements();
     loadAdminProducts(); 
     loadMessages();
-    initCharts(); // Grafikleri Başlat
+    initCharts(); 
   });
   
 </script>

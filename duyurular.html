@@ -201,11 +201,11 @@
           <form id="loginForm">
             <div class="mb-3">
               <label class="form-label">Kullanıcı Adı</label>
-              <input type="text" class="form-control" id="username" placeholder="Örn: admin" required>
+              <input type="text" class="form-control" id="username" placeholder="" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Şifre</label>
-              <input type="password" class="form-control" id="password" placeholder="Örn: 1234" required>
+              <input type="password" class="form-control" id="password" placeholder="" required>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-primary">Giriş Yap</button>
@@ -330,22 +330,22 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // 1. GLOBAL DEĞİŞKENLER
+    
     let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
 
-    // 2. SAYFA YÜKLENDİĞİNDE
+    
     document.addEventListener("DOMContentLoaded", function() {
-      // A. Login Kontrolü
+      
       if (localStorage.getItem('isLoggedIn') === 'true') {
         updateUIForLoggedInUser(localStorage.getItem('userName'));
       }
-      // B. Sepet Kontrolü
+      
       updateCartUI();
-      // C. Duyuruları Yükle
+      
       loadAllAnnouncementsPage(); 
     });
 
-    // 3. DUYURU SİSTEMİ (MEVCUT KODUN)
+    
     function loadAllAnnouncementsPage() {
       const container = document.getElementById('all-announcements-container');
       if (!container) return;
@@ -391,7 +391,7 @@
       container.innerHTML = html;
     }
 
-    // DUYURU DETAY MODALINI AÇ
+    
     function openAnnouncementModal(id) {
       const defaultAnnouncements = [
           { id: 1, title: "Yaz Kampanyası Başladı!", date: "15 Haziran 2024", author: "Satış Ekibi", img: "assets/img/blog/blog-1.jpg", text: "Yaz geldi, tatil planları yapıldı ama aklınız evinizde kalmasın. Shomme'un akıllı güvenlik paketi sayesinde, dünyanın neresinde olursanız olun evinizi 7/24 canlı izleyebilir ve en ufak bir harekette anında bildirim alabilirsiniz. Akıllı kilitler, kapı sensörleri ve 360 derece dönebilen kameralardan oluşan bu özel setimiz, tatilinizi huzurla geçirmeniz için tasarlandı. Üstelik yaz sezonuna özel %20 indirim fırsatıyla güvenliği ertelemeyin; hemen şimdi güvenlik setlerimizi inceleyin ve huzurlu bir yazın tadını çıkarın.", fileType: 'pdf' },
@@ -428,7 +428,7 @@
       myModal.show();
     }
 
-    // 4. PROFİL İŞLEMLERİ (YENİ)
+    
     function openProfileModal() {
         var currentUser = localStorage.getItem('userName');
         if(!currentUser) return;
@@ -465,7 +465,7 @@
         }, 1500);
     }
 
-    // 5. LOGIN & REGISTER
+    
     function updateUIForLoggedInUser(userName) {
         var container = document.getElementById('user-login-li');
         if (container) {
@@ -525,7 +525,7 @@
             e.preventDefault();
             var uName = document.getElementById('username').value.trim();
             var pass = document.getElementById('password').value.trim();
-            if (uName === 'admin' && pass === '1234') {
+            if (uName === 'admin' && pass === 'admin') {
                 window.location.href = 'admin/index.html';
                 return;
             }
@@ -538,7 +538,7 @@
         });
     }
 
-    // 6. SEPET FONKSİYONLARI
+    
     function addToCart(id, name, price, image) {
       let existingItem = cart.find(item => item.id == id);
       if (existingItem) existingItem.quantity++; else cart.push({ id: id, name: name, price: parseFloat(price), image: image, quantity: 1 });
@@ -575,88 +575,7 @@
       cartList.innerHTML = html;
       totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
     }
-    // 1. GÜVENLİ ÖDEME KONTROLÜ
-    function checkLoginAndCheckout() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        
-        if (isLoggedIn) {
-            window.location.href = 'odeme.html';
-        } else {
-            // Sepet modalını kapat
-            var cartModalEl = document.getElementById('cartModal');
-            var cartModal = bootstrap.Modal.getInstance(cartModalEl);
-            if(cartModal) cartModal.hide();
-
-            // Login modalını aç
-            var loginModalEl = document.getElementById('loginModal');
-            var loginModal = new bootstrap.Modal(loginModalEl);
-            loginModal.show();
-
-            // Uyarı mesajı ekle
-            var modalBody = loginModalEl.querySelector('.modal-body');
-            var oldAlert = document.getElementById('temp-login-warning');
-            if(oldAlert) oldAlert.remove();
-
-            var alertDiv = document.createElement('div');
-            alertDiv.id = 'temp-login-warning';
-            alertDiv.className = 'alert alert-warning border-0 d-flex align-items-center shadow-sm mb-4';
-            alertDiv.innerHTML = `
-                <i class="bi bi-exclamation-circle-fill fs-4 me-3 text-warning"></i>
-                <div>
-                    <strong>Giriş Gerekli</strong><br>
-                    <small>Sipariş verebilmek için lütfen önce hesabınıza giriş yapın.</small>
-                </div>
-            `;
-            modalBody.insertBefore(alertDiv, modalBody.firstChild);
-        }
-    }
-
-    // 2. SİPARİŞLERİMİ LİSTELE
-    function openMyOrders() {
-        const currentUser = localStorage.getItem('userName');
-        const orders = JSON.parse(localStorage.getItem('shommeOrders')) || [];
-        const container = document.getElementById('my-orders-list');
-
-        // Sadece bu kullanıcının siparişlerini filtrele
-        const myOrders = orders.filter(order => order.username === currentUser).reverse();
-
-        if (myOrders.length === 0) {
-            container.innerHTML = `
-                <div class="text-center py-4 text-muted">
-                    <i class="bi bi-box display-4 mb-3"></i>
-                    <p>Henüz vermiş olduğunuz bir sipariş bulunmuyor.</p>
-                </div>`;
-        } else {
-            let html = '<div class="list-group list-group-flush">';
-            myOrders.forEach(order => {
-                let statusColor = 'bg-secondary';
-                if(order.status === 'Hazırlanıyor') statusColor = 'bg-warning text-dark';
-                if(order.status === 'Kargoda') statusColor = 'bg-info text-dark';
-                if(order.status === 'Teslim Edildi') statusColor = 'bg-success';
-
-                let itemsSummary = order.items.map(i => `${i.name} (${i.quantity})`).join(', ');
-                if(itemsSummary.length > 50) itemsSummary = itemsSummary.substring(0, 50) + '...';
-
-                html += `
-                <div class="list-group-item p-3 border rounded mb-3">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="fw-bold text-primary">#${order.id.toString().slice(-6)}</span>
-                        <span class="badge ${statusColor}">${order.status}</span>
-                    </div>
-                    <div class="small text-muted mb-2"><i class="bi bi-calendar3"></i> ${order.date}</div>
-                    <p class="mb-2 fw-bold text-dark" style="font-size: 0.95rem;">${itemsSummary}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-success fw-bold">₺${order.totalPrice.toLocaleString('tr-TR')}</span>
-                    </div>
-                </div>`;
-            });
-            html += '</div>';
-            container.innerHTML = html;
-        }
-
-        var myModal = new bootstrap.Modal(document.getElementById('ordersModal'));
-        myModal.show();
-    }
+    
   </script>
 
 </body>
