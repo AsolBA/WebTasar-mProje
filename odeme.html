@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Güvenli Ödeme - Shomme</title>
+  
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  
+  <style>
+      body {
+          background-color: #f3f4f6;
+          font-family: 'Manrope', sans-serif;
+          color: #1f2937;
+      }
+
+      /* Kart Tasarımları */
+      .checkout-card {
+          background: #ffffff;
+          border-radius: 16px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+          border: none;
+          overflow: hidden;
+          margin-bottom: 20px;
+      }
+      
+      .card-header-custom {
+          background: #fff;
+          padding: 25px 30px;
+          border-bottom: 1px solid #f0f0f0;
+      }
+
+      .card-body-custom {
+          padding: 30px;
+      }
+
+      .form-label { font-weight: 600; font-size: 0.9rem; color: #374151; margin-bottom: 8px; }
+      
+      .form-control {
+          padding: 12px 15px;
+          border-radius: 10px;
+          border: 1px solid #e5e7eb;
+          transition: all 0.3s;
+      }
+      .form-control:focus { border-color: #0d6efd; box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1); }
+      
+      /* Hata Durumu İçin Input Stili */
+      .form-control.is-invalid {
+          border-color: #dc3545;
+          background-image: none; /* Bootstrap iconunu kaldır */
+      }
+
+      /* Ödeme Yöntemi */
+      .payment-option {
+          position: relative;
+          padding: 20px;
+          border: 2px solid #e5e7eb;
+          border-radius: 12px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+      }
+      .payment-option:hover { border-color: #b0c4de; }
+      .payment-option.selected { border-color: #0d6efd; background-color: #f0f7ff; }
+      .payment-option input[type="radio"] { display: none; }
+      .check-icon { position: absolute; top: 15px; right: 15px; color: #0d6efd; font-size: 1.2rem; display: none; }
+      .payment-option.selected .check-icon { display: block; }
+
+      /* Sepet Özeti */
+      .summary-card { position: sticky; top: 20px; }
+      .order-item { display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #f3f4f6; }
+      .total-row { display: flex; justify-content: space-between; margin-top: 15px; padding-top: 15px; border-top: 2px dashed #e5e7eb; font-size: 1.2rem; font-weight: 800; }
+
+      .btn-checkout {
+          background: #0d6efd;
+          color: white;
+          border: none;
+          border-radius: 12px;
+          padding: 16px;
+          font-weight: 700;
+          font-size: 1.1rem;
+          width: 100%;
+          transition: transform 0.2s;
+          box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+      }
+      .btn-checkout:hover { background: #0b5ed7; transform: translateY(-2px); }
+
+      #card-details { background: #f9fafb; border-radius: 12px; padding: 20px; margin-top: 15px; border: 1px solid #e5e7eb; display: block; }
+
+      /* --- YENİ EKLENENLER: HATA KUTUSU & BAŞARI EKRANI --- */
+
+      /* 1. Özel Hata Kutusu */
+      #custom-alert-box {
+          display: none;
+          background-color: #fef2f2;
+          border: 1px solid #fee2e2;
+          border-left: 5px solid #dc3545;
+          color: #991b1b;
+          padding: 15px;
+          border-radius: 8px;
+          margin-top: 15px;
+          font-size: 0.95rem;
+          animation: shake 0.5s ease-in-out;
+      }
+      @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-5px); }
+          75% { transform: translateX(5px); }
+      }
+
+      /* 2. Sipariş Başarılı Overlay (Modalımsı Yapı) */
+      #success-overlay {
+          position: fixed;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: rgba(0, 0, 0, 0.6);
+          backdrop-filter: blur(5px);
+          display: none; /* JS ile block yapılacak */
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+      
+      .success-card {
+          background: white;
+          padding: 40px;
+          border-radius: 20px;
+          text-align: center;
+          width: 90%;
+          max-width: 400px;
+          transform: scale(0.8);
+          transition: transform 0.3s ease;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      }
+
+      .success-icon-circle {
+          width: 80px; height: 80px;
+          background: #d1e7dd;
+          color: #198754;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 20px auto;
+          font-size: 2.5rem;
+      }
+  </style>
+</head>
+
+<body>
+
+  <div id="success-overlay">
+      <div class="success-card">
+          <div class="success-icon-circle">
+              <i class="bi bi-check-lg"></i>
+          </div>
+          <h3 class="fw-bold text-dark">Sipariş Alındı!</h3>
+          <p class="text-muted">Ödemeniz başarıyla tamamlandı.<br>Ana sayfaya yönlendiriliyorsunuz...</p>
+          <div class="spinner-border text-primary mt-2" role="status" style="width: 1.5rem; height: 1.5rem;"></div>
+      </div>
+  </div>
+
+  <div class="container py-5">
+    
+    <div class="row g-5">
+      
+      <div class="col-lg-8">
+        <div class="d-flex align-items-center mb-4">
+            <h3 class="fw-bold m-0"><i class="bi bi-shield-lock-fill text-primary me-2"></i>Güvenli Ödeme</h3>
+        </div>
+
+        <div class="checkout-card">
+            <div class="card-header-custom">
+                <h5 class="fw-bold m-0 text-dark">1. Teslimat Adresi</h5>
+            </div>
+            <div class="card-body-custom">
+                <form id="checkoutForm">
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <label class="form-label">Adınız</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Örn: Ahmet">
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">Soyadınız</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Örn: Yılmaz">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">E-posta Adresi</label>
+                            <input type="email" class="form-control" id="email" placeholder="iletisim@shomme.com">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Açık Adres</label>
+                            <textarea class="form-control" id="address" rows="2" placeholder="Mahalle, Cadde, Bina, Kapı No..."></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Posta Kodu / İlçe / İl</label>
+                            <input type="text" class="form-control" id="postaKodu" placeholder="Örn: 41000 İzmit/Kocaeli">
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="checkout-card">
+            <div class="card-header-custom">
+                <h5 class="fw-bold m-0 text-dark">2. Ödeme Yöntemi</h5>
+            </div>
+            <div class="card-body-custom">
+                
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="payment-option selected" onclick="selectPayment('credit')">
+                            <input type="radio" name="paymentMethod" id="credit" value="credit" checked>
+                            <i class="bi bi-credit-card-2-front fs-4 mb-2 d-block text-primary"></i>
+                            <h6 class="fw-bold mb-1">Banka / Kredi Kartı</h6>
+                            <small class="text-muted">Güvenli 3D ödeme</small>
+                            <i class="bi bi-check-circle-fill check-icon"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="payment-option" onclick="selectPayment('cash')">
+                            <input type="radio" name="paymentMethod" id="cash" value="cash">
+                            <i class="bi bi-cash-stack fs-4 mb-2 d-block text-success"></i>
+                            <h6 class="fw-bold mb-1">Kapıda Ödeme</h6>
+                            <small class="text-muted">Nakit veya kart ile</small>
+                            <i class="bi bi-check-circle-fill check-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="card-details">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label">Kart Numarası</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0"><i class="bi bi-credit-card"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-0" id="cc-number" placeholder="0000 0000 0000 0000" maxlength="19">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Kart Üzerindeki İsim</label>
+                            <input type="text" class="form-control" id="cc-name" placeholder="AD SOYAD">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">SKT</label>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="AA/YY" maxlength="5">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">CVC</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="checkout-card summary-card p-4">
+            <h5 class="fw-bold mb-4">Sipariş Özeti</h5>
+            
+            <div id="checkout-cart-list">
+                </div>
+
+            <div class="total-row">
+                <span>Toplam</span>
+                <span class="text-primary" id="checkout-total">₺0.00</span>
+            </div>
+
+            <div id="custom-alert-box">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <span id="alert-text">Lütfen bilgileri kontrol ediniz.</span>
+            </div>
+
+            <button type="button" class="btn-checkout mt-4" onclick="validateAndPay()">
+                Ödemeyi Tamamla <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+
+            <div class="text-center">
+                <a href="urunler.html" class="btn-back">
+                    <i class="bi bi-chevron-left me-1"></i> Alışverişe Dön
+                </a>
+            </div>
+        </div>
+      </div>
+
+    </div>
+    </form>
+  </div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // 1. GÜVENLİK VE YÜKLEME KONTROLÜ
+    document.addEventListener("DOMContentLoaded", function() {
+        // GİRİŞ KONTROLÜ: Kullanıcı giriş yapmamışsa bu sayfada işi yok!
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            alert("⛔ Sipariş verebilmek için önce giriş yapmalısınız!");
+            window.location.href = 'index.html'; // Ana sayfaya şutla
+            return;
+        }
+
+        loadCartSummary();
+    });
+
+    // Ödeme yöntemi seçimi
+    function selectPayment(method) {
+        document.querySelectorAll('.payment-option').forEach(el => el.classList.remove('selected'));
+        const selectedEl = document.querySelector(`input[value="${method}"]`).parentElement;
+        selectedEl.classList.add('selected');
+        document.getElementById(method).checked = true;
+        const cardDetails = document.getElementById('card-details');
+        cardDetails.style.display = (method === 'credit') ? 'block' : 'none';
+        hideError();
+    }
+
+    // Sepet özeti
+    function loadCartSummary() {
+        let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
+        const list = document.getElementById('checkout-cart-list');
+        const totalEl = document.getElementById('checkout-total');
+        
+        list.innerHTML = '';
+        let total = 0;
+
+        if(cart.length === 0) {
+            list.innerHTML = '<div class="text-center text-muted py-3">Sepetiniz boş.</div>';
+            document.querySelector('.btn-checkout').disabled = true;
+            return;
+        }
+
+        cart.forEach(item => {
+            let itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            list.innerHTML += `
+            <div class="order-item">
+                <div class="flex-grow-1">
+                    <div class="fw-bold small text-dark">${item.name}</div>
+                    <div class="text-muted small">Adet: ${item.quantity}</div>
+                </div>
+                <div class="fw-bold text-dark small">₺${itemTotal.toLocaleString('tr-TR')}</div>
+            </div>`;
+        });
+        totalEl.innerText = '₺' + total.toLocaleString('tr-TR');
+    }
+
+    // Hata fonksiyonları
+    function showError(msg) {
+        const alertBox = document.getElementById('custom-alert-box');
+        const alertText = document.getElementById('alert-text');
+        alertText.innerText = msg;
+        alertBox.style.display = 'block';
+    }
+    function hideError() {
+        document.getElementById('custom-alert-box').style.display = 'none';
+        document.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-invalid'));
+    }
+    function markInvalid(id) { document.getElementById(id).classList.add('is-invalid'); }
+
+    // DOĞRULAMA VE ÖDEME
+    function validateAndPay() {
+        hideError(); 
+
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const address = document.getElementById('address');
+        const postalCode = document.getElementById('postaKodu');
+        const email = document.getElementById('email');
+
+        let isValid = true;
+
+        if (!firstName.value.trim()) { markInvalid('firstName'); isValid = false; }
+        if (!lastName.value.trim()) { markInvalid('lastName'); isValid = false; }
+        if (!email.value.trim()) { markInvalid('email'); isValid = false; }
+        if (!address.value.trim()) { markInvalid('address'); isValid = false; }
+        if (!postalCode.value.trim()) { markInvalid('postaKodu'); isValid = false; }
+
+        if (!isValid) {
+            showError("Lütfen kişisel bilgilerinizi ve teslimat adresini eksiksiz giriniz.");
+            return;
+        }
+
+        const isCredit = document.getElementById('credit').checked;
+        if (isCredit) {
+            const ccNum = document.getElementById('cc-number');
+            const ccName = document.getElementById('cc-name');
+            const ccExp = document.getElementById('cc-expiration');
+            const ccCvv = document.getElementById('cc-cvv');
+
+            let cardValid = true;
+            if (!ccNum.value.trim()) { markInvalid('cc-number'); cardValid = false; }
+            if (!ccName.value.trim()) { markInvalid('cc-name'); cardValid = false; }
+            if (!ccExp.value.trim()) { markInvalid('cc-expiration'); cardValid = false; }
+            if (!ccCvv.value.trim()) { markInvalid('cc-cvv'); cardValid = false; }
+
+            if (!cardValid) {
+                showError("Kredi kartı bilgilerinizde eksiklikler var.");
+                return;
+            }
+        }
+
+        showSuccessScreen();
+    }
+
+    function showSuccessScreen() {
+        let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
+        let total = 0;
+        cart.forEach(i => total += (i.price * i.quantity));
+
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const address = document.getElementById('address').value;
+        const postalCode = document.getElementById('postaKodu').value;
+        const email = document.getElementById('email').value;
+
+        // ŞU ANKİ KULLANICI ADINI ALIYORUZ
+        const currentUsername = localStorage.getItem('userName') || 'misafir';
+
+        const newOrder = {
+            id: Date.now(),
+            username: currentUsername, // <--- ARTIK SİPARİŞİ KİM VERDİ BİLİYORUZ
+            customer: firstName + ' ' + lastName,
+            address: `${address} - ${postalCode}`,
+            email: email,
+            items: cart,
+            totalPrice: total,
+            date: new Date().toLocaleString('tr-TR'),
+            status: 'Hazırlanıyor'
+        };
+
+        let orders = JSON.parse(localStorage.getItem('shommeOrders')) || [];
+        orders.push(newOrder);
+        localStorage.setItem('shommeOrders', JSON.stringify(orders));
+        localStorage.removeItem('shommeCart');
+
+        const overlay = document.getElementById('success-overlay');
+        overlay.style.display = 'flex';
+        setTimeout(() => {
+            overlay.style.opacity = '1';
+            document.querySelector('.success-card').style.transform = 'scale(1)';
+        }, 10);
+
+        setTimeout(() => {
+            window.location.href = 'index.html'; // urunler.html de olabilir
+        }, 2500);
+    }
+  </script>
+</body>
+</html>

@@ -1,65 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>About - Nova Bootstrap Template</title>
+  <title>Sayılarla Shomme - İstatistikler</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Nova
-  * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="about-page">
+<body class="page-about">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Shomme</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul>
+        <ul class="d-flex align-items-center">
           <li><a href="index.html">Ana Sayfa</a></li>
-
           <li class="dropdown"><a href="hakkimizda.html"><span>Kurumsal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="hakkimizda.html">Hakkımızda</a></li>
               <li><a href="hakkimizda.html#misyon">Misyon & Vizyon</a></li>
             </ul>
           </li>
-
           <li><a href="urunler.html">Ürünlerimiz</a></li>
-
           <li class="dropdown"><a href="#"><span>Birimlerimiz</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="birim-teknik.html">Teknik Servis</a></li>
@@ -67,265 +52,135 @@
               <li><a href="birim-musteri.html">Müşteri Hizmetleri</a></li>
             </ul>
           </li>
-
-          
-          <li><a href="istatistikler.html">İstatistikler</a></li>
+          <li><a href="istatistikler.html" class="active">İstatistikler</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
+          
+          <li class="ms-4" id="user-login-li">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="d-flex align-items-center" title="Giriş Yap">
+              <i class="bi bi-person-circle" style="font-size: 1.4rem;"></i>
+            </a>
+          </li>
+
+          <li class="ms-3 position-relative">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal" class="d-flex align-items-center" title="Sepetim" onclick="updateCartUI()">
+              <i class="bi bi-cart3" style="font-size: 1.4rem;"></i>
+              <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
+            </a>
+          </li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
     </div>
   </header>
 
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/about-page-title-bg.jpg);">
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/blog-page-title-bg.jpg);">
       <div class="container">
-        <h1>About</h1>
+        <h1>Sayılarla Shomme</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">About</li>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li class="current">İstatistikler</li>
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
+    </div>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container">
-
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-5">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
-            <div class="content">
-              <h3>Voluptatem dignissimos provident quasi</h3>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Why Us Section -->
-    <section id="why-us" class="why-us section">
-
-      <div class="container">
-
-        <div class="row g-0">
-
-          <div class="col-xl-5 img-bg" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/why-us-bg.jpg" alt="">
-          </div>
-
-          <div class="col-xl-7 slides position-relative" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="swiper init-swiper">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "centeredSlides": true,
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  },
-                  "navigation": {
-                    "nextEl": ".swiper-button-next",
-                    "prevEl": ".swiper-button-prev"
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Let's grow your business together</h3>
-                    <h4 class="mb-3">Optio reiciendis accusantium iusto architecto at quia minima maiores quidem, dolorum.</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsam perferendis asperiores explicabo vel tempore velit totam, natus nesciunt accusantium dicta quod quibusdam ipsum maiores nobis non, eum. Ullam reiciendis dignissimos laborum aut, magni voluptatem velit doloribus quas sapiente optio.</p>
-                  </div>
-                </div><!-- End slide item -->
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Unde perspiciatis ut repellat dolorem</h3>
-                    <h4 class="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos aliquam quis.</h4>
-                    <p>Dolorem quia fuga consectetur voluptatem. Earum consequatur nulla maxime necessitatibus cum accusamus. Voluptatem dolorem ut numquam dolorum delectus autem veritatis facilis. Et ea ut repellat ea. Facere est dolores fugiat dolor.</p>
-                  </div>
-                </div><!-- End slide item -->
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Aliquid non alias minus</h3>
-                    <h4 class="mb-3">Necessitatibus voluptatibus explicabo dolores a vitae voluptatum.</h4>
-                    <p>Neque voluptates aut. Soluta aut perspiciatis porro deserunt. Voluptate ut itaque velit. Aut consectetur voluptatem aspernatur sequi sit laborum. Voluptas enim dolorum fugiat aut.</p>
-                  </div>
-                </div><!-- End slide item -->
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Necessitatibus suscipit non voluptatem quibusdam</h3>
-                    <h4 class="mb-3">Tempora quos est ut quia adipisci ut voluptas. Deleniti laborum soluta nihil est. Eum similique neque autem ut.</h4>
-                    <p>Ut rerum et autem vel. Et rerum molestiae aut sit vel incidunt sit at voluptatem. Saepe dolorem et sed voluptate impedit. Ad et qui sint at qui animi animi rerum.</p>
-                  </div>
-                </div><!-- End slide item -->
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Why Us Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section dark-background">
-
-      <img src="assets/img/cta-bg.jpg" alt="">
-
-      <div class="container">
-        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-10">
-            <div class="text-center">
-              <h3>Call To Action</h3>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <a class="cta-btn" href="#">Call To Action</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
+    <section id="stats-counter" class="stats-counter section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Our Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <h2>Büyüyen Rakamlarımız</h2>
+        <p>Her geçen gün daha fazla evi akıllandırıyor, güvenliği ve konforu artırıyoruz.</p>
+      </div>
 
-      <div class="container">
-
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-              </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="12500" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Kurulan Cihaz</p>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-              </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="4200" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Mutlu Müşteri</p>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-              </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="35" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Hizmet Verilen Şehir</p>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-              </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="1" class="purecounter"></span>
+              <p>% Müşteri Memnuniyeti</p>
             </div>
-          </div><!-- End Team Member -->
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container" data-aos="fade-up">
+        
+        <div class="section-header text-center mb-5">
+            <h2>Yıllık Verilerimiz</h2>
+            <p>2025 yılı büyüme ve kullanım istatistiklerimiz.</p>
+        </div>
+
+        <div class="row gy-5">
+            
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center fw-bold mb-4">Aylık Cihaz Kurulumu</h5>
+                        <canvas id="installChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center fw-bold mb-4">En Çok Tercih Edilen Kategoriler</h5>
+                        <div style="width: 70%; margin: 0 auto;">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title text-center fw-bold mb-4">Müşterilerimizin Yıllık Enerji Tasarrufu (kWh)</h5>
+                        <canvas id="energyChart" style="max-height: 400px;"></canvas>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
       </div>
-
-    </section><!-- /Team Section -->
+    </section>
 
   </main>
 
   <footer id="footer" class="footer light-background">
-
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-about">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">Nova</span>
-            </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <a href="index.html" class="logo d-flex align-items-center"><span class="sitename">Shomme</span></a>
+            <p>2020 yılından beri akıllı ev teknolojileri, güvenlik sistemleri ve enerji yönetimi alanında yerli ve yenilikçi çözümler sunuyoruz.</p>
             <div class="social-links d-flex mt-4">
               <a href=""><i class="bi bi-twitter-x"></i></a>
               <a href=""><i class="bi bi-facebook"></i></a>
@@ -333,73 +188,156 @@
               <a href=""><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
-
           <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Hızlı Erişim</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="hakkimizda.html">Hakkımızda</a></li>
+              <li><a href="urunler.html">Ürünlerimiz</a></li>
+              <li><a href="iletisim.html">İletişim</a></li>
             </ul>
           </div>
-
           <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Hizmetlerimiz</h4>
             <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
+              <li><a href="#">Akıllı Güvenlik</a></li>
+              <li><a href="#">Enerji Yönetimi</a></li>
+              <li><a href="#">Aydınlatma</a></li>
+              <li><a href="#">Teknik Destek</a></li>
             </ul>
           </div>
-
           <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-            <h4>Contact Us</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p>United States</p>
-            <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <h4>İletişim</h4>
+            <p>Umuttepe Yerleşkesi</p><p>Teknoloji Fakültesi</p><p>Kocaeli, Türkiye</p>
+            <p class="mt-4"><strong>Telefon:</strong> <span>+90 262 123 45 67</span></p>
+            <p><strong>Email:</strong> <span>info@shomme.com.tr</span></p>
           </div>
-
         </div>
       </div>
     </div>
-
     <div class="container copyright text-center">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Nova</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      <p>© <span>Telif Hakkı</span> <strong class="px-1 sitename">Shomme</strong> <span>Tüm Hakları Saklıdır</span></p>
+      <div class="credits">Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a></div>
     </div>
-
   </footer>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+  <div class="modal fade" id="loginModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Hesap İşlemleri</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><ul class="nav nav-tabs nav-fill mb-4" id="authTab" role="tablist"><li class="nav-item"><button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-pane" type="button">Giriş Yap</button></li><li class="nav-item"><button class="nav-link fw-bold" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-pane" type="button">Kayıt Ol</button></li></ul><div class="tab-content"><div class="tab-pane fade show active" id="login-pane" role="tabpanel"><form id="loginForm"><div class="mb-3"><label class="form-label">Kullanıcı Adı</label><input type="text" class="form-control" id="username" required></div><div class="mb-3"><label class="form-label">Şifre</label><input type="password" class="form-control" id="password" required></div><div class="d-grid"><button type="submit" class="btn btn-primary">Giriş Yap</button></div></form></div><div class="tab-pane fade" id="register-pane" role="tabpanel"><form id="registerForm"><div class="mb-3"><label class="form-label">Ad Soyad</label><input type="text" class="form-control" required></div><div class="mb-3"><label class="form-label">E-posta</label><input type="email" class="form-control" required></div><div class="mb-3"><label class="form-label">Şifre Belirle</label><input type="password" class="form-control" required></div><div class="d-grid"><button type="submit" class="btn btn-success">Kayıt Ol</button></div></form></div></div></div></div></div></div>
+  <div class="modal fade" id="cartModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"><div class="modal-content"><div class="modal-header bg-light"><h5 class="modal-title fw-bold"><i class="bi bi-cart3"></i> Sepetim</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div id="empty-cart-msg" class="text-center py-5"><i class="bi bi-basket2 display-1 text-muted" style="opacity: 0.5;"></i><p class="mt-3 text-muted fs-5">Sepetiniz şu an boş.</p><button class="btn btn-primary btn-sm mt-2" data-bs-dismiss="modal">Alışverişe Dön</button></div><div id="cart-content" style="display: none;"><ul class="list-group list-group-flush mb-3" id="cart-list"></ul></div></div><div class="modal-footer justify-content-between bg-light" id="cart-footer" style="display: none;"><div><span class="text-muted small">Toplam Tutar:</span><br><span id="cart-total" class="h4 fw-bold text-primary">₺0.00</span></div><button class="btn btn-success px-4">Ödemeyi Tamamla <i class="bi bi-arrow-right"></i></button></div></div></div></div>
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
+  <script>
+    let cart = JSON.parse(localStorage.getItem('shommeCart')) || [];
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. Sayaçları Başlat (Nova için)
+      if(typeof PureCounter !== 'undefined') new PureCounter();
 
+      // 2. Grafikleri Çiz
+      initPublicCharts();
+
+      // 3. Login/Cart
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+        updateUIForLoggedInUser(localStorage.getItem('userName'));
+      }
+      updateCartUI();
+    });
+
+    // GRAFİK FONKSİYONLARI (CHART.JS)
+    function initPublicCharts() {
+        // A. Kurulum Grafiği (Bar)
+        new Chart(document.getElementById('installChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran'],
+                datasets: [{
+                    label: 'Yeni Kurulumlar',
+                    data: [120, 150, 180, 220, 300, 450],
+                    backgroundColor: '#0d6efd',
+                    borderRadius: 5
+                }]
+            },
+            options: { responsive: true, scales: { y: { beginAtZero: true } } }
+        });
+
+        // B. Kategori Grafiği (Pie)
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Güvenlik', 'Enerji', 'Konfor', 'Aydınlatma'],
+                datasets: [{
+                    data: [40, 25, 20, 15],
+                    backgroundColor: ['#dc3545', '#ffc107', '#198754', '#0dcaf0']
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // C. Enerji Tasarrufu Grafiği (Line)
+        new Chart(document.getElementById('energyChart'), {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'Toplam Tasarruf Edilen Enerji (MWh)',
+                    data: [50, 120, 300, 550, 900, 1450],
+                    borderColor: '#198754',
+                    backgroundColor: 'rgba(25, 135, 84, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: { responsive: true }
+        });
+    }
+
+    // LOGIN & CART FONKSİYONLARI
+    function updateUIForLoggedInUser(userName) {
+      var container = document.getElementById('user-login-li');
+      if (container) {
+        container.innerHTML = `<div class="dropdown"><a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-check-fill" style="font-size: 1.4rem; color: #198754 !important;"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;"><li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li><li><a class="dropdown-item" href="#">Siparişlerim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()">Çıkış Yap</a></li></ul></div>`;
+      }
+    }
+    function loginUser(userName) { localStorage.setItem('isLoggedIn', 'true'); localStorage.setItem('userName', userName); var modalEl = document.getElementById('loginModal'); if(modalEl) { var modal = bootstrap.Modal.getInstance(modalEl); if(modal) modal.hide(); } updateUIForLoggedInUser(userName); }
+    function logoutUser() { localStorage.removeItem('isLoggedIn'); localStorage.removeItem('userName'); window.location.reload(); }
+    var loginForm = document.getElementById('loginForm'); if(loginForm){ loginForm.addEventListener('submit', function(e) { e.preventDefault(); var uName = document.getElementById('username').value; var pass = document.getElementById('password').value; if (uName === 'admin' && pass === '1234') { alert('Admin Paneline Gidiliyor...'); window.location.href = 'admin/index.html'; } else { loginUser(uName); } }); }
+    var regForm = document.getElementById('registerForm'); if(regForm){ regForm.addEventListener('submit', function(e) { e.preventDefault(); loginUser("Yeni Üye"); }); }
+    
+    function updateCartUI() {
+      const badge = document.getElementById('cart-count');
+      const cartList = document.getElementById('cart-list');
+      const emptyMsg = document.getElementById('empty-cart-msg');
+      const cartContent = document.getElementById('cart-content');
+      const cartFooter = document.getElementById('cart-footer');
+      if (!badge) return;
+      let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      badge.innerText = totalCount;
+      badge.style.display = totalCount > 0 ? 'block' : 'none';
+      if (!cartList) return;
+      if (cart.length === 0) { emptyMsg.style.display = 'block'; cartContent.style.display = 'none'; if(cartFooter) cartFooter.style.display = 'none'; }
+      else { emptyMsg.style.display = 'none'; cartContent.style.display = 'block'; if(cartFooter) cartFooter.style.display = 'flex'; }
+      let html = ''; let totalPrice = 0;
+      cart.forEach(item => { let itemTotal = item.price * item.quantity; totalPrice += itemTotal; html += `<li class="list-group-item d-flex align-items-center py-3"><img src="${item.image}" class="rounded" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;"><div class="flex-grow-1"><h6 class="mb-0 fw-bold" style="font-size: 0.9rem;">${item.name}</h6><small class="text-muted">Birim: ₺${item.price}</small></div><div class="d-flex align-items-center bg-light rounded p-1"><button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'minus')"><i class="bi bi-dash"></i></button><span class="mx-1 fw-bold small">${item.quantity}</span><button class="btn btn-sm btn-link text-dark p-0 px-2" onclick="changeQty('${item.id}', 'plus')"><i class="bi bi-plus"></i></button></div><div class="ms-3 fw-bold text-primary small">₺${itemTotal.toLocaleString('tr-TR')}</div></li>`; });
+      cartList.innerHTML = html;
+      const totalEl = document.getElementById('cart-total'); if(totalEl) totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
+    }
+    function changeQty(id, action) { let item = cart.find(item => item.id == id); if (!item) return; if (action === 'plus') item.quantity++; else if (action === 'minus') { item.quantity--; if (item.quantity <= 0) cart = cart.filter(p => p.id != id); } saveCart(); updateCartUI(); }
+    function saveCart() { localStorage.setItem('shommeCart', JSON.stringify(cart)); }
+  </script>
+
+</body>
 </html>

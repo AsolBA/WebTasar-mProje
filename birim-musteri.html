@@ -203,6 +203,21 @@
 
   <div id="preloader"></div>
 
+<div class="modal fade" id="ordersModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0 bg-light">
+          <h5 class="modal-title fw-bold"><i class="bi bi-box-seam text-primary"></i> Siparişlerim</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="my-orders-list">
+             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -283,7 +298,7 @@
                <span id="cart-total" class="h5 text-primary mb-0">₺0.00</span>
             </div>
             <div class="d-grid">
-               <button class="btn btn-success">Ödemeye Geç</button>
+               <button class="btn btn-success w-100" onclick="checkLoginAndCheckout()">Ödemeye Geç</button>
             </div>
           </div>
         </div>
@@ -410,7 +425,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" style="position: absolute; z-index: 9999;">
             <li><h6 class="dropdown-header">Hoşgeldin, ${userName}</h6></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Siparişlerim</a></li>
+            <li><a class="dropdown-item" href="#" onclick="openMyOrders()"><i class="bi bi-box-seam"></i> Siparişlerim</a></li>
             <li><a class="dropdown-item" href="#" onclick="openProfileModal()"><i class="bi bi-person-vcard"></i> Kullanıcı Bilgilerim</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-danger" href="#" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Çıkış Yap</a></li>
@@ -526,6 +541,88 @@
         });
         cartList.innerHTML = html;
         totalEl.innerText = '₺' + totalPrice.toLocaleString('tr-TR');
+    }
+    // 1. GÜVENLİ ÖDEME KONTROLÜ
+    function checkLoginAndCheckout() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        
+        if (isLoggedIn) {
+            window.location.href = 'odeme.html';
+        } else {
+            // Sepet modalını kapat
+            var cartModalEl = document.getElementById('cartModal');
+            var cartModal = bootstrap.Modal.getInstance(cartModalEl);
+            if(cartModal) cartModal.hide();
+
+            // Login modalını aç
+            var loginModalEl = document.getElementById('loginModal');
+            var loginModal = new bootstrap.Modal(loginModalEl);
+            loginModal.show();
+
+            // Uyarı mesajı ekle
+            var modalBody = loginModalEl.querySelector('.modal-body');
+            var oldAlert = document.getElementById('temp-login-warning');
+            if(oldAlert) oldAlert.remove();
+
+            var alertDiv = document.createElement('div');
+            alertDiv.id = 'temp-login-warning';
+            alertDiv.className = 'alert alert-warning border-0 d-flex align-items-center shadow-sm mb-4';
+            alertDiv.innerHTML = `
+                <i class="bi bi-exclamation-circle-fill fs-4 me-3 text-warning"></i>
+                <div>
+                    <strong>Giriş Gerekli</strong><br>
+                    <small>Sipariş verebilmek için lütfen önce hesabınıza giriş yapın.</small>
+                </div>
+            `;
+            modalBody.insertBefore(alertDiv, modalBody.firstChild);
+        }
+    }
+
+    // 2. SİPARİŞLERİMİ LİSTELE
+    function openMyOrders() {
+        const currentUser = localStorage.getItem('userName');
+        const orders = JSON.parse(localStorage.getItem('shommeOrders')) || [];
+        const container = document.getElementById('my-orders-list');
+
+        // Sadece bu kullanıcının siparişlerini filtrele
+        const myOrders = orders.filter(order => order.username === currentUser).reverse();
+
+        if (myOrders.length === 0) {
+            container.innerHTML = `
+                <div class="text-center py-4 text-muted">
+                    <i class="bi bi-box display-4 mb-3"></i>
+                    <p>Henüz vermiş olduğunuz bir sipariş bulunmuyor.</p>
+                </div>`;
+        } else {
+            let html = '<div class="list-group list-group-flush">';
+            myOrders.forEach(order => {
+                let statusColor = 'bg-secondary';
+                if(order.status === 'Hazırlanıyor') statusColor = 'bg-warning text-dark';
+                if(order.status === 'Kargoda') statusColor = 'bg-info text-dark';
+                if(order.status === 'Teslim Edildi') statusColor = 'bg-success';
+
+                let itemsSummary = order.items.map(i => `${i.name} (${i.quantity})`).join(', ');
+                if(itemsSummary.length > 50) itemsSummary = itemsSummary.substring(0, 50) + '...';
+
+                html += `
+                <div class="list-group-item p-3 border rounded mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold text-primary">#${order.id.toString().slice(-6)}</span>
+                        <span class="badge ${statusColor}">${order.status}</span>
+                    </div>
+                    <div class="small text-muted mb-2"><i class="bi bi-calendar3"></i> ${order.date}</div>
+                    <p class="mb-2 fw-bold text-dark" style="font-size: 0.95rem;">${itemsSummary}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-bold">₺${order.totalPrice.toLocaleString('tr-TR')}</span>
+                    </div>
+                </div>`;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        var myModal = new bootstrap.Modal(document.getElementById('ordersModal'));
+        myModal.show();
     }
   </script>
 
